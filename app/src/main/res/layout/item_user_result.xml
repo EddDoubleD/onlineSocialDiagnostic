@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/userCardView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/resultLine"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/round_two"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            tools:ignore="ObsoleteLayoutParam">
+
+            <TextView
+                android:id="@+id/diagnostic_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                android:text="Диагностика"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:ignore="RtlHardcoded" />
+
+            <TextView
+                android:id="@+id/diagnostic_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                android:inputType="datetime"
+                android:text="02.05.2020"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:ignore="RtlHardcoded" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

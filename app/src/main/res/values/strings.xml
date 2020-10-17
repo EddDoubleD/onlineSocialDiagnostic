@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">OnlineSocialDiagnosticApp</string>
+    <string name="user_name_sul">Имя пользователя</string>
+    <string name="password">Пароль</string>
+    <string name="email">Email</string>
+    <!-- Старт -->
+    <string name="sign_up">Регистрация</string>
+    <string name="sign_in">Войти</string>
+
+    <string name="categories">Categories</string>
+    <string name="account">Account</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="start">START</string>
+    <string name="try_again">TRY AGAIN</string>
+    <string name="search">Поиск</string>
+    <string name="category">Категории</string>
+    <string name="_27">27</string>
+    <string name="description">description</string>
+    <string name="category_H1">Социальная диагностика</string>
+    <string name="stub">съешь ещё этих мягких французских булок</string>
+    <string name="six_min">Займет минут: 60</string>
+    <string name="onethety">0/30</string>
+    <string name="catName">Категория</string>
+    <string name="diagnosticDesc">Описание</string>
+    <string name="to_main">На главную</string>
+    <string name="login_logo">LogInLogo</string>
+    <string name="startBtn">Начать</string>
+    <string name="diagnostic_result">Результат диагностики</string>
+    <string name="guest">guest</string>
+    <string name="user_logo">user logo</string>
+    <string name="account_name">Мой аккаунт</string>
+    <string name="arrow">arrow</string>
+    <string name="interpretation">Интерпретация</string>
+    <string name="no">Нет</string>
+    <string name="yes">Да</string>
+</resources>

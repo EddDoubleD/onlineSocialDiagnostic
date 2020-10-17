@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".Diagnostic">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="8dp"
+        android:indeterminate="false"
+        android:max="5"
+        android:outlineSpotShadowColor="@color/peach"
+        android:progress="0"
+        android:progressBackgroundTint="@color/contact"
+        android:visibility="visible"
+        tools:targetApi="p" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+
+        <TextView
+            android:id="@+id/txtTotalQuestion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="1/30"
+            android:textColor="@color/plaintText"
+            android:textSize="18dp" />
+
+    </LinearLayout>
+
+    <!-- Question -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        app:cardBackgroundColor="@color/background">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/question_image"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/question_text"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="@string/stub"
+                android:textColor="@color/plaintText"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+    <!-- Options -->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cardQuestion"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="50dp">
+
+        <LinearLayout
+            android:id="@+id/group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="10dp">
+
+            <Button
+                android:id="@+id/btnYes"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/contact"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="Да"
+                android:textColor="@color/plaintText"
+                android:textStyle="bold"
+                android:theme="@style/LightButtons" />
+
+            <Button
+                android:id="@+id/btnNo"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/contact"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="НЕТ"
+                android:textColor="@color/plaintText"
+                android:textStyle="bold"
+                android:theme="@style/LightButtons" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

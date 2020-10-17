@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "952682840512",
+    "firebase_url": "https://onlinesocialdiagnosticapp.firebaseio.com",
+    "project_id": "onlinesocialdiagnosticapp",
+    "storage_bucket": "onlinesocialdiagnosticapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952682840512:android:f865c4a1e61a0175fb4825",
+        "android_client_info": {
+          "package_name": "ru.hardwork.onlinesocialdiagnosticapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "952682840512-8gqm3j2h8v017sih1mqlbvuqhc3spbvh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaaJIT0eLyyK8YJqSl-EvXB8LSWQBPbfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "952682840512-8gqm3j2h8v017sih1mqlbvuqhc3spbvh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

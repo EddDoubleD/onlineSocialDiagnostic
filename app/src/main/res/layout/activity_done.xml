@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".Done">
+
+    <TextView
+        android:id="@+id/headerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/diagnostic_result"
+        android:textColor="@color/plaintText"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        tools:ignore="RtlHardcoded" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/descriptionRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        android:layout_below="@+id/headerText"
+        android:layout_marginTop="15dp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/commentCardView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/descriptionRecycler"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="15dp"
+        app:cardBackgroundColor="@color/background">
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="start"
+            android:text="Результат"
+            android:textColor="@color/plaintText"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/commentCardView"
+        android:layout_centerInParent="true"
+        android:layout_margin="30dp"
+        android:padding="20dp">
+
+        <LinearLayout
+
+            android:id="@+id/btnGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/btnTryAgain"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/contact"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="@string/to_main"
+                android:textColor="@color/plaintText"
+                android:textStyle="bold"
+                android:theme="@style/LightButtons" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

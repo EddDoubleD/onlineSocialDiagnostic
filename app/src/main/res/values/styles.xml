@@ -1,0 +1,14 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="background">@color/background</item>
+        <item name="colorPrimaryDark">@color/plaintText</item>
+        <item name="colorAccent">@color/contact</item>
+    </style>
+
+    <style name="LightButtons" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">#1CB3BC</item>
+    </style>
+
+</resources>

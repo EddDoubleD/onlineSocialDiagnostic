@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2d2f3c</color>
+    <color name="colorPrimaryDark">#030516</color>
+    <color name="colorAccent">#565866</color>
+
+    <color name="background">#F7F0EA</color>
+    <!-- cross-cutting colors -->
+    <color name="contact">#F7DBD1</color>
+    <color name="plaintText">#260520</color>
+    <!-- Rainbow app -->
+    <color name="mustard">#F4B085</color>
+    <color name="palePurple">#D8B0F1</color>
+    <color name="purple">#ED92D6</color>
+    <color name="pink">#F79BA0</color>
+    <color name="peach">#F7D1A0</color>
+    <color name="red">#E80000</color>
+</resources>
