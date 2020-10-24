@@ -5,7 +5,7 @@ import android.content.res.Resources;
 import java.util.Arrays;
 import java.util.List;
 
-import ru.hardwork.onlinesocialdiagnosticapp.Model.Decryption;
+import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Decryption;
 import ru.hardwork.onlinesocialdiagnosticapp.R;
 
 public class DataManager {

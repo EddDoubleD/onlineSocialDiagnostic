@@ -5,10 +5,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import ru.hardwork.onlinesocialdiagnosticapp.Model.Category;
-import ru.hardwork.onlinesocialdiagnosticapp.Model.DiagnosticTest;
-import ru.hardwork.onlinesocialdiagnosticapp.Model.Question;
-import ru.hardwork.onlinesocialdiagnosticapp.Model.User;
+import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Category;
+import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
+import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Question;
+import ru.hardwork.onlinesocialdiagnosticapp.model.user.User;
 
 public class Common {
     public static long diagnosticId;

@@ -4,8 +4,10 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.common.util.CollectionUtils;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,10 +25,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
-import ru.hardwork.onlinesocialdiagnosticapp.Model.User;
+import java.util.Arrays;
+
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
+import ru.hardwork.onlinesocialdiagnosticapp.common.JSONResourceReader;
+import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Category;
+import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
+import ru.hardwork.onlinesocialdiagnosticapp.model.user.User;
 
 public class MainActivity extends AppCompatActivity {
+    private SharedPreferences preferences;
+
     MaterialEditText edtNewUser, edtNewPassword, edtNewEmail;
     MaterialEditText edtUser, edtPassword;
 
@@ -40,6 +50,29 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        String name = preferences.getString("USER_NAME", "guest");
+
+        JSONResourceReader categoryReader = new JSONResourceReader(getResources(), R.raw.category);
+        if (CollectionUtils.isEmpty(Common.categoryList)) {
+            Common.categoryList.addAll(Arrays.asList(categoryReader.constructUsingGson(Category[].class)));
+        }
+
+        JSONResourceReader diagnosticReader = new JSONResourceReader(getResources(), R.raw.diagnostic_test);
+        if (CollectionUtils.isEmpty(Common.categoryList)) {
+            Common.diagnosticTests.addAll(Arrays.asList(diagnosticReader.constructUsingGson(DiagnosticTest[].class)));
+        }
+
+        final SharedPreferences.Editor preferencesEditor = preferences.edit();
+        if (!"guest".equals(name)) {
+            User user = new User();
+            user.setLogIn(name);
+            Intent homeActivity = new Intent(MainActivity.this, Home.class);
+            Common.currentUser = user;
+            startActivity(homeActivity);
+            finish();
+        }
 
         // Firebase
         database = FirebaseDatabase.getInstance();
@@ -56,23 +89,13 @@ public class MainActivity extends AppCompatActivity {
         btnSignIn = findViewById(R.id.btn_sign_in);
         btnSignUp = findViewById(R.id.btn_sign_up);
 
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showSignUpDialog();
-            }
-        });
+        btnSignUp.setOnClickListener(view -> showSignUpDialog());
 
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signIn(edtUser.getText().toString(), edtPassword.getText().toString());
-            }
-        });
+        btnSignIn.setOnClickListener(view -> signIn(edtUser.getText().toString(), edtPassword.getText().toString(), preferencesEditor));
 
     }
 
-    private void signIn(final String logIn, final String password) {
+    private void signIn(final String logIn, final String password, final SharedPreferences.Editor editor) {
         users.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -81,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
                         User user = snapshot.child(logIn).getValue(User.class);
                         if (user != null && user.getPassword().equals(password)) {
                             Intent homeActivity = new Intent(MainActivity.this, Home.class);
+                            editor.putString("USER_NAME", user.getLogIn());
+                            editor.commit();
                             Common.currentUser = user;
                             startActivity(homeActivity);
                             finish();

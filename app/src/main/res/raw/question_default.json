@@ -1,0 +1,14 @@
+[
+  {
+    "diagnosticId": 0,
+    "isImageQuestion": "false",
+    "text": "Часто ли Вы испытываете тягу к новым впечатлениям, к тому чтобы отвлечься, испытать сильные ощущения ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 0,
+    "isImageQuestion": "false",
+    "text": "Страдаете ли вы бессонницей ?",
+    "type": "YN"
+  }
+]

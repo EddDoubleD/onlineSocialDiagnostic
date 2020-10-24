@@ -21,11 +21,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 
-import ru.hardwork.onlinesocialdiagnosticapp.Model.DiagnosticTest;
-import ru.hardwork.onlinesocialdiagnosticapp.Model.UserResult;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.holders.UserResultViewHolder;
-import ru.hardwork.onlinesocialdiagnosticapp.listener.ItemClickListener;
+import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
+import ru.hardwork.onlinesocialdiagnosticapp.model.user.UserResult;
 import ru.hardwork.onlinesocialdiagnosticapp.scenery.VerticalSpaceItemDecoration;
 
 import static java.lang.String.format;
@@ -121,23 +120,16 @@ public class DiagnosticResult extends AppCompatActivity {
                 holder.diagnosticName.setText(diagnostic.getName());
                 holder.diagnosticDate.setText(DATA_FORMAT.format(model.getDate()));
 
-                holder.setItemClickListener(new ItemClickListener() {
-                    @SuppressLint("ShowToast")
-                    @Override
-                    public void onClick(View view, int position, boolean isLongClick) {
-                        String msg = format(!isLongClick ? "%d clicked" : "%d long clicked", position);
-                        Context context = DiagnosticResult.this;
-                        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
-                    }
+                holder.setItemClickListener((view, position1, isLongClick) -> {
+                    String msg = format(!isLongClick ? "%d clicked" : "%d long clicked", position1);
+                    Context context = DiagnosticResult.this;
+                    Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
                 });
 
-                holder.userCardView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        @SuppressLint("DefaultLocale") String msg = format("%d clicked", testPosition);
-                        Context context = DiagnosticResult.this;
-                        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
-                    }
+                holder.userCardView.setOnClickListener(view -> {
+                    @SuppressLint("DefaultLocale") String msg = format("%d clicked", testPosition);
+                    Context context = DiagnosticResult.this;
+                    Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
                 });
             }
         };

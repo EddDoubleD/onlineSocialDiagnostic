@@ -45,6 +45,10 @@ public class DiagnosticTestViewHolder extends RecyclerView.ViewHolder implements
         this.itemClickListener = itemClickListener;
     }
 
+    public LinearLayout getLayout() {
+        return layout;
+    }
+
     @Override
     public void onClick(View view) {
         itemClickListener.onClick(view, getAdapterPosition(), false);

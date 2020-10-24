@@ -1,4 +1,4 @@
-package ru.hardwork.onlinesocialdiagnosticapp.Model;
+package ru.hardwork.onlinesocialdiagnosticapp.model.user;
 
 import java.util.Date;
 

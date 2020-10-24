@@ -1,4 +1,4 @@
-package ru.hardwork.onlinesocialdiagnosticapp.Model;
+package ru.hardwork.onlinesocialdiagnosticapp.model.user;
 
 public class User {
     private String logIn;

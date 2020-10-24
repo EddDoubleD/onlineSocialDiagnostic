@@ -4,7 +4,7 @@ import com.google.common.base.Function;
 
 import java.util.HashMap;
 
-import ru.hardwork.onlinesocialdiagnosticapp.Model.DiagnosticTest;
+import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
 
 public class DiagnosticConverter implements Function<Object, DiagnosticTest> {
 
