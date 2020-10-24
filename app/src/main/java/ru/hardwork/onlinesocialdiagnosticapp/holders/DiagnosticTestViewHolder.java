@@ -13,7 +13,7 @@ import ru.hardwork.onlinesocialdiagnosticapp.listener.ItemClickListener;
 
 public class DiagnosticTestViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    public long id;
+    public int id;
     public LinearLayout layout;
     public TextView diagnosticName, totalQuestion, totalTime;
     // Слушатель клика
@@ -33,11 +33,11 @@ public class DiagnosticTestViewHolder extends RecyclerView.ViewHolder implements
         itemView.setOnClickListener(this);
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

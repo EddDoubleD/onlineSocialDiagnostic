@@ -17,8 +17,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Question;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
+import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Question;
 
 import static java.lang.String.format;
 

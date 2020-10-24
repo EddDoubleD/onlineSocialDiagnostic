@@ -27,13 +27,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Decryption;
-import ru.hardwork.onlinesocialdiagnosticapp.model.user.UserResult;
 import ru.hardwork.onlinesocialdiagnosticapp.application.OnlineSocialDiagnosticApp;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.factory.DescriptionViewModel;
 import ru.hardwork.onlinesocialdiagnosticapp.factory.IFactory;
 import ru.hardwork.onlinesocialdiagnosticapp.holders.DescriptionViewHolder;
+import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Decryption;
+import ru.hardwork.onlinesocialdiagnosticapp.model.user.UserResult;
 
 import static java.lang.String.format;
 
@@ -137,7 +137,7 @@ public class Done extends AppCompatActivity {
                     for (String s : positive) {
                         int i = Integer.parseInt(StringUtils.trim(s)) - 1;
                         if (processing.size() <= i) {
-                            Log.e("Done:","Не найден вариант для метрики");
+                            Log.e("Done:", "Не найден вариант для метрики");
                             continue;
                         }
 
@@ -153,7 +153,7 @@ public class Done extends AppCompatActivity {
                     for (String s : negative) {
                         int i = Integer.parseInt(StringUtils.trim(s)) - 1;
                         if (processing.size() <= i) {
-                            Log.e("Done:","Не найден вариант для метрики");
+                            Log.e("Done:", "Не найден вариант для метрики");
                             continue;
                         }
 

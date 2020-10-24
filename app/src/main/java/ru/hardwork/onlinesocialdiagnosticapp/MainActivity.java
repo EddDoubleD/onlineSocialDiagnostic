@@ -2,7 +2,6 @@ package ru.hardwork.onlinesocialdiagnosticapp;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
@@ -29,22 +28,20 @@ import java.util.Arrays;
 
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.common.JSONResourceReader;
+import ru.hardwork.onlinesocialdiagnosticapp.common.UIDataRouter;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Category;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
 import ru.hardwork.onlinesocialdiagnosticapp.model.user.User;
 
 public class MainActivity extends AppCompatActivity {
-    private SharedPreferences preferences;
-
     MaterialEditText edtNewUser, edtNewPassword, edtNewEmail;
     MaterialEditText edtUser, edtPassword;
-
     ImageView logo;
-
     Button btnSignUp, btnSignIn;
-
+    // todo: заменить на аутентификацию
     FirebaseDatabase database;
     DatabaseReference users;
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,15 +49,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
-        String name = preferences.getString("USER_NAME", "guest");
-
+        String name = preferences.getString(UIDataRouter.USER_NAME, UIDataRouter.DEFAULT_USER);
+        // Common.database = openOrCreateDatabase(UIDataRouter.DB_NAME, MODE_PRIVATE, null);
+        // Common.database.execSQL("CREATE TABLE IF NOT EXISTS incompleteDiagnostics (id INT, current INT, result VARCHAR(200))");
         JSONResourceReader categoryReader = new JSONResourceReader(getResources(), R.raw.category);
         if (CollectionUtils.isEmpty(Common.categoryList)) {
             Common.categoryList.addAll(Arrays.asList(categoryReader.constructUsingGson(Category[].class)));
         }
 
         JSONResourceReader diagnosticReader = new JSONResourceReader(getResources(), R.raw.diagnostic_test);
-        if (CollectionUtils.isEmpty(Common.categoryList)) {
+        if (CollectionUtils.isEmpty(Common.diagnosticTests)) {
             Common.diagnosticTests.addAll(Arrays.asList(diagnosticReader.constructUsingGson(DiagnosticTest[].class)));
         }
 
@@ -106,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
                             Intent homeActivity = new Intent(MainActivity.this, Home.class);
                             editor.putString("USER_NAME", user.getLogIn());
                             editor.commit();
+                            editor.clear();
                             Common.currentUser = user;
                             startActivity(homeActivity);
                             finish();
@@ -142,38 +141,31 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.setView(signUpLayout);
         alertDialog.setIcon(R.drawable.ic_baseline_account_circle_24);
 
-        alertDialog.setNegativeButton("ОТМЕНА", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
+        alertDialog.setNegativeButton("ОТМЕНА", (dialogInterface, i) -> dialogInterface.dismiss());
 
-        alertDialog.setPositiveButton("ЗАРЕГИСТРИРОВАТЬСЯ", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                final User user = new User(edtNewUser.getText().toString(),
-                        edtNewPassword.getText().toString(),
-                        edtNewEmail.getText().toString());
+        alertDialog.setPositiveButton("ЗАРЕГИСТРИРОВАТЬСЯ", (dialogInterface, i) -> {
+            final User user = new User(edtNewUser.getText().toString(),
+                    edtNewPassword.getText().toString(),
+                    edtNewEmail.getText().toString(),
+                    "USER");
 
-                users.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.child(user.getLogIn()).exists()) {
-                            Toast.makeText(MainActivity.this, "Пользователь с таким именем уже зарегистрирован", Toast.LENGTH_SHORT).show();
-                        } else {
-                            users.child(user.getLogIn()).setValue(user);
-                            Toast.makeText(MainActivity.this, "Пользователь успешно зарегистрирован", Toast.LENGTH_SHORT).show();
-                        }
+            users.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.child(user.getLogIn()).exists()) {
+                        Toast.makeText(MainActivity.this, "Пользователь с таким именем уже зарегистрирован", Toast.LENGTH_SHORT).show();
+                    } else {
+                        users.child(user.getLogIn()).setValue(user);
+                        Toast.makeText(MainActivity.this, "Пользователь успешно зарегистрирован", Toast.LENGTH_SHORT).show();
                     }
+                }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
-                dialogInterface.dismiss();
-            }
+                }
+            });
+            dialogInterface.dismiss();
         });
 
         alertDialog.show();

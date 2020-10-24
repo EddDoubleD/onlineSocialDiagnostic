@@ -1,5 +1,7 @@
 package ru.hardwork.onlinesocialdiagnosticapp.common;
 
+import android.database.sqlite.SQLiteDatabase;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -20,5 +22,7 @@ public class Common {
     public static List<Question> questions = new ArrayList<>();
 
     public static int[] colors;
+
+    public static SQLiteDatabase database;
 
 }

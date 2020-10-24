@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.common.collect.Iterables;
 
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.common.DiagnosticConverter;
@@ -69,6 +70,8 @@ public class CategoryFragment extends Fragment {
         headerText.setTypeface(typeface);
 
         description = mFragment.findViewById(R.id.description);
+        description.setText(Common.diagnosticTests.get(0).getDescription());
+
         mRecyclerView = mFragment.findViewById(R.id.diagnosticTestsRecycler);
         //  TabLayout Code end
         final LinearLayoutManager mLayoutManager = new LinearLayoutManager(
@@ -143,24 +146,13 @@ public class CategoryFragment extends Fragment {
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 int itemPosition = mLayoutManager.findFirstVisibleItemPosition();
-                DiagnosticTest diagnosticTest = Common.diagnosticTests.get(itemPosition);
+
+                final DiagnosticTest diagnosticTest = Common.diagnosticTests.get(itemPosition);
                 if (diagnosticTest != null) {
                     description.setText(diagnosticTest.getDescription());
                 }
-            }
 
-            /* @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                int itemPosition = mLayoutManager.findFirstVisibleItemPosition();
-
-                final DiagnosticTest diagnosticTest = Common.diagnosticTests.get(itemPosition);
-                Category category = Iterables.find(Common.categoryList, new Predicate<Category>() {
-                    @Override
-                    public boolean apply(@Nullable Category cat) {
-                        return cat != null;// && diagnosticTest.getCategoryId() == cat.getId();
-                    }
-                });
+                Category category = Iterables.find(Common.categoryList, cat -> cat != null && (diagnosticTest != null ? diagnosticTest.getCategoryId() : 0) == cat.getCategoryId());
 
                 int currentCatPosition = Common.categoryList.indexOf(category);
                 // Если скроллит пользователь сместим таб
@@ -173,7 +165,7 @@ public class CategoryFragment extends Fragment {
                         tab.select();
                     }
                 }
-            }*/
+            }
         });
 
         return mFragment;
@@ -218,7 +210,7 @@ public class CategoryFragment extends Fragment {
             }
             // Достаем модельку теста
             DiagnosticTest model = Common.diagnosticTests.get(position);
-            holder.setId(model.getDiagnosticTestId());
+            holder.setId(model.getId());
             // Раскрашиваем форму теста
             @SuppressLint("UseCompatLoadingForDrawables")
             Drawable drawable = activity.getDrawable(Common.colors[color]);
@@ -229,17 +221,17 @@ public class CategoryFragment extends Fragment {
             holder.totalTime.setText("Займет минут: " + model.getTestDuration());
             //
             holder.setItemClickListener((v, p, longClick) -> {
-                DiagnosticTest diagnostic = Common.diagnosticTests.get((int) holder.getId());
+                DiagnosticTest diagnostic = Common.diagnosticTests.get(p);
                 Intent startDiagnostic = new Intent(getActivity(), Start.class);
                 Bundle dataSend = new Bundle();
                 int catId = (int) diagnostic.getCategoryId() - 1;
                 Common.descPosition = Integer.parseInt(diagnostic.getMetricId());
                 String catName = categoryList.get(catId).getName();
-                dataSend.putInt("DIAGNOSTIC_ID", (int) diagnostic.getDiagnosticTestId());
+                dataSend.putInt("DIAGNOSTIC_ID", diagnostic.getId());
                 dataSend.putString("CAT_NAME", catName);
                 dataSend.putString("DIAGNOSTIC_NAME", diagnostic.getName());
                 dataSend.putString("DIAGNOSTIC_DESC", diagnostic.getDescription());
-                dataSend.putInt("COLOR_NUM", (int) (diagnostic.getDiagnosticTestId() % 5));
+                dataSend.putInt("COLOR_NUM", diagnostic.getId() % 5);
                 startDiagnostic.putExtras(dataSend);
 
                 startActivity(startDiagnostic);
