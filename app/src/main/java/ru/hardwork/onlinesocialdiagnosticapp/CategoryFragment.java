@@ -225,7 +225,7 @@ public class CategoryFragment extends Fragment {
                 Intent startDiagnostic = new Intent(getActivity(), Start.class);
                 Bundle dataSend = new Bundle();
                 int catId = (int) diagnostic.getCategoryId() - 1;
-                Common.descPosition = Integer.parseInt(diagnostic.getMetricId());
+                Common.descPosition = diagnostic.getMetricId();
                 String catName = categoryList.get(catId).getName();
                 dataSend.putInt("DIAGNOSTIC_ID", diagnostic.getId());
                 dataSend.putString("CAT_NAME", catName);

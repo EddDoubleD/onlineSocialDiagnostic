@@ -1,5 +1,6 @@
 package ru.hardwork.onlinesocialdiagnosticapp.common;
 
+import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableMap;
 
 import ru.hardwork.onlinesocialdiagnosticapp.R;
@@ -33,17 +34,22 @@ public class UIDataRouter {
      * Вопросы для шкала проявлений тревоги
      */
     private static final int question_manifestations_anxiety = R.raw.question_manifestations_anxiety;
+    /**
+     * Методика исследования самоотношения
+     */
+    private static final int query_self_attitude_research = R.raw.query_self_attitude_research;
 
     public static ImmutableMap<Integer, Integer> questions = ImmutableMap.<Integer, Integer>builder()
-            .put(0, question_default)
-            .put(1, question_leonhard_shmishek)
-            .put(2, question_eysenck)
-            .put(3, question_aggression_level)
-            .put(4, question_manifestations_anxiety)
+            .put(0, question_default) // По умолчанию
+            .put(1, question_leonhard_shmishek) // Опросник Шмишека
+            .put(2, question_eysenck) // Личностный опросник Айзенка
+            .put(3, question_aggression_level) // Опросник исследования уровня агрессивности
+            .put(4, question_manifestations_anxiety) // Личностная шкала проявлений тревоги
+            .put(5, query_self_attitude_research) // Методика исследования самоотношения
             .build();
 
-    public static boolean containsQuestion(int id) {
-        return questions.containsKey(id);
+    public static int getResourceOrDefault(int id) {
+        return Optional.fromNullable(questions.get(id)).or(question_default);
     }
 
 

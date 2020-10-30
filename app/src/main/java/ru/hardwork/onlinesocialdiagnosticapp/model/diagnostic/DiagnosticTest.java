@@ -9,13 +9,13 @@ public class DiagnosticTest {
     private long categoryId;
     private String questionCount;
     private String testDuration;
-    private String metricId;
+    private int metricId;
 
     public DiagnosticTest() {
 
     }
 
-    public DiagnosticTest(int id, String name, String description, String fullDescription, long categoryId, String questionCount, String testDuration, String metricId) {
+    public DiagnosticTest(int id, String name, String description, String fullDescription, long categoryId, String questionCount, String testDuration, int metricId) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -75,11 +75,11 @@ public class DiagnosticTest {
         this.testDuration = testDuration;
     }
 
-    public String getMetricId() {
+    public int getMetricId() {
         return metricId;
     }
 
-    public void setMetricId(String metricId) {
+    public void setMetricId(int metricId) {
         this.metricId = metricId;
     }
 

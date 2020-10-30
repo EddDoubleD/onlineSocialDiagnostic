@@ -28,7 +28,7 @@ public class Start extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         int diagnosticId = extras.getInt("DIAGNOSTIC_ID", 0);
         // Загружаем диагностику
-        loadQuestions(diagnosticId == 0 ? 0 : diagnosticId - 1);
+        loadQuestions(diagnosticId);
 
         String catName = extras.getString("CAT_NAME", "Категория");
         categoryName = findViewById(R.id.category_start_name);
@@ -63,7 +63,8 @@ public class Start extends AppCompatActivity {
         if (Common.questions.size() > 0) {
             Common.questions.clear();
         }
-        JSONResourceReader resourceReader = new JSONResourceReader(getResources(), UIDataRouter.questions.get(diagnosticId));
+
+        JSONResourceReader resourceReader = new JSONResourceReader(getResources(), UIDataRouter.getResourceOrDefault(diagnosticId));
         Common.questions.addAll(Arrays.asList(resourceReader.constructUsingGson(Question[].class)));
     }
 }

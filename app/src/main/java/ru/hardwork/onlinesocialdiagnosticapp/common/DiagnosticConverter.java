@@ -18,7 +18,7 @@ public class DiagnosticConverter implements Function<Object, DiagnosticTest> {
             diagnostic.setCategoryId((long) map.get("categoryId"));
             diagnostic.setName((String) map.get("name"));
             diagnostic.setDescription((String) map.get("description"));
-            diagnostic.setMetricId((String) map.get("metricId"));
+            diagnostic.setMetricId((int) map.get("metricId"));
             return diagnostic;
         }
 
