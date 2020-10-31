@@ -230,7 +230,7 @@ public class CategoryFragment extends Fragment {
                 dataSend.putInt("DIAGNOSTIC_ID", diagnostic.getId());
                 dataSend.putString("CAT_NAME", catName);
                 dataSend.putString("DIAGNOSTIC_NAME", diagnostic.getName());
-                dataSend.putString("DIAGNOSTIC_DESC", diagnostic.getDescription());
+                dataSend.putString("DIAGNOSTIC_DESC", diagnostic.getFullDescription());
                 dataSend.putInt("COLOR_NUM", diagnostic.getId() % 5);
                 startDiagnostic.putExtras(dataSend);
 
