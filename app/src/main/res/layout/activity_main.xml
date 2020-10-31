@@ -26,14 +26,14 @@
             tools:srcCompat="@drawable/ic_logo_main"
             tools:ignore="ContentDescription" />
 
-        <pl.droidsonroids.gif.GifImageView
+       <!-- <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifLogo"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center|bottom"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:src="@drawable/anim_1" />
+            android:src="@drawable/anim_1" />-->
 
 
     </LinearLayout>

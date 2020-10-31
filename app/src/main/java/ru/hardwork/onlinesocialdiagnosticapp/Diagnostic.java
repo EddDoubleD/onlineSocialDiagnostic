@@ -24,9 +24,6 @@ import static java.lang.String.format;
 
 public class Diagnostic extends AppCompatActivity implements View.OnClickListener {
 
-    final static long INTERVAL = 1000;
-    final static long TIMEOUT = 7000;
-
     private static final String YES = "да";
     private static final String RESULT = "RESULT";
     private static final String QUESTION_NUM_MASK = "%d/%d";

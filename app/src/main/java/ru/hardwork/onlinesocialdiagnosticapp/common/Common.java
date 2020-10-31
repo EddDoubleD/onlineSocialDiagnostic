@@ -2,6 +2,8 @@ package ru.hardwork.onlinesocialdiagnosticapp.common;
 
 import android.database.sqlite.SQLiteDatabase;
 
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -16,6 +18,9 @@ public class Common {
     public static long diagnosticId;
     public static int descPosition;
     public static User currentUser;
+    // Пользователь из firebase
+    public static FirebaseUser firebaseUser;
+
     public static List<Category> categoryList = new ArrayList<>();
     public static List<DiagnosticTest> diagnosticTests = new ArrayList<>();
     public static Set<Long> diagnosticTestsIds = new HashSet<>();

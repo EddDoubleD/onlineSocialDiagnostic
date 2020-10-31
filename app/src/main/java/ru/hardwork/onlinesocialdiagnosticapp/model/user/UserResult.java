@@ -8,7 +8,7 @@ import java.util.Date;
 public class UserResult {
     private String id;
     private String user;
-    private long diagnosticId;
+    private int diagnosticId;
     private String result;
     private Date date;
 
@@ -16,7 +16,7 @@ public class UserResult {
 
     }
 
-    public UserResult(String id, String user, long diagnosticId, String result, Date date) {
+    public UserResult(String id, String user, int diagnosticId, String result, Date date) {
         this.id = id;
         this.user = user;
         this.diagnosticId = diagnosticId;
@@ -44,7 +44,7 @@ public class UserResult {
         return diagnosticId;
     }
 
-    public void setDiagnosticId(long diagnosticId) {
+    public void setDiagnosticId(int diagnosticId) {
         this.diagnosticId = diagnosticId;
     }
 

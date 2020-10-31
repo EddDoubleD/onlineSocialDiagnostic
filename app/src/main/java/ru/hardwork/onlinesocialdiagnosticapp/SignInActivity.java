@@ -13,68 +13,42 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.common.util.CollectionUtils;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
-import java.util.Arrays;
-
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
-import ru.hardwork.onlinesocialdiagnosticapp.common.JSONResourceReader;
 import ru.hardwork.onlinesocialdiagnosticapp.common.UIDataRouter;
-import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Category;
-import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
-import ru.hardwork.onlinesocialdiagnosticapp.model.user.User;
 
+import static org.apache.commons.lang3.StringUtils.isEmpty;
+
+/**
+ * Регистрация/аутентификация пользователя
+ */
 public class SignInActivity extends AppCompatActivity {
+    //
     MaterialEditText edtNewUser, edtNewPassword, edtNewEmail;
     MaterialEditText edtUser, edtPassword;
+    //
     ImageView logo;
     Button btnSignUp, btnSignIn;
-    // todo: заменить на аутентификацию
-    FirebaseDatabase database;
-    DatabaseReference users;
+
+    private FirebaseAuth mAuth;
     private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //
+        setContentView(R.layout.activity_signup);
+        // Аутентификация
+        mAuth = FirebaseAuth.getInstance();
+
 
         preferences = PreferenceManager.getDefaultSharedPreferences(SignInActivity.this);
         String name = preferences.getString(UIDataRouter.USER_NAME, UIDataRouter.DEFAULT_USER);
-        // Common.database = openOrCreateDatabase(UIDataRouter.DB_NAME, MODE_PRIVATE, null);
-        // Common.database.execSQL("CREATE TABLE IF NOT EXISTS incompleteDiagnostics (id INT, current INT, result VARCHAR(200))");
-        JSONResourceReader categoryReader = new JSONResourceReader(getResources(), R.raw.category);
-        if (CollectionUtils.isEmpty(Common.categoryList)) {
-            Common.categoryList.addAll(Arrays.asList(categoryReader.constructUsingGson(Category[].class)));
-        }
-
-        JSONResourceReader diagnosticReader = new JSONResourceReader(getResources(), R.raw.diagnostic_test);
-        if (CollectionUtils.isEmpty(Common.diagnosticTests)) {
-            Common.diagnosticTests.addAll(Arrays.asList(diagnosticReader.constructUsingGson(DiagnosticTest[].class)));
-        }
-
         final SharedPreferences.Editor preferencesEditor = preferences.edit();
-        if (!"guest".equals(name)) {
-            User user = new User();
-            user.setLogIn(name);
-            Intent homeActivity = new Intent(SignInActivity.this, Home.class);
-            Common.currentUser = user;
-            startActivity(homeActivity);
-            finish();
-        }
-
-        // Firebase
-        database = FirebaseDatabase.getInstance();
-        users = database.getReference("Users");
         // init drawable view
         logo = findViewById(R.id.logo);
         @SuppressLint("UseCompatLoadingForDrawables")
@@ -83,53 +57,66 @@ public class SignInActivity extends AppCompatActivity {
         // ui init
         edtUser = findViewById(R.id.edtUser);
         edtPassword = findViewById(R.id.edtPassword);
-
+        // Войти
         btnSignIn = findViewById(R.id.btn_sign_in);
-        btnSignUp = findViewById(R.id.btn_sign_up);
-
-        btnSignUp.setOnClickListener(view -> showSignUpDialog());
-
         btnSignIn.setOnClickListener(view -> signIn(edtUser.getText().toString(), edtPassword.getText().toString(), preferencesEditor));
-
+        // Зарегистрироваться
+        btnSignUp = findViewById(R.id.btn_sign_up);
+        btnSignUp.setOnClickListener(view -> showSignUpDialog(preferencesEditor));
     }
 
-    private void signIn(final String logIn, final String password, final SharedPreferences.Editor editor) {
-        users.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.child(logIn).exists()) {
-                    if (!logIn.isEmpty()) {
-                        User user = snapshot.child(logIn).getValue(User.class);
-                        if (user != null && user.getPassword().equals(password)) {
-                            Intent homeActivity = new Intent(SignInActivity.this, Home.class);
-                            editor.putString("USER_NAME", user.getLogIn());
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        Common.firebaseUser = mAuth.getCurrentUser();
+    }
+
+    /**
+     * Авторизация пользователя
+     */
+    private void signIn(final String email, final String password, final SharedPreferences.Editor editor) {
+        // Проверка корректности введенных данных
+        boolean valid = validate(email, password);
+        if (valid) {
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            Common.firebaseUser = mAuth.getCurrentUser();
+                            editor.putString("USER_NAME", Common.firebaseUser.getDisplayName());
                             editor.commit();
                             editor.clear();
-                            Common.currentUser = user;
+
+                            Intent homeActivity = new Intent(SignInActivity.this, Home.class);
                             startActivity(homeActivity);
                             finish();
                         } else {
-                            Toast.makeText(SignInActivity.this, "Не верный пароль", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignInActivity.this, "Неверный логин или пароль", Toast.LENGTH_SHORT).show();
                         }
-                    } else {
-                        Toast.makeText(SignInActivity.this, "Пожалуйста введите логин", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(SignInActivity.this, "Пользователь с таким логином не найден", Toast.LENGTH_SHORT).show();
-                }
-            }
+                    });
+        }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
     }
 
-    private void showSignUpDialog() {
+    private boolean validate(String email, String password) {
+        // Проверка вилидности email
+        if (isEmpty(email)) {
+            Toast.makeText(SignInActivity.this, "Не задан адрес электронной почты", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        // проверка пароля
+        if (isEmpty(password)) {
+            Toast.makeText(SignInActivity.this, "Не задан пароль", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
+    }
+
+    private void showSignUpDialog(final SharedPreferences.Editor editor) {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(SignInActivity.this);
         alertDialog.setTitle("Регистрация");
-        alertDialog.setMessage("Пожалуйста введите инвормацию");
+        alertDialog.setMessage("Пожалуйста введите информацию");
 
         LayoutInflater inflater = this.getLayoutInflater();
         View signUpLayout = inflater.inflate(R.layout.sign_up_layout, null);
@@ -144,27 +131,22 @@ public class SignInActivity extends AppCompatActivity {
         alertDialog.setNegativeButton("ОТМЕНА", (dialogInterface, i) -> dialogInterface.dismiss());
 
         alertDialog.setPositiveButton("ЗАРЕГИСТРИРОВАТЬСЯ", (dialogInterface, i) -> {
-            final User user = new User(edtNewUser.getText().toString(),
-                    edtNewPassword.getText().toString(),
-                    edtNewEmail.getText().toString(),
-                    "USER");
+            mAuth.createUserWithEmailAndPassword(edtNewUser.getText().toString(), edtNewPassword.getText().toString())
+                    .addOnCompleteListener(this, task -> {
+                        if (task.isSuccessful()) {
+                            Common.firebaseUser = mAuth.getCurrentUser();
+                            editor.putString("USER_NAME", Common.firebaseUser.getDisplayName());
+                            editor.commit();
+                            editor.clear();
 
-            users.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if (snapshot.child(user.getLogIn()).exists()) {
-                        Toast.makeText(SignInActivity.this, "Пользователь с таким именем уже зарегистрирован", Toast.LENGTH_SHORT).show();
-                    } else {
-                        users.child(user.getLogIn()).setValue(user);
-                        Toast.makeText(SignInActivity.this, "Пользователь успешно зарегистрирован", Toast.LENGTH_SHORT).show();
-                    }
-                }
+                            Intent homeActivity = new Intent(SignInActivity.this, Home.class);
+                            startActivity(homeActivity);
+                            finish();
+                        } else {
+                            Toast.makeText(SignInActivity.this, "Возникла ошикба при регистрации", Toast.LENGTH_SHORT).show();
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
+                        }
+                    });
             dialogInterface.dismiss();
         });
 

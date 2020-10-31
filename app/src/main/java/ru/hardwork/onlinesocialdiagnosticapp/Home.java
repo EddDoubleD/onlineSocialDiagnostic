@@ -20,6 +20,9 @@ public class Home extends AppCompatActivity {
                     case R.id.action_category:
                         selectedFragment = new CategoryFragment();
                         break;
+                    case R.id.action_result:
+                        selectedFragment = new ResultFragment();
+                        break;
                     case R.id.action_account:
                         selectedFragment = new AccountFragment();
                         break;

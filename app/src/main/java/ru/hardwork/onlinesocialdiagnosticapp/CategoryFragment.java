@@ -22,11 +22,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.common.util.CollectionUtils;
 import com.google.android.material.tabs.TabLayout;
 import com.google.common.collect.Iterables;
 
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.common.DiagnosticConverter;
+import ru.hardwork.onlinesocialdiagnosticapp.common.UIDataUtils;
 import ru.hardwork.onlinesocialdiagnosticapp.holders.DiagnosticTestViewHolder;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Category;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
@@ -70,6 +72,11 @@ public class CategoryFragment extends Fragment {
         headerText.setTypeface(typeface);
 
         description = mFragment.findViewById(R.id.description);
+        //
+        if (CollectionUtils.isEmpty(Common.diagnosticTests)) {
+            UIDataUtils.init(getResources());
+        }
+
         description.setText(Common.diagnosticTests.get(0).getDescription());
 
         mRecyclerView = mFragment.findViewById(R.id.diagnosticTestsRecycler);

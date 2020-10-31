@@ -15,6 +15,12 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.mutable.MutableBoolean;
+
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.model.user.User;
 
@@ -24,30 +30,78 @@ import ru.hardwork.onlinesocialdiagnosticapp.model.user.User;
 public class AccountFragment extends Fragment {
 
     View mFragment;
+    CardView quitAccountView;
 
     CardView cardResultsId, settings;
-    TextView userLogIn;
+    TextView userLogIn, inOut;
 
-    public static AccountFragment newInstance() {
-        AccountFragment accountFragment = new AccountFragment();
-        return accountFragment;
-    }
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener authStateListener;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
+        authStateListener = firebaseAuth -> {
+            FirebaseUser firebaseUser = mAuth.getCurrentUser();
+            if (firebaseUser != null && ObjectUtils.notEqual(firebaseAuth, Common.firebaseUser)) {
+                Common.firebaseUser = firebaseUser;
+            }
+        };
     }
 
-    @SuppressLint("ApplySharedPref")
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(authStateListener);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mAuth.removeAuthStateListener(authStateListener);
+    }
+
+    /**
+     * Обнуление
+     */
+    private void zeroing(MutableBoolean exit) {
+        userLogIn.setText("guest");
+        inOut.setText("Войти");
+        exit.setFalse();
+    }
+
+    @SuppressLint({"ApplySharedPref", "SetTextI18n"})
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mFragment = inflater.inflate(R.layout.fragment_account, container, false);
 
         userLogIn = mFragment.findViewById(R.id.userLogIn);
-        if (Common.currentUser != null && !Common.currentUser.getLogIn().equalsIgnoreCase("guest")) {
-            userLogIn.setText(Common.currentUser.getLogIn());
+        quitAccountView = mFragment.findViewById(R.id.quitAccountView);
+        inOut = quitAccountView.findViewById(R.id.inOut);
+        final MutableBoolean exit = new MutableBoolean();
+        if (Common.firebaseUser != null) {
+            userLogIn.setText(Common.firebaseUser.getEmail());
+            inOut.setText("Выйти");
+            exit.setTrue();
+        } else {
+            zeroing(exit);
         }
+        //
+        SharedPreferences preference = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final SharedPreferences.Editor editor = preference.edit();
+        quitAccountView.setOnClickListener(view -> {
+            if (exit.booleanValue()) {
+                zeroing(exit);
+                editor.putString("USER_NAME", "guest");
+                editor.commit();
+                editor.clear();
+            } else {
+                Intent signInActivity = new Intent(getContext(), SignInActivity.class);
+                startActivity(signInActivity);
+            }
+        });
 
         cardResultsId = mFragment.findViewById(R.id.cardResultsId);
         cardResultsId.setOnClickListener(view -> {
@@ -59,18 +113,18 @@ public class AccountFragment extends Fragment {
         settings.setOnClickListener(view -> {
             Intent diagnosticResult = new Intent(getActivity(), DiagnosticResult.class);
             startActivity(diagnosticResult);
+            Common.firebaseUser = null;
 
-            SharedPreferences preference = PreferenceManager.getDefaultSharedPreferences(getContext());
-            SharedPreferences.Editor editor = preference.edit();
+
             User user = new User();
             user.setLogIn("guest");
             user.setRole(User.Role.GUEST);
-            editor.putString("USER_NAME", "guest");
-            editor.commit();
-            editor.clear();
+
 
             Common.currentUser = user;
         });
+
+
         return mFragment;
     }
 }

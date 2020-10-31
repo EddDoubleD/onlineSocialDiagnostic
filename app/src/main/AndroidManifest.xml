@@ -18,6 +18,7 @@
         <activity android:name=".Diagnostic" />
         <activity android:name=".Start" />
         <activity android:name=".Home" />
+        <activity android:name=".SignInActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
