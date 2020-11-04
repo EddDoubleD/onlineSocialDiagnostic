@@ -10,9 +10,10 @@ import ru.hardwork.onlinesocialdiagnosticapp.R;
  */
 public class UIDataRouter {
 
-    public static final String DB_NAME = "onlineSocialDiagnostic.db";
     public static final String USER_NAME = "USER_NAME";
     public static final String DEFAULT_USER = "guest";
+    public static final String DIAGNOSTIC_ID = "DIAGNOSTIC_ID";
+
     //region questions
     /**
      * Вопросы по-умолчанию

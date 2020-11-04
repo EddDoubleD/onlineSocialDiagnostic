@@ -16,6 +16,8 @@ import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Question;
 
 public class Start extends AppCompatActivity {
 
+    private int diagnosticId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +25,7 @@ public class Start extends AppCompatActivity {
         setContentView(R.layout.activity_start);
 
         Bundle extras = getIntent().getExtras();
-        int diagnosticId = extras.getInt("DIAGNOSTIC_ID", 0);
+        diagnosticId = extras.getInt("DIAGNOSTIC_ID", 0);
         // Загружаем диагностику
         loadQuestions(diagnosticId);
 
@@ -48,9 +50,12 @@ public class Start extends AppCompatActivity {
 
         Button btnPlay = findViewById(R.id.btnPlay);
         btnPlay.setOnClickListener(view -> {
-            Intent intent = new Intent(Start.this, Diagnostic.class);
             //Intent intent = new Intent(Start.this, DiagnosticRV.class);
-            startActivity(intent);
+            Intent diagnosticIntent = new Intent(Start.this, Diagnostic.class);
+            Bundle dataSend = new Bundle();
+            dataSend.putInt("DIAGNOSTIC_ID", diagnosticId);
+            diagnosticIntent.putExtras(dataSend);
+            startActivity(diagnosticIntent);
             finish();
         });
 

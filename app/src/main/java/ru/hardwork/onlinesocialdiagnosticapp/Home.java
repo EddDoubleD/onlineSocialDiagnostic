@@ -23,6 +23,9 @@ public class Home extends AppCompatActivity {
                     case R.id.action_result:
                         selectedFragment = new ResultFragment();
                         break;
+                    case R.id.action_group:
+                        selectedFragment = new GroupFragment();
+                        break;
                     case R.id.action_account:
                         selectedFragment = new AccountFragment();
                         break;
@@ -49,6 +52,4 @@ public class Home extends AppCompatActivity {
                     CategoryFragment.newInstance()).commit();
         }
     }
-
-
 }

@@ -28,6 +28,8 @@ public class Diagnostic extends AppCompatActivity implements View.OnClickListene
     private static final String RESULT = "RESULT";
     private static final String QUESTION_NUM_MASK = "%d/%d";
 
+    private int diagnosticId;
+
     int index = 0, totalQuestion;
 
     ProgressBar progressBar;
@@ -53,6 +55,9 @@ public class Diagnostic extends AppCompatActivity implements View.OnClickListene
 
         btnNo = findViewById(R.id.btnNo);
         btnNo.setOnClickListener(this);
+
+        Bundle extras = getIntent().getExtras();
+        diagnosticId = extras.getInt("DIAGNOSTIC_ID", 0);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -97,6 +102,7 @@ public class Diagnostic extends AppCompatActivity implements View.OnClickListene
             Intent done = new Intent(this, Done.class);
             Bundle dataSend = new Bundle();
             dataSend.putIntegerArrayList(RESULT, result);
+            dataSend.putInt("DIAGNOSTIC_ID", diagnosticId);
             done.putExtras(dataSend);
             startActivity(done);
             finish();

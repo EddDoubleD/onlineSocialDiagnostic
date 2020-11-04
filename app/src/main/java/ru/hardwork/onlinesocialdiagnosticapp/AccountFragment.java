@@ -32,7 +32,7 @@ public class AccountFragment extends Fragment {
     View mFragment;
     CardView quitAccountView;
 
-    CardView cardResultsId, settings;
+    CardView settings;
     TextView userLogIn, inOut;
 
     private FirebaseAuth mAuth;
@@ -103,24 +103,16 @@ public class AccountFragment extends Fragment {
             }
         });
 
-        cardResultsId = mFragment.findViewById(R.id.cardResultsId);
-        cardResultsId.setOnClickListener(view -> {
-            Intent diagnosticResult = new Intent(getActivity(), DiagnosticResult.class);
-            startActivity(diagnosticResult);
-        });
+
 
         settings = mFragment.findViewById(R.id.settings);
         settings.setOnClickListener(view -> {
-            Intent diagnosticResult = new Intent(getActivity(), DiagnosticResult.class);
+            Intent diagnosticResult = new Intent(getActivity(), Home.class);
             startActivity(diagnosticResult);
             Common.firebaseUser = null;
-
-
             User user = new User();
             user.setLogIn("guest");
             user.setRole(User.Role.GUEST);
-
-
             Common.currentUser = user;
         });
 
