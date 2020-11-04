@@ -2,7 +2,6 @@ package ru.hardwork.onlinesocialdiagnosticapp;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -11,7 +10,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import ru.hardwork.onlinesocialdiagnosticapp.application.OnlineSocialDiagnosticApp;
+import net.bohush.geometricprogressview.GeometricProgressView;
+
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.common.UIDataRouter;
 import ru.hardwork.onlinesocialdiagnosticapp.model.user.User;
@@ -19,12 +19,16 @@ import ru.hardwork.onlinesocialdiagnosticapp.model.user.User;
 public class MainActivity extends AppCompatActivity {
 
     ImageView logo;
+    GeometricProgressView progressView;
     // GifImageView gifImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        progressView = findViewById(R.id.progressView);
+        progressView.setColor(R.color.palePurple);
 
         logo = findViewById(R.id.logoMain);
         Drawable ic_logo_main = getDrawable(R.drawable.ic_logo_main);

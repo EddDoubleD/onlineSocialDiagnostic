@@ -83,7 +83,7 @@ public class SignInActivity extends AppCompatActivity {
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
                             Common.firebaseUser = mAuth.getCurrentUser();
-                            editor.putString("USER_NAME", Common.firebaseUser.getDisplayName());
+                            editor.putString(UIDataRouter.USER_NAME, Common.firebaseUser.getDisplayName());
                             editor.commit();
                             editor.clear();
 
@@ -135,7 +135,7 @@ public class SignInActivity extends AppCompatActivity {
                     .addOnCompleteListener(this, task -> {
                         if (task.isSuccessful()) {
                             Common.firebaseUser = mAuth.getCurrentUser();
-                            editor.putString("USER_NAME", Common.firebaseUser.getDisplayName());
+                            editor.putString(UIDataRouter.USER_NAME, Common.firebaseUser.getDisplayName());
                             Common.currentUser.setLogIn(Common.firebaseUser.getDisplayName());
                             editor.commit();
                             editor.clear();

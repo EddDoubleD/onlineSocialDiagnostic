@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="115dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/userCardView"
@@ -19,7 +19,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/round_two"
+            android:background="@drawable/purple_shape"
             android:orientation="horizontal"
             android:weightSum="2"
             tools:ignore="ObsoleteLayoutParam">
@@ -33,6 +33,7 @@
                 android:layout_weight="1"
                 android:text="Диагностика"
                 android:textSize="14sp"
+                android:textColor="@color/plaintText"
                 android:textStyle="bold"
                 tools:ignore="RtlHardcoded" />
 
@@ -44,6 +45,7 @@
                 android:layout_margin="15dp"
                 android:layout_weight="1"
                 android:inputType="datetime"
+                android:textColor="@color/plaintText"
                 android:text="02.05.2020"
                 android:textSize="14sp"
                 android:textStyle="bold"

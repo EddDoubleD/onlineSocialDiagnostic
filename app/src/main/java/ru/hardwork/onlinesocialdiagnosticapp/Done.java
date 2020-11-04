@@ -43,13 +43,10 @@ public class Done extends AppCompatActivity {
     private static final String RESULT = "RESULT";
     private static final String SPLITTER = ",";
     private static final String HTML = "<p><a href=\"%s\">Расшифровка теста</a></p>";
-
-    private int diagnosticId;
-
     @SuppressLint("SimpleDateFormat")
     private static final SimpleDateFormat FORMAT = new SimpleDateFormat(BASE_FORMAT);
-
     Decryption decryption;
+    private int diagnosticId;
     private Button btnTryAgain;
     private TextView resultText;
     private RecyclerView mRecyclerView;

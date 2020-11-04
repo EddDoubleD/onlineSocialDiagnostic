@@ -1,5 +1,19 @@
 [
   {
+    "id": 0,
+    "name": "binary",
+    "dispersion": "5,10,15",
+    "url": "http://www.obrbratsk.ru/upload6/%D0%A8%D0%BC%D0%B8%D1%88%D0%B5%D0%BA%20%D0%90%D0%BA%D1%86%D0%B5%D0%BD%D1%82%D1%83%D0%B0%D1%86%D0%B8%D1%8F%20%D1%85%D0%B0%D1%80.pdf",
+    "accents": [
+      {
+        "name": "Тестовая шкала",
+        "positive": "1,2",
+        "negative": "",
+        "multiple": 1
+      }
+    ]
+  },
+  {
     "id": 1,
     "name": "binary",
     "dispersion": "5,10,15",

@@ -22,7 +22,7 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.mutable.MutableBoolean;
 
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
-import ru.hardwork.onlinesocialdiagnosticapp.model.user.User;
+import ru.hardwork.onlinesocialdiagnosticapp.common.UIDataRouter;
 
 /**
  *
@@ -32,7 +32,7 @@ public class AccountFragment extends Fragment {
     View mFragment;
     CardView quitAccountView;
 
-    CardView settings;
+    CardView settings, about;
     TextView userLogIn, inOut;
 
     private FirebaseAuth mAuth;
@@ -65,8 +65,9 @@ public class AccountFragment extends Fragment {
     /**
      * Обнуление
      */
+    @SuppressLint("SetTextI18n")
     private void zeroing(MutableBoolean exit) {
-        userLogIn.setText("guest");
+        userLogIn.setText(UIDataRouter.DEFAULT_USER);
         inOut.setText("Войти");
         exit.setFalse();
     }
@@ -94,7 +95,7 @@ public class AccountFragment extends Fragment {
         quitAccountView.setOnClickListener(view -> {
             if (exit.booleanValue()) {
                 zeroing(exit);
-                editor.putString("USER_NAME", "guest");
+                editor.putString(UIDataRouter.USER_NAME, UIDataRouter.DEFAULT_USER);
                 editor.commit();
                 editor.clear();
             } else {
@@ -103,19 +104,17 @@ public class AccountFragment extends Fragment {
             }
         });
 
-
+        about = mFragment.findViewById(R.id.about);
+        about.setOnClickListener(view -> {
+            Intent aboutIntent = new Intent(getActivity(), About.class);
+            startActivity(aboutIntent);
+        });
 
         settings = mFragment.findViewById(R.id.settings);
         settings.setOnClickListener(view -> {
-            Intent diagnosticResult = new Intent(getActivity(), Home.class);
+            Intent diagnosticResult = new Intent(getActivity(), Settings.class);
             startActivity(diagnosticResult);
-            Common.firebaseUser = null;
-            User user = new User();
-            user.setLogIn("guest");
-            user.setRole(User.Role.GUEST);
-            Common.currentUser = user;
         });
-
 
         return mFragment;
     }

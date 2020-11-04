@@ -3,6 +3,7 @@ package ru.hardwork.onlinesocialdiagnosticapp;
 import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -37,15 +38,12 @@ import static ru.hardwork.onlinesocialdiagnosticapp.common.lite.DiagnosticContra
 
 public class ResultFragment extends Fragment {
 
-    View resultFragment;
-    private RecyclerView mRecyclerView;
-
-    private boolean isListGoingUp = true;
-
     private static final String BASE_FORMAT = "yyyy.MM.dd HH:mm";
     @SuppressLint("SimpleDateFormat")
     private static final SimpleDateFormat DATA_FORMAT = new SimpleDateFormat(BASE_FORMAT);
-
+    View resultFragment;
+    private RecyclerView mRecyclerView;
+    private boolean isListGoingUp = true;
     private List<UserResult> userResults = new ArrayList<>();
 
     public ResultFragment() {
@@ -68,6 +66,8 @@ public class ResultFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         resultFragment = inflater.inflate(R.layout.fragment_result, container, false);
+
+        userResults.clear();
 
         OnlineSocialDiagnosticApp app = OnlineSocialDiagnosticApp.getInstance();
         SQLiteDatabase db = app.getDbHelper().getReadableDatabase();
@@ -142,8 +142,12 @@ public class ResultFragment extends Fragment {
                 // reload
                 return;
             }
+            //
             DiagnosticTest diagnostic = Common.diagnosticTests.get(testPosition);
-
+            final int color = position % 5;
+            @SuppressLint("UseCompatLoadingForDrawables")
+            Drawable shape = getActivity().getDrawable(Common.shapes[color]);
+            holder.resultLine.setBackground(shape);
             holder.diagnosticName.setText(diagnostic.getName());
             holder.diagnosticDate.setText(DATA_FORMAT.format(model.getDate()));
 

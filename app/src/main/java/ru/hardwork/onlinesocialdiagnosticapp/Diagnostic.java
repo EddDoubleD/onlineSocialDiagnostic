@@ -27,16 +27,12 @@ public class Diagnostic extends AppCompatActivity implements View.OnClickListene
     private static final String YES = "да";
     private static final String RESULT = "RESULT";
     private static final String QUESTION_NUM_MASK = "%d/%d";
-
-    private int diagnosticId;
-
     int index = 0, totalQuestion;
-
     ProgressBar progressBar;
     ImageView questionImage;
     Button btnYes, btnNo;
     TextView txtQuestionNum, questionText;
-
+    private int diagnosticId;
     private ArrayList<Integer> result;
 
     @Override

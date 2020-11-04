@@ -1,15 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".Settings">
 
-    <Button
-        android:id="@+id/flush"
+    <TextView
+        android:id="@+id/settingsHeaderText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Сбросить кэш"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="29dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:text="Настройки"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/plaintText"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        tools:ignore="RtlHardcoded" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation = "vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp">
+
+        <Button
+            android:id="@+id/accountDetails"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:background="@color/mustard"
+            android:text="Управление аккаунтами"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/flush"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:background="@color/mustard"
+            android:text="Сбросить кэш"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+
+
+</RelativeLayout>

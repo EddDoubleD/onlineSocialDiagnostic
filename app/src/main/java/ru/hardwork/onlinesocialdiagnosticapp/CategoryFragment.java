@@ -207,6 +207,7 @@ public class CategoryFragment extends Fragment {
             return new DiagnosticTestViewHolder(view);
         }
 
+        @SuppressLint("ResourceAsColor")
         @Override
         public void onBindViewHolder(@NonNull DiagnosticTestViewHolder holder, int position) {
             final int color = position % 5;
@@ -219,8 +220,9 @@ public class CategoryFragment extends Fragment {
             DiagnosticTest model = Common.diagnosticTests.get(position);
             holder.setId(model.getId());
             // Раскрашиваем форму теста
+            holder.layout.setBackgroundColor(R.color.background);
             @SuppressLint("UseCompatLoadingForDrawables")
-            Drawable drawable = activity.getDrawable(Common.colors[color]);
+            Drawable drawable = activity.getDrawable(Common.shapes[color]);
             holder.layout.setBackground(drawable);
             //
             holder.diagnosticName.setText(model.getName());

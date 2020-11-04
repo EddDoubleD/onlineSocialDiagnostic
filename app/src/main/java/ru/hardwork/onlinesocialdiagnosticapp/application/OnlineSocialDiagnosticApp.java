@@ -31,10 +31,10 @@ public class OnlineSocialDiagnosticApp extends Application {
     }
 
     public SQLiteOpenHelper getDbHelper() {
-       if (helper == null) {
-           helper = new DiagnosticDbHelper(getBaseContext());
-       }
-       return helper;
+        if (helper == null) {
+            helper = new DiagnosticDbHelper(getBaseContext());
+        }
+        return helper;
     }
 
     public DataManager getDataManager() {
@@ -45,7 +45,7 @@ public class OnlineSocialDiagnosticApp extends Application {
     }
 
     private void colorsInit() {
-        Common.colors = new int[]{
+        Common.shapes = new int[]{
                 R.drawable.peach_shape,
                 R.drawable.purple_shape,
                 R.drawable.pale_purple__shape,
