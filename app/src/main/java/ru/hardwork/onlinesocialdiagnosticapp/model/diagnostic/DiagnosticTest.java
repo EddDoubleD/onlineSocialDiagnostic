@@ -1,23 +1,25 @@
-package ru.hardwork.onlinesocialdiagnosticapp.Model;
+package ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic;
 
 public class DiagnosticTest {
 
-    private long diagnosticTestId;
+    private int id;
     private String name;
     private String description;
+    private String fullDescription;
     private long categoryId;
     private String questionCount;
     private String testDuration;
-    private String metricId;
+    private int metricId;
 
     public DiagnosticTest() {
 
     }
 
-    public DiagnosticTest(long diagnosticTestId, String name, String description, long categoryId, String questionCount, String testDuration, String metricId) {
-        this.diagnosticTestId = diagnosticTestId;
+    public DiagnosticTest(int id, String name, String description, String fullDescription, long categoryId, String questionCount, String testDuration, int metricId) {
+        this.id = id;
         this.name = name;
         this.description = description;
+        this.fullDescription = fullDescription;
         this.categoryId = categoryId;
         this.questionCount = questionCount;
         this.testDuration = testDuration;
@@ -25,12 +27,12 @@ public class DiagnosticTest {
     }
 
 
-    public long getDiagnosticTestId() {
-        return diagnosticTestId;
+    public int getId() {
+        return id;
     }
 
-    public void setDiagnosticTestId(long diagnosticTestId) {
-        this.diagnosticTestId = diagnosticTestId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -73,11 +75,19 @@ public class DiagnosticTest {
         this.testDuration = testDuration;
     }
 
-    public String getMetricId() {
+    public int getMetricId() {
         return metricId;
     }
 
-    public void setMetricId(String metricId) {
+    public void setMetricId(int metricId) {
         this.metricId = metricId;
+    }
+
+    public String getFullDescription() {
+        return fullDescription;
+    }
+
+    public void setFullDescription(String fullDescription) {
+        this.fullDescription = fullDescription;
     }
 }

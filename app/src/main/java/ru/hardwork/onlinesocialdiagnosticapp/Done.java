@@ -1,7 +1,9 @@
 package ru.hardwork.onlinesocialdiagnosticapp;
 
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
@@ -17,9 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 import org.apache.commons.lang3.StringUtils;
 
 import java.text.SimpleDateFormat;
@@ -27,30 +26,27 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import ru.hardwork.onlinesocialdiagnosticapp.Model.Decryption;
-import ru.hardwork.onlinesocialdiagnosticapp.Model.UserResult;
 import ru.hardwork.onlinesocialdiagnosticapp.application.OnlineSocialDiagnosticApp;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
+import ru.hardwork.onlinesocialdiagnosticapp.common.lite.DiagnosticContract;
 import ru.hardwork.onlinesocialdiagnosticapp.factory.DescriptionViewModel;
 import ru.hardwork.onlinesocialdiagnosticapp.factory.IFactory;
 import ru.hardwork.onlinesocialdiagnosticapp.holders.DescriptionViewHolder;
+import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Decryption;
 
 import static java.lang.String.format;
+import static ru.hardwork.onlinesocialdiagnosticapp.common.lite.DiagnosticContract.DiagnosticEntry.RESULT_TABLE;
 
 public class Done extends AppCompatActivity {
 
-    private static final String ID_FORMAT = "%s_%s_%s";
-    private static final String DEFAULT_FORMAT = "yyMMddHHmmss";
-    private static final String USER_RESULT = "UserResult";
+    private static final String BASE_FORMAT = "yyyy.MM.dd HH:mm";
     private static final String RESULT = "RESULT";
     private static final String SPLITTER = ",";
     private static final String HTML = "<p><a href=\"%s\">Расшифровка теста</a></p>";
-
     @SuppressLint("SimpleDateFormat")
-    private static final SimpleDateFormat FORMAT = new SimpleDateFormat(DEFAULT_FORMAT);
-    FirebaseDatabase database;
-    DatabaseReference user_result;
+    private static final SimpleDateFormat FORMAT = new SimpleDateFormat(BASE_FORMAT);
     Decryption decryption;
+    private int diagnosticId;
     private Button btnTryAgain;
     private TextView resultText;
     private RecyclerView mRecyclerView;
@@ -63,9 +59,6 @@ public class Done extends AppCompatActivity {
 
         OnlineSocialDiagnosticApp application = OnlineSocialDiagnosticApp.getInstance();
         decryption = application.getDataManager().getDecryption().get(Common.descPosition - 1);
-
-        database = FirebaseDatabase.getInstance();
-        user_result = database.getReference(USER_RESULT);
 
         resultText = findViewById(R.id.result);
         mRecyclerView = findViewById(R.id.descriptionRecycler);
@@ -83,15 +76,18 @@ public class Done extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             ArrayList<Integer> result = extras.getIntegerArrayList(RESULT);
+            diagnosticId = extras.getInt("DIAGNOSTIC_ID");
             // Дата прохождения тестирования
             Date date = new Date();
-            // Генерируем идентификатор для Firebase
-            String id = format(ID_FORMAT, Common.currentUser.getLogIn(), Common.diagnosticId, FORMAT.format(date));
-            UserResult userResult = new UserResult(id, Common.currentUser.getLogIn(), Common.diagnosticId, StringUtils.join(result), date);
-            // Выставляем результаты
-            user_result.child(id).setValue(userResult);
+            // SQLite
+            SQLiteDatabase db = application.getDbHelper().getWritableDatabase();
+            ContentValues userResult = new ContentValues();
+            userResult.put(DiagnosticContract.DiagnosticEntry.EMAIL, Common.currentUser.getLogIn());
+            userResult.put(DiagnosticContract.DiagnosticEntry.DIAGNOSTIC_ID, diagnosticId);
+            userResult.put(DiagnosticContract.DiagnosticEntry.RESULT, StringUtils.join(result));
+            userResult.put(DiagnosticContract.DiagnosticEntry.DATE_PASSED, FORMAT.format(date));
+            db.insert(RESULT_TABLE, null, userResult);
             // Ссылка на расшифровку
-
             resultText.setText(Html.fromHtml(format(HTML, decryption.getUrl())));
             resultText.setLinksClickable(true);
             resultText.setMovementMethod(LinkMovementMethod.getInstance());
@@ -137,7 +133,7 @@ public class Done extends AppCompatActivity {
                     for (String s : positive) {
                         int i = Integer.parseInt(StringUtils.trim(s)) - 1;
                         if (processing.size() <= i) {
-                            Log.e("Done:","Не найден вариант для метрики");
+                            Log.e("Done:", "Не найден вариант для метрики");
                             continue;
                         }
 
@@ -153,7 +149,7 @@ public class Done extends AppCompatActivity {
                     for (String s : negative) {
                         int i = Integer.parseInt(StringUtils.trim(s)) - 1;
                         if (processing.size() <= i) {
-                            Log.e("Done:","Не найден вариант для метрики");
+                            Log.e("Done:", "Не найден вариант для метрики");
                             continue;
                         }
 

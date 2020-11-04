@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/background"
     tools:context=".Start">
 
     <LinearLayout
@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:orientation="vertical"
-        android:weightSum="4">
+        android:weightSum="4"
+        tools:ignore="UselessParent">
 
         <TextView
             android:id="@+id/category_start_name"
@@ -43,26 +44,32 @@
             android:textStyle="bold"
             tools:ignore="HardcodedText" />
 
-        <TextView
-            android:id="@+id/diagnostic_start_description"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="20dp"
-            android:fontFamily="@font/museo_sans_cyrl"
-            android:gravity="start"
-            android:text="@string/diagnosticDesc"
-            android:textColor="@color/plaintText"
-            android:textSize="18sp" />
+            android:layout_height="330dp"
+            android:scrollbarStyle="insideInset">
+
+            <TextView
+                android:id="@+id/diagnostic_start_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/museo_sans_cyrl"
+                android:gravity="start"
+                android:text="@string/diagnosticDesc"
+                android:textColor="@color/plaintText"
+                android:textSize="18sp" />
+        </ScrollView>
 
 
         <RelativeLayout
             android:id="@+id/startCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="40dp">
 
             <Button
                 android:id="@+id/btnPlay"

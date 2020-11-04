@@ -5,15 +5,28 @@
     <item
         android:id="@+id/action_category"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_category_24"
-        android:title="@string/categories"
+        android:icon="@drawable/icons8_home_50"
+        android:title="@string/diagnostic_rus"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_result"
+        android:enabled="true"
+        android:icon="@drawable/icons8_passed_test_50"
+        android:title="@string/results_rus"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_group"
+        android:enabled="true"
+        android:icon="@drawable/icons8_user_groups_50"
+        android:title="@string/group_rus"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_account"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_account_circle_24"
-        android:title="@string/account"
+        android:icon="@drawable/icons8_settings_50"
+        android:title="@string/account_rus"
         app:showAsAction="ifRoom" />
 
 </menu>

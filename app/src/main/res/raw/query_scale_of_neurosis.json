@@ -1,0 +1,242 @@
+[
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Считаете ли Вы, что внутренне напряжены?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Я часто так сильно во что-то погружен, что не могу заснуть",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Я чувствую себя легко ранимым",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Мне трудно заговорить с незнакомыми людьми",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Часто ли без особых причин у Вас возникает чувство безучастности и усталости",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "У меня часто возникает чувство, что люди меня критически рассматривают",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Часто ли Вас преследуют бесполезные мысли, которые не выходят из головы, хотя Вы стараетесь от них избавиться",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Я довольно нервный",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Мне кажется, что меня никто не понимает",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Я довольно раздражительный",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Если бы против меня не были настроены, мои дела шли бы более успешно",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Я слишком близко и надолго принимаю к сердцу неприятности",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Даже мысль о возможной неудаче меня волнует",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "У меня были очень странные и необычные переживания",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Бывает ли Вам то радостно, то грустно без видимых причин?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "В течение всего дня я мечтаю и фантазирую больше, чем нужно",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Легко ли изменить Ваше настроение?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Я часто борюсь с собой, чтобы не показать свою застенчивость",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Я хотел бы быть таким же счастливым, какими кажутся другие люди",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Иногда я дрожу или испытываю приступы озноба",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Часто ли меняется Ваше настроение в зависимости от серьезной причины или без нее?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Испытываете ли Вы иногда чувство страха даже при отсутствии реальной опасности?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Критика или выговор меня очень ранят",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Временами я бываю так беспокоен, что даже не могу усидеть на одном месте",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Беспокоитесь ли Вы иногда слишком сильно из-за незначительных вещей?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Я часто испытываю недовольство",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Мне трудно сконцентрироваться при выполнении какого-либо задания или работы",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Я делаю много такого, в чем приходится раскаиваться",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Большей частью я счастлив",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Я недостаточно уверен в себе",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Иногда я кажусь себе действительно никчемным",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Часто я чувствую себя просто скверно",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Я много копаюсь в себе",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Я страдаю от чувства неполноценности",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Иногда у меня все болит",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "У меня бывает гнетущее состояние",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "У меня что-то с нервами",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Мне трудно поддерживать разговор при знакомстве",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Самая тяжелая борьба для меня – это борьба с самим собой",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 8,
+    "isImageQuestion": "false",
+    "text": "Чувствуете ли Вы иногда, что трудности велики и непреодолимы?",
+    "type": "YN"
+  }
+]

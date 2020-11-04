@@ -17,27 +17,22 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import ru.hardwork.onlinesocialdiagnosticapp.Model.Question;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
+import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Question;
 
 import static java.lang.String.format;
 
 public class Diagnostic extends AppCompatActivity implements View.OnClickListener {
 
-    final static long INTERVAL = 1000;
-    final static long TIMEOUT = 7000;
-
     private static final String YES = "да";
     private static final String RESULT = "RESULT";
     private static final String QUESTION_NUM_MASK = "%d/%d";
-
     int index = 0, totalQuestion;
-
     ProgressBar progressBar;
     ImageView questionImage;
     Button btnYes, btnNo;
     TextView txtQuestionNum, questionText;
-
+    private int diagnosticId;
     private ArrayList<Integer> result;
 
     @Override
@@ -56,6 +51,9 @@ public class Diagnostic extends AppCompatActivity implements View.OnClickListene
 
         btnNo = findViewById(R.id.btnNo);
         btnNo.setOnClickListener(this);
+
+        Bundle extras = getIntent().getExtras();
+        diagnosticId = extras.getInt("DIAGNOSTIC_ID", 0);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -100,6 +98,7 @@ public class Diagnostic extends AppCompatActivity implements View.OnClickListene
             Intent done = new Intent(this, Done.class);
             Bundle dataSend = new Bundle();
             dataSend.putIntegerArrayList(RESULT, result);
+            dataSend.putInt("DIAGNOSTIC_ID", diagnosticId);
             done.putExtras(dataSend);
             startActivity(done);
             finish();

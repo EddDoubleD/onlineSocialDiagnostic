@@ -1,18 +1,20 @@
-package ru.hardwork.onlinesocialdiagnosticapp.Model;
+package ru.hardwork.onlinesocialdiagnosticapp.model.user;
 
 public class User {
     private String logIn;
     private String password;
     private String email;
+    private Role role;
 
     public User() {
 
     }
 
-    public User(String logIn, String password, String email) {
+    public User(String logIn, String password, String email, String role) {
         this.logIn = logIn;
         this.password = password;
         this.email = email;
+        this.role = Role.valueOf(role);
     }
 
     public String getLogIn() {
@@ -37,5 +39,17 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public enum Role {
+        GUEST, USER, SPECIALIST
     }
 }

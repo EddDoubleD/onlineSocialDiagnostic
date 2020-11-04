@@ -1,0 +1,531 @@
+[
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Является ли ваше настроение в общем веселым и беззаботным ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Восприимчивы ли вы к обидам ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Случалось ли вам иногда быстро заплакать ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": " Всегда ли вы считаете себя правым в том деле, которое делаете, и вы не успокоитесь, пока не убедитесь в этом ?",
+    "type": "YN"
+  },
+  {
+    "costs": "1,0",
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Считаете ли вы себя более смелым, чем в детском возрасте ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Может ли ваше настроение меняться от глубокой радости до глубокой печали ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Находитесь ли вы в компании в центре внимания ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Бывают ли у вас дни, когда вы без достаточных оснований находитесь в угрюмом и раздражительном настроении и ни с кем не хотите разговаривать ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Серьезный ли вы человек ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Можете ли вы сильно воодушевиться ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Предприимчивы ли вы ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Быстро ли вы забываете, если вас кто-нибудь обидит ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Мягкосердечный ли вы человек ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Пытаетесь ли вы проверить после того, как опустили письмо в почтовый ящик, не осталось ли оно висеть в прорези ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Всегда ли вы стараетесь быть добросовестным в работе ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Испытывали ли вы в детстве страх перед грозой или собаками ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Считаете ли вы других людей недостаточно требовательными друг к другу ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Сильно ли зависит ваше настроение от жизненных событий и переживаний ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Всегда ли вы прямодушны со своими знакомыми ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Часто ли ваше настроение бывает подавленным ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Был ли у вас раньше истерический припадок или истощение нервной системы ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Склонны ли вы к состояниям сильного внутреннего беспокойства или страстного стремления ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Трудно ли вам длительное время просидеть на стуле ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Боретесь ли вы за свои интересы, если кто-то поступает с вами несправедливо ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Смогли бы вы убить человека ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Сильно ли вам мешает косо висящая гардина или неровно настланная скатерть, настолько, что вам хочется немедленно устранить эти недостатки ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Испытывали ли вы в детстве страх, когда оставались одни в квартире ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Часто ли у вас без причины меняется настроение ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Всегда ли вы старательно относитесь к своей деятельности ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Быстро ли вы можете разгневаться ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Можете ли вы быть бесшабашно веселым ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Можете ли вы иногда целиком проникнуться чувством радости ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Подходите ли вы для проведения увеселительных мероприятий ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Высказываете ли вы обычно людям свое откровенное мнение по тому или иному вопросу ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Влияет ли на вас вид крови ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Охотно ли вы занимаетесь деятельностью, связанной с большой ответственностью ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Склонны ли вы вступиться за человека, с которым поступили несправедливо ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Трудно ли вам входить в темный подвал ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Выполняете ли вы кропотливую черную работу так же медленно и тщательно, как и любимое вами дело ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Являетесь ли вы общительным человеком ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Охотно ли вы декламировали в школе стихи ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Убегали ли вы ребенком из дома ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Тяжело ли вы воспринимаете жизнь ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Бывали ли у вас конфликты и неприятности, которые так изматывали вам нервы, что вы не выходили на работу ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Можно ли сказать, что вы при неудачах не теряете чувство юмора ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Сделаете ли вы первым шаг к примирению, если вас кто-то оскорбит ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Любите ли вы животных ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Уйдете ли вы с работы или из дому, если у вас там что-то не в порядке ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Мучают ли вас неопределенные мысли, что с вами или с вашими родственниками случится какое-нибудь несчастье ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Считаете ли вы, что настроение зависит от погоды ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Затруднит ли вас выступить на сцене перед большим количеством зрителей ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Можете ли вы выйти из себя и дать волю рукам, если вас кто-то умышленно грубо рассердит ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Много ли вы общаетесь ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Если вы будете чем-либо разочарованы, придете ли в отчаяние ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Нравится ли вам работа организаторского характера ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Упорно ли вы стремитесь к своей цели, даже если на пути встречается много препятствий ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Может ли вас так захватить кинофильм, что слезы выступят на глазах ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Трудно ли вам будет заснуть, если вы целый день размышляли над своим будущим или какой-нибудь проблемой ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Приходилось ли вам в школьные годы пользоваться подсказками или списывать у товарищей домашнее задание ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Трудно ли вам пойти ночью на кладбище ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Следите ли вы с большим вниманием, чтобы каждая вещь в доме лежала на своем месте ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Приходилось ли вам лечь спать в хорошем настроении, а проснуться в удрученном и несколько часов оставаться в нем ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Можете ли вы с легкостью приспособиться к новой ситуации ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Есть ли у вас предрасположенность к головной боли ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Часто ли вы смеетесь ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Можете ли вы быть приветливым с людьми, не открывая своего истинного отношения к ним ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Можно ли вас назвать оживленным и бойким человеком ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Сильно ли вы страдаете из-за несправедливости ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Можно ли вас назвать страстным любителем природы ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Есть ли у вас привычка проверять перед сном или перед тем, как уйти, выключен ли газ и свет, закрыта ли дверь ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Пугливы ли вы ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Бывает ли, что вы чувствуете себя на седьмом небе, хотя объективных причин для этого нет ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Охотно ли вы участвовали в юности в кружках художественной самодеятельности, в театральном кружке ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Тянет ли вас иногда смотреть вдаль ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Смотрите ли вы на будущее пессимистически ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Может ли ваше настроение измениться от высочайшей радости до глубокой тоски за короткий период времени ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Легко ли поднимается ваше настроение в дружеской компании ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Переносите ли вы злость длительное время ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Сильно ли вы переживаете, если горе случилось у другого человека ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Была ли у вас в школе привычка переписывать лист в тетради, если вы поставили на него кляксу ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Можно ли сказать, что вы больше недоверчивы и осторожны, нежели доверчивы ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Часто ли вы видите страшные сны ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Возникала ли у вас мысль против воли броситься из окна, под приближающийся поезд ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Становитесь ли вы радостным в веселом окружении ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Легко ли вы можете отвлечься от обременительных вопросов и не думать о них ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Трудно ли вам сдержать себя, если вы разозлитесь ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Предпочитаете ли вы молчать (да), или вы словоохотливы (нет) ?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 1,
+    "isImageQuestion": "false",
+    "text": "Могли бы вы, если пришлось бы участвовать в театральном представлении, с полным проникновением и перевоплощением войти в роль и забыть о себе ?",
+    "type": "YN"
+  }
+]

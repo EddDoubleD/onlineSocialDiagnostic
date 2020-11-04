@@ -1,0 +1,22 @@
+[
+  {
+    "categoryId": 1,
+    "count": 5,
+    "name": "Личность"
+  },
+  {
+    "categoryId": 2,
+    "count": 3,
+    "name": "Состояние"
+  },
+  {
+    "categoryId": 3,
+    "count": 3,
+    "name": "Профориентация"
+  },
+  {
+    "categoryId": 4,
+    "count": 2,
+    "name": "Отношения"
+  }
+]

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="ru.hardwork.onlinesocialdiagnosticapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -13,12 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DiagnosticResult"></activity>
+        <activity android:name=".About"></activity>
         <activity android:name=".DiagnosticRV" />
         <activity android:name=".Done" />
         <activity android:name=".Diagnostic" />
         <activity android:name=".Start" />
         <activity android:name=".Home" />
+        <activity android:name=".Settings" />
+        <activity android:name=".SignInActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,9 +1,7 @@
 package ru.hardwork.onlinesocialdiagnosticapp;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -15,27 +13,30 @@ public class Home extends AppCompatActivity {
      * Bottom navigation menu listener
      */
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    Fragment selectedFragment = null;
+            item -> {
+                Fragment selectedFragment = null;
 
-                    switch (item.getItemId()) {
-                        case R.id.action_category:
-                            selectedFragment = new CategoryFragment();
-                            break;
-                        case R.id.action_account:
-                            selectedFragment = new AccountFragment();
-                            break;
-                    }
-
-                    getSupportFragmentManager()
-                            .beginTransaction()
-                            .replace(R.id.frame_layout, selectedFragment)
-                            .addToBackStack(null)
-                            .commit();
-                    return true;
+                switch (item.getItemId()) {
+                    case R.id.action_category:
+                        selectedFragment = new CategoryFragment();
+                        break;
+                    case R.id.action_result:
+                        selectedFragment = new ResultFragment();
+                        break;
+                    case R.id.action_group:
+                        selectedFragment = new GroupFragment();
+                        break;
+                    case R.id.action_account:
+                        selectedFragment = new AccountFragment();
+                        break;
                 }
+
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frame_layout, selectedFragment)
+                        .addToBackStack(null)
+                        .commit();
+                return true;
             };
 
     @Override
@@ -51,6 +52,4 @@ public class Home extends AppCompatActivity {
                     CategoryFragment.newInstance()).commit();
         }
     }
-
-
 }

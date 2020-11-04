@@ -1,6 +1,7 @@
 package ru.hardwork.onlinesocialdiagnosticapp.application;
 
 import android.app.Application;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;
@@ -8,10 +9,12 @@ import androidx.annotation.RequiresApi;
 import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.common.DataManager;
+import ru.hardwork.onlinesocialdiagnosticapp.common.lite.DiagnosticDbHelper;
 
 public class OnlineSocialDiagnosticApp extends Application {
 
     protected static OnlineSocialDiagnosticApp _instance;
+    private DiagnosticDbHelper helper;
     private DataManager dataManager;
 
     public static OnlineSocialDiagnosticApp getInstance() {
@@ -27,6 +30,13 @@ public class OnlineSocialDiagnosticApp extends Application {
         colorsInit();
     }
 
+    public SQLiteOpenHelper getDbHelper() {
+        if (helper == null) {
+            helper = new DiagnosticDbHelper(getBaseContext());
+        }
+        return helper;
+    }
+
     public DataManager getDataManager() {
         if (dataManager == null) {
             dataManager = new DataManager(getResources());
@@ -35,7 +45,7 @@ public class OnlineSocialDiagnosticApp extends Application {
     }
 
     private void colorsInit() {
-        Common.colors = new int[]{
+        Common.shapes = new int[]{
                 R.drawable.peach_shape,
                 R.drawable.purple_shape,
                 R.drawable.pale_purple__shape,

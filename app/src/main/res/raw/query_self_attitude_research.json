@@ -1,0 +1,662 @@
+[
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мои слова довольно редко расходятся с делами.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Случайному человеку я, скорее всего, покажусь человеком приятным.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "К чужим проблемам я всегда отношусь с тем же пониманием, что и к своим.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "У меня нередко возникает чувство, что то, о чем я с собой мысленно разговариваю, мне неприятно.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Думаю, что все мои знакомые относятся ко мне с симпатией.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Самое разумное, что может сделать человек в своей жизни, это не противиться собственной судьбе.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "У меня достаточно способностей и энергии воплотить в жизнь задуманное.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Если бы я раздвоился, то мне было бы довольно интересно общаться со своим двойником.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я не способен причинять душевную боль самым любимым и родным мне людям.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я считаю, что не грех иногда пожалеть самого себя.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Совершив какой-то промах, я часто не могу понять, как же мне могло прийти в голову, что из задуманного могло получиться что-нибудь хорошее.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Чаще всего я одобряю свои планы и поступки.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "В моей личности есть, наверное, что-то такое, что способно вызвать у других острую неприязнь.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Когда я пытаюсь оценить себя, я прежде всего вижу свои недостатки.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "У меня не получается быть для любимого человека интересным длительное время.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Можно сказать, что я ценю себя достаточно высоко.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мой внутренний голос редко подсказывает мне то, с чем бы я в конце концов не согласился.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Многие мои знакомые не принимают меня так уж всерьез.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Бывало, и не раз, что я сам остро ненавидел себя.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мне очень мешает недостаток энергии, воли и целеустремленности.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "В моей жизни возникали такие обстоятельства, когда я шел на сделку с собственной совестью.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Иногда я сам себя плохо понимаю.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Порой мне бывает мучительно больно общаться с самим собой.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Думаю, что без труда смог бы найти общий язык с любым разумным и знающим человеком.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Если я и отношусь к кому-нибудь с укоризной, то прежде всего к самому себе.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Иногда я сомневаюсь, можно ли любить меня по-настоящему.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Нередко мои споры с самим собой обрываются мыслью, что все равно выйдет не так, как я решил.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мое отношение к самому себе можно назвать дружеским.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Вряд ли найдутся люди, которым я не по душе.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Часто я не без издевки подшучиваю над собой.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Если бы мое второе «Я» существовало, то для меня это был бы довольно скучный партнер по общению.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мне представляется, что я достаточно сложился как личность, и поэтому не трачу много сил на то, чтобы в чем-то стать другим.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "В целом меня устраивает то, какой я есть.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "К сожалению, слишком многие не разделяют моих взглядов на жизнь.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я вполне могу сказать, что уважаю сам себя.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я думаю, что имею умного и надежного советчика в себе самом.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Сам у себя я довольно часто вызываю чувство раздражения.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я часто, но довольно безуспешно пытаюсь в себе что-то изменить.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я думаю, что моя личность гораздо интереснее и богаче, чем это может показаться на первый взгляд.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мои достоинства вполне перевешивают мои недостатки.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я редко остаюсь непонятым в самом важном для меня.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Думаю, что другие в целом оценивают меня достаточно высоко.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "То, что со мной случается,- это дело моих собственных рук.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Если я спорю с собой, то всегда уверен, что найду единственно правильное решение.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Когда со мной случаются неприятности, как правило, я говорю: «И поделом тебе».",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я не считаю, что достаточно духовно интересен для того, чтобы быть притягательным для многих людей.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "У меня нередко возникает сомнения: а таков ли я на самом деле, каким себе представляюсь?",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я не способен на измену даже в мыслях.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Чаще всего я думаю о себе с дружеской иронией.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мне кажется, что мало кто может подумать обо мне плохо.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Уверен, что на меня можно положиться в самых ответственных делах.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я могу сказать, что в целом я контролирую свою судьбу.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я никогда не выдаю понравившиеся мне чужие мысли за свои.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Каким бы я ни казался окружающим, я то знаю, что в глубине души я лучше, чем большинство других.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я хотел бы оставаться таким, какой я есть.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я всегда рад критике в свой адрес, если она обоснована и справедлива.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мне кажется, что если бы таких людей, как я, было больше, то жизнь изменилась бы в лучшую сторону.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мое мнение имеет достаточный вес в глазах окружающих.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Что-то мешает мне понять себя по-настоящему.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Во мне есть немало такого, что вряд ли вызывает симпатию.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "В сложных обстоятельствах я обычно не жду, пока проблемы разрешатся сами собой.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Иногда я пытаюсь выдать себя не за того, кто я есть.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Быть снисходительным к собственным слабостям - вполне естественно.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я убедился, что глубокое проникновение в себя - малоприятное и довольно рискованное занятие.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я никогда не раздражаюсь и не злюсь без особых на то причин.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "У меня бывают такие моменты, когда я понимал, что меня есть за что презирать.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я часто чувствую, что мало влияю на то, что со мной происходит.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Именно богатство и глубина моего внутреннего мира и определяют мою ценность как личности.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Долгие споры с собой чаще всего оставляют горький осадок в моей душе, чем приносят облегчение.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Думаю, что общение со мной доставляет людям искреннее удовольствие.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Если говорить откровенно, иногда я бываю очень неприятен.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Можно сказать, что я себе нравлюсь.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я человек надежный.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Осуществление моих желаний мало зависит от везения.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мое внутреннее «Я» всегда мне интересно.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мне очень просто убедить себя не расстраиваться по пустякам.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Близким людям свойственно меня недооценивать.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "У меня в жизни нередко бывают минуты, когда я сам себе противен.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мне кажется, что я все-таки не умею злиться на себя по-настоящему.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я убедился, что в серьезных делах на меня лучше не рассчитывать.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Порой мне кажется, что я какой-то странный.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я не склонен пасовать перед трудностями.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мое собственное «Я» не представляется мне чем-то достойным глубокого внимания.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мне кажется, что, глубоко обдумывая свои внутренние проблемы, я научился гораздо лучше себя понимать.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Сомневаюсь, что вызываю симпатию у большинства окружающих.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мне случалось совершать такие поступки, которым вряд ли можно найти оправдание.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Где-то в глубине души я считаю себя слабаком.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Если я искренне и обвиняю себя в чем-то, то, как правило, обличительного запала хватает ненадолго.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мой характер, каким бы он ни был, вполне меня устраивает.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я вполне представляю себе, что меня ждет впереди.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Иногда мне бывает трудно найти общий язык со своим внутренним «Я».",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мои мысли о себе по большей части сводятся к обвинениям в собственный адрес.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я не хотел бы сильно меняться даже в лучшую сторону, потому что каждое изменение - это потеря какой-то дорогой частицы самого себя.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "В результате моих действий слишком часто получается совсем не то, на что я рассчитывал.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Вряд ли во мне есть что-то, чего бы я не знал.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мне еще многого не хватает, чтобы с уверенностью сказать себе: «Да, я вполне созрел как личность».",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Во мне вполне мирно уживаются как мои достоинства, так и мои недостатки.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Иногда я оказываю «бескорыстную» помощь людям только для того, чтобы лучше выглядеть в собственных глазах.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мне слишком часто и безуспешно приходится оправдываться перед самим собой.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Те, кто меня не любит, просто не знают, какой я человек.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Убедить себя в чем-то не составляет для меня большого труда.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я не испытываю недостатка в близких и понимающих меня людях.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мне кажется, что мало кто уважает меня по-настоящему.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Если не мелочиться, то в целом меня не в чем упрекнуть.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Я сам создал себя таким, каков я есть.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мнение других обо мне вполне совпадает с моим собственным.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Мне бы очень хотелось во многом себя переделать.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Ко мне относятся так, как я того заслуживаю.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Думаю, что моя судьба сложится все равно не так, как бы мне хотелось теперь.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 4,
+    "isImageQuestion": "false",
+    "text": "Уверен, что в жизни я на своем месте.",
+    "type": "YN"
+  }
+]

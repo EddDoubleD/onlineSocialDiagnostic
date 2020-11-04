@@ -1,9 +1,9 @@
-package ru.hardwork.onlinesocialdiagnosticapp.Model;
+package ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic;
 
 public class Category {
 
     private long categoryId;
-    private String Name; // category name
+    private String name; // category name
     private int count;
 
     public Category() {
@@ -12,7 +12,7 @@ public class Category {
 
     public Category(long categoryId, String name, int count) {
         this.categoryId = categoryId;
-        this.Name = name;
+        this.name = name;
         this.count = count;
     }
 
@@ -25,11 +25,11 @@ public class Category {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public int getCount() {

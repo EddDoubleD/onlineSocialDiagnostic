@@ -5,16 +5,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,37 +22,27 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.common.util.CollectionUtils;
 import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.common.collect.Iterables;
 
-import java.util.ArrayList;
-
-import ru.hardwork.onlinesocialdiagnosticapp.Model.Category;
-import ru.hardwork.onlinesocialdiagnosticapp.Model.DiagnosticTest;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.common.DiagnosticConverter;
+import ru.hardwork.onlinesocialdiagnosticapp.common.UIDataUtils;
 import ru.hardwork.onlinesocialdiagnosticapp.holders.DiagnosticTestViewHolder;
+import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Category;
+import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
 import ru.hardwork.onlinesocialdiagnosticapp.scenery.VerticalSpaceItemDecoration;
+
+import static ru.hardwork.onlinesocialdiagnosticapp.common.Common.categoryList;
 
 /**
  *
  */
 public class CategoryFragment extends Fragment {
-    // views
+    // viewseditor
     View mFragment;
     TextView headerText, description;
-    // Адаптер для загрузки категорий в CategoryViewHolder
-    FirebaseRecyclerAdapter<DiagnosticTest, DiagnosticTestViewHolder> adapter;
-    FirebaseDatabase database;
-    DatabaseReference categories;
-    DatabaseReference diagnosticTests;
-    ArrayList<String> arrayList = new ArrayList<>();
     // diagnosticRecycler's
     private TabLayout tabLayout;
     private RecyclerView mRecyclerView;
@@ -71,10 +60,6 @@ public class CategoryFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //
-        database = FirebaseDatabase.getInstance();
-        categories = database.getReference("Category");
-        diagnosticTests = database.getReference("DiagnosticTest");
     }
 
     @Nullable
@@ -87,6 +72,13 @@ public class CategoryFragment extends Fragment {
         headerText.setTypeface(typeface);
 
         description = mFragment.findViewById(R.id.description);
+        //
+        if (CollectionUtils.isEmpty(Common.diagnosticTests)) {
+            UIDataUtils.init(getResources());
+        }
+
+        description.setText(Common.diagnosticTests.get(0).getDescription());
+
         mRecyclerView = mFragment.findViewById(R.id.diagnosticTestsRecycler);
         //  TabLayout Code end
         final LinearLayoutManager mLayoutManager = new LinearLayoutManager(
@@ -102,7 +94,7 @@ public class CategoryFragment extends Fragment {
 
         tabLayout = mFragment.findViewById(R.id.categoryTab);
         // Загружаем категории
-        loadCategories();
+        loadCat();
         // Код для расстояния между вкладками
         int betweenSpace = 20;
         ViewGroup slidingTabStrip = (ViewGroup) tabLayout.getChildAt(0);
@@ -120,7 +112,7 @@ public class CategoryFragment extends Fragment {
 
                 int testPosition = 0;
                 for (int i = 0; i < position; i++) {
-                    testPosition += Common.categoryList.get(i).getCount();
+                    testPosition += categoryList.get(i).getCount();
                 }
                 if (tabSelected) {
                     mLayoutManager.scrollToPositionWithOffset(testPosition, 0);
@@ -148,7 +140,7 @@ public class CategoryFragment extends Fragment {
                 if (newState == RecyclerView.SCROLL_STATE_DRAGGING) {
                     isUserScrolling = true;
                     if (isListGoingUp) {
-                        if (mLayoutManager.findLastCompletelyVisibleItemPosition() + 1 == arrayList.size()) {
+                        if (mLayoutManager.findLastCompletelyVisibleItemPosition() == -1) {
                             Handler handler = new Handler();
                             handler.postDelayed(() -> {
                             }, 50);
@@ -161,24 +153,13 @@ public class CategoryFragment extends Fragment {
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 int itemPosition = mLayoutManager.findFirstVisibleItemPosition();
-                DiagnosticTest diagnosticTest = Common.diagnosticTests.get(itemPosition);
+
+                final DiagnosticTest diagnosticTest = Common.diagnosticTests.get(itemPosition);
                 if (diagnosticTest != null) {
                     description.setText(diagnosticTest.getDescription());
                 }
-            }
 
-            /* @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                int itemPosition = mLayoutManager.findFirstVisibleItemPosition();
-
-                final DiagnosticTest diagnosticTest = Common.diagnosticTests.get(itemPosition);
-                Category category = Iterables.find(Common.categoryList, new Predicate<Category>() {
-                    @Override
-                    public boolean apply(@Nullable Category cat) {
-                        return cat != null;// && diagnosticTest.getCategoryId() == cat.getId();
-                    }
-                });
+                Category category = Iterables.find(Common.categoryList, cat -> cat != null && (diagnosticTest != null ? diagnosticTest.getCategoryId() : 0) == cat.getCategoryId());
 
                 int currentCatPosition = Common.categoryList.indexOf(category);
                 // Если скроллит пользователь сместим таб
@@ -191,7 +172,7 @@ public class CategoryFragment extends Fragment {
                         tab.select();
                     }
                 }
-            }*/
+            }
         });
 
         return mFragment;
@@ -200,107 +181,76 @@ public class CategoryFragment extends Fragment {
     /**
      * цэ кiт (づ ◕‿◕ )づ
      */
-    private void loadCategories() {
-        categories.orderByChild("name")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot data : snapshot.getChildren()) {
-                            Category category = data.getValue(Category.class);
-                            Common.categoryList.add(category);
-                            tabLayout.addTab(tabLayout.newTab().setText(category.getName()));
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        Log.e(error.getMessage(), error.getDetails());
-                    }
-                });
+    private void loadCat() {
+        for (Category category : categoryList) {
+            tabLayout.addTab(tabLayout.newTab().setText(category.getName()));
+        }
     }
 
     /**
      * load "Categories" from Firebase
      */
     private void loadDiagnosticTests() {
-        // Options for recycler view by Firebase
-        FirebaseRecyclerOptions<DiagnosticTest> options = new FirebaseRecyclerOptions
-                .Builder<DiagnosticTest>()
-                .setQuery(diagnosticTests, DiagnosticTest.class)
-                .build();
-        // Create adapter
-        adapter = new FirebaseRecyclerAdapter<DiagnosticTest, DiagnosticTestViewHolder>(options) {
-            @NonNull
-            @Override
-            public DiagnosticTestViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                LayoutInflater inflater = LayoutInflater.from(getContext());
-                View view = inflater.inflate(R.layout.item_psytest_version_2, parent, false);
-
-                return new DiagnosticTestViewHolder(view);
-            }
-
-            @SuppressLint({"SetTextI18n", "ResourceAsColor", "UseCompatLoadingForDrawables"})
-            @Override
-            protected void onBindViewHolder(@NonNull final DiagnosticTestViewHolder holder, int position, @NonNull final DiagnosticTest model) {
-                final int color = position % 5;
-                Activity activity = getActivity();
-                // Не обрабатываема ситуация
-                if (activity == null) {
-                    return;
-                }
-                // Добавим диагностику в список
-                if (!Common.diagnosticTestsIds.contains(model.getDiagnosticTestId())) {
-                    Common.diagnosticTestsIds.add(model.getDiagnosticTestId());
-                    Common.diagnosticTests.add(model);
-                }
-
-                holder.setId(model.getDiagnosticTestId());
-
-                holder.layout.setBackground(activity.getDrawable(Common.colors[color]));
-                //
-                holder.diagnosticName.setText(model.getName());
-                holder.totalQuestion.setText("0/" + model.getQuestionCount());
-                holder.totalTime.setText("Займет минут: " + model.getTestDuration());
-
-                holder.setItemClickListener((view, position1, isLongClick) -> {
-                    Common.diagnosticId = holder.getId();
-                    diagnosticTests.orderByChild("diagnosticTestId").equalTo(holder.getId())
-                            .addValueEventListener(new ValueEventListener() {
-
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    if (snapshot.exists()) {
-                                        DiagnosticTest diagnostic = converter.apply(snapshot.getValue());
-
-                                        Intent startDiagnostic = new Intent(getActivity(), Start.class);
-                                        Bundle dataSend = new Bundle();
-                                        int catId = (int) diagnostic.getCategoryId() - 1;
-                                        Common.descPosition = Integer.parseInt(diagnostic.getMetricId());
-                                        String catName = Common.categoryList.get(catId).getName();
-                                        dataSend.putString("CAT_NAME", catName);
-                                        dataSend.putString("DIAGNOSTIC_NAME", diagnostic.getName());
-                                        dataSend.putString("DIAGNOSTIC_DESC", diagnostic.getDescription());
-                                        dataSend.putInt("COLOR_NUM", (int) (diagnostic.getDiagnosticTestId() % 5));
-                                        startDiagnostic.putExtras(dataSend);
-
-                                        startActivity(startDiagnostic);
-                                    } else {
-                                        Toast.makeText(getContext(), "Диагностика не найдена", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
-
-                                }
-                            });
-                });
-            }
-
-        };
-        adapter.notifyDataSetChanged();
-        adapter.startListening();
-        mRecyclerView.scheduleLayoutAnimation();
+        DiagnosticTestAdapter adapter = new DiagnosticTestAdapter();
         mRecyclerView.setAdapter(adapter);
+        mRecyclerView.scheduleLayoutAnimation();
+    }
+
+    public class DiagnosticTestAdapter extends RecyclerView.Adapter<DiagnosticTestViewHolder> {
+
+        @NonNull
+        @Override
+        public DiagnosticTestViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            View view = inflater.inflate(R.layout.item_psytest_version_2, parent, false);
+
+            return new DiagnosticTestViewHolder(view);
+        }
+
+        @SuppressLint("ResourceAsColor")
+        @Override
+        public void onBindViewHolder(@NonNull DiagnosticTestViewHolder holder, int position) {
+            final int color = position % 5;
+            Activity activity = getActivity();
+            // Не обрабатываема ситуация
+            if (activity == null) {
+                return;
+            }
+            // Достаем модельку теста
+            DiagnosticTest model = Common.diagnosticTests.get(position);
+            holder.setId(model.getId());
+            // Раскрашиваем форму теста
+            holder.layout.setBackgroundColor(R.color.background);
+            @SuppressLint("UseCompatLoadingForDrawables")
+            Drawable drawable = activity.getDrawable(Common.shapes[color]);
+            holder.layout.setBackground(drawable);
+            //
+            holder.diagnosticName.setText(model.getName());
+            holder.totalQuestion.setText("0/" + model.getQuestionCount());
+            holder.totalTime.setText("Займет минут: " + model.getTestDuration());
+            //
+            holder.setItemClickListener((v, p, longClick) -> {
+                DiagnosticTest diagnostic = Common.diagnosticTests.get(p);
+                Intent startDiagnostic = new Intent(getActivity(), Start.class);
+                Bundle dataSend = new Bundle();
+                int catId = (int) diagnostic.getCategoryId() - 1;
+                Common.descPosition = diagnostic.getMetricId();
+                String catName = categoryList.get(catId).getName();
+                dataSend.putInt("DIAGNOSTIC_ID", diagnostic.getId());
+                dataSend.putString("CAT_NAME", catName);
+                dataSend.putString("DIAGNOSTIC_NAME", diagnostic.getName());
+                dataSend.putString("DIAGNOSTIC_DESC", diagnostic.getFullDescription());
+                dataSend.putInt("COLOR_NUM", diagnostic.getId() % 5);
+                startDiagnostic.putExtras(dataSend);
+
+                startActivity(startDiagnostic);
+            });
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return Common.diagnosticTests.size();
+        }
     }
 }
