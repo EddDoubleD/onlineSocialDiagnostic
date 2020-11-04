@@ -1,0 +1,506 @@
+[
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Организационные недостатки на работе постоянно заставляют нервничать, переживать, напрягаться",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Сегодня я доволен своей профессией не меньше, чем в начале карьеры",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Я ошибся в выборе профессии или профиля деятельности (занимаю не свое место)",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Меня беспокоит то, что я стал хуже работать (менее продуктивно, качественно, медленнее)",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Теплота взаимодействия с партнерами очень зависит от моего настроения – хорошего или плохого",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "От меня как профессионала мало зависит благополучие партнеров",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Когда я прихожу с работы домой, то некоторое время (часа 2-3) мне хочется побыть одному, чтобы со мной никто не общался",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Когда я чувствую усталость или напряжение, то стараюсь поскорее решить проблемы партнера (свернуть взаимодействие)",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Мне кажется, что эмоционально я не могу дать партнерам того, что требует профессиональный долг",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Моя работа притупляет эмоции",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Я откровенно устал от человеческих проблем, с которыми приходится иметь дело на работе",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Бывает, что я плохо засыпаю (сплю) из-за переживаний, связанных с работой",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Взаимодействие с партнерами требует от меня большого напряжения",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Работа с людьми приносит все меньше удовлетворения",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Я бы сменил место работы, если бы представилась возможность",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Меня часто расстраивает то, что я не могу должным образом оказать партнеру профессиональную поддержку, услугу, помощь",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Мне всегда удается предотвратить влияние плохого настроения на деловые контакты",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Меня очень огорчает, если что-то не ладится в отношениях с деловым партнером",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Я настолько устаю на работе, что дома стараюсь общаться как можно меньше",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Из-за нехватки времени, усталости или напряжения часто уделяю внимания партнеру меньше, чем положено",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Иногда самые обычные ситуации общения на работе вызывают раздражение",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Я спокойно воспринимаю обоснованные претензии партнеров",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Общение с партнерами побудило меня сторониться людей",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "При воспоминании о некоторых коллегах по работе или партнерах у меня портится настроение",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Конфликты или разногласия с коллегами отнимают много сил и эмоций",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Мне все труднее устанавливать или поддерживать контакты с деловыми партнерами",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Обстановка на работе мне кажется очень трудной, сложной",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "У меня часто возникают тревожные ожидания, связанные с работой: что-то должно случиться, как бы не допустить ошибки, смогу ли сделать все, как надо, не сократят ли и т.п.",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Если партнер мне неприятен, я стараюсь ограничить время общения с ним или меньше уделять ему внимания",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "В общении на работе я придерживаюсь принципа «не делай людям добра, не получишь зла»",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Я охотно рассказываю домашним о своей работе",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Бывают дни. когда мое эмоциональное состояние плохо сказывается на результатах работы (меньше делаю, снижается качество, случаются конфликты)",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Порой я чувствую, что надо проявить к партнеру эмоциональную отзывчивость, но не могу",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Я очень переживаю за свою работу",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Партнерам по работе отдаешь внимания и заботы больше, чем получаешь от них признательности",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "При мысли о работе мне обычно становится не по себе: начинает колоть в области сердца, повышается давление, появляется головная боль",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "У меня хорошие ( вполне удовлетворительные) отношения с непосредственным руководителем",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Я часто радуюсь, что моя работа приносит пользу людям",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Последнее время (или как всегда) меня преследуют неудачи в работе",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Некоторые стороны (факты) моей работы вызывают глубокое разочарование, повергают в уныние",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Бывают дни, когда отношения с партнерами складываются хуже, чем обычно",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Я разделяю деловых партнеров (субъектов деятельности) хуже, чем обычно",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Усталость от работы приводит к тому, что я стараюсь сократить общение с друзьями и знакомыми",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Я обычно проявляю интерес к личности партнера помимо того, что касается дела",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Обычно я прихожу на работу отдохнувшим, со свежими силами, в хорошем настроении",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Я иногда ловлю себя на том, что работаю с партнером автоматически, без души",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "По работе встречаются настолько неприятные люди, что невольно желаешь им чего-нибудь плохого",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "После общения с неприятными партнерами у меня бывает ухудшение физического или психического самочувствия",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "На работе я испытываю постоянные физические или психологические перегрузки",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Успехи на работе вдохновляют меня",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Ситуация на работе, в которой я оказался, кажется безысходной (почти безысходной)",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Я потерял покой из-за работы",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "На протяжении последнего года была жалоба (были жалобы) в мой адрес со стороны партнеров",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Мне удается беречь нервы благодаря тому, что многое из происходящего с партнерами я не принимаю близко к сердцу",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Я часто с работы приношу домой отрицательные эмоции",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Я часто работаю через силу",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Прежде я был более отзывчивым и внимательным к партнерам, чем теперь",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "В работе с людьми руководствуюсь принципом: не трать нервы, береги здоровье",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Иногда иду на работу с тяжелым чувством: как все надоело, никого бы не видеть и не слышать",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "После напряженного рабочего дня я чувствую недомогание",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Контингент партнеров, с которыми я работаю, очень трудный",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Иногда мне кажется, что результаты моей работы не стоят тех усилий, которые я затрачиваю",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Если бы мне повезло с работой, я был бы более счастлив",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Я в отчаянии от того, что на работе у меня серьезные проблемы",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Иногда я поступаю со своими партнерами так, как не хотел бы, чтобы поступали со мной",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Я осуждаю партнеров, которые рассчитывают на особое снисхождение, внимание",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Чаще всего после рабочего дня у меня нет сил заниматься домашними делами",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Обычно я тороплю время: скорей бы рабочий день закончился",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Состояния, просьбы, потребности партнеров обычно меня искренне волнуют",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Работая с людьми, я обычно как бы ставлю экран, защищающий от чужих страданий и отрицательных эмоций",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Работа с людьми (партнерами) очень разочаровала меня",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Чтобы восстановить силы, я часто принимаю лекарства",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Как правило, мой рабочий день проходит спокойно и легко",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Мои требования к выполняемой работе выше, чем то, чего я достигаю в силу обстоятельств",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Моя карьера сложилась удачно",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Я очень нервничаю из-за всего, что связано с работой",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Некоторых из моих постоянных партнеров я не хотел бы видеть и слышать",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Я одобряю коллег, которые полностью посвящают себя людям (партнерам), забывая о собственных интересах",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Моя усталость на работе обычно мало сказывается (никак не сказывается) в общении с домашними и друзьями",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Если предоставляется случай, то я уделяю партнеру меньше внимания, но так, чтобы он этого не заметил",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Меня часто подводят нервы в общении с людьми на работе",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Ко всему (почти ко всему), что происходит на работе, я утратил интерес, живое чувство",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Работа с людьми плохо повлияла на меня как профессионала – обозлила, сделала нервным, притупила эмоции",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 6,
+    "isImageQuestion": "false",
+    "text": "Работа с людьми явно подрывает мое здоровье ",
+    "type": "YN"
+  }
+]

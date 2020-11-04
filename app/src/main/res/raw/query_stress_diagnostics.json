@@ -1,0 +1,56 @@
+[
+  {
+    "diagnosticId": 7,
+    "isImageQuestion": "false",
+    "text": "Я всегда стремлюсь делать работу до конца, но часто не успеваю и вынужден наверстывать упущенное",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 7,
+    "isImageQuestion": "false",
+    "text": "Когда я смотрю на себя в зеркало, я замечаю следы усталости и переутомления на своем лице",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 7,
+    "isImageQuestion": "false",
+    "text": "На работе и дома сплошные неприятности",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 7,
+    "isImageQuestion": "false",
+    "text": "Я упорно борюсь со своими вредными привычками, но у меня не получается",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 7,
+    "isImageQuestion": "false",
+    "text": "Меня беспокоит будущее",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 7,
+    "isImageQuestion": "false",
+    "text": "Мне часто необходимы алкоголь, сигарета или снотворное, чтобы расслабиться после напряженного дня",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 7,
+    "isImageQuestion": "false",
+    "text": "Вокруг происходят такие перемены, что голова идет кругом. Хорошо бы, если бы все не так стремительно менялось",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 7,
+    "isImageQuestion": "false",
+    "text": "Я люблю семью и друзей, но часто вместе с ними я чувствую скуку и пустоту",
+    "type": "YN"
+  },
+  {
+    "diagnosticId": 7,
+    "isImageQuestion": "false",
+    "text": "В жизни я ничего не достиг и часто испытываю разочарование в самом себе",
+    "type": "YN"
+  }
+]

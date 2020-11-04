@@ -1,7 +1,6 @@
 package ru.hardwork.onlinesocialdiagnosticapp;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -25,7 +24,6 @@ import ru.hardwork.onlinesocialdiagnosticapp.application.OnlineSocialDiagnosticA
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.holders.UserResultViewHolder;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
-import ru.hardwork.onlinesocialdiagnosticapp.model.user.User;
 import ru.hardwork.onlinesocialdiagnosticapp.model.user.UserResult;
 import ru.hardwork.onlinesocialdiagnosticapp.scenery.VerticalSpaceItemDecoration;
 
@@ -82,8 +80,8 @@ public class ResultFragment extends Fragment {
         String selection = EMAIL + " = ?";
         String[] selectionArgs = {Common.currentUser.getLogIn()};
 
-        Cursor cursor = db.query(RESULT_TABLE, projection, selection, selectionArgs, null,null, DIAGNOSTIC_ID);
-        while(cursor.moveToNext()) {
+        Cursor cursor = db.query(RESULT_TABLE, projection, selection, selectionArgs, null, null, DIAGNOSTIC_ID);
+        while (cursor.moveToNext()) {
             UserResult result = new UserResult();
             result.setUser(cursor.getString(0));
             result.setDiagnosticId(cursor.getInt(1));
@@ -109,7 +107,8 @@ public class ResultFragment extends Fragment {
                     if (isListGoingUp) {
                         if (mLayoutManager.findLastCompletelyVisibleItemPosition() + 1 == 0) {
                             Handler handler = new Handler();
-                            handler.postDelayed(() -> {}, 50);
+                            handler.postDelayed(() -> {
+                            }, 50);
                         }
                     }
                 }

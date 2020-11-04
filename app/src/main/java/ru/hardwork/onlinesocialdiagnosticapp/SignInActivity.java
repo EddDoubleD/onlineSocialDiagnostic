@@ -136,6 +136,7 @@ public class SignInActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Common.firebaseUser = mAuth.getCurrentUser();
                             editor.putString("USER_NAME", Common.firebaseUser.getDisplayName());
+                            Common.currentUser.setLogIn(Common.firebaseUser.getDisplayName());
                             editor.commit();
                             editor.clear();
 
