@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:orientation="vertical"
-        android:weightSum="2"
+        android:weightSum="5"
         tools:ignore="MissingConstraints">
 
         <ImageView
@@ -22,20 +22,24 @@
             android:layout_height="0dp"
             android:layout_gravity="center|top"
             android:layout_margin="30dp"
-            android:layout_weight="1"
+            android:layout_weight="4"
             android:visibility="visible"
-            tools:srcCompat="@drawable/ic_logo_main"
+
             tools:ignore="ContentDescription" />
 
-        <net.bohush.geometricprogressview.GeometricProgressView
+        <!--tools:srcCompat="@drawable/ic_logo_main"-->
+
+       <!-- <net.bohush.geometricprogressview.GeometricProgressView
             android:id="@+id/progressView"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_gravity="center|bottom"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            app:gp_color="@color/peach"
             app:gp_duration="800"
             app:gp_figure_padding="3dp"
             app:gp_number_of_angles="7"
-            app:gp_type="triangle" />
+            app:gp_type="triangle" />-->
 
 
     </LinearLayout>
