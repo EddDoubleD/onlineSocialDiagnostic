@@ -10,37 +10,22 @@
     <LinearLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_height="0dp"
+
+        android:gravity="center"
         android:orientation="vertical"
         android:weightSum="5"
         tools:ignore="MissingConstraints">
 
         <ImageView
             android:id="@+id/logoMain"
-            android:layout_width="wrap_content"
+            android:layout_width="299dp"
             android:layout_height="0dp"
             android:layout_gravity="center|top"
-            android:layout_margin="30dp"
             android:layout_weight="4"
             android:visibility="visible"
-
-            tools:ignore="ContentDescription" />
-
-        <!--tools:srcCompat="@drawable/ic_logo_main"-->
-
-       <!-- <net.bohush.geometricprogressview.GeometricProgressView
-            android:id="@+id/progressView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:layout_gravity="center"
-            app:gp_color="@color/peach"
-            app:gp_duration="800"
-            app:gp_figure_padding="3dp"
-            app:gp_number_of_angles="7"
-            app:gp_type="triangle" />-->
-
+            tools:ignore="ContentDescription"
+            tools:srcCompat="@drawable/ic_logo_main_299_88" />
 
     </LinearLayout>
 

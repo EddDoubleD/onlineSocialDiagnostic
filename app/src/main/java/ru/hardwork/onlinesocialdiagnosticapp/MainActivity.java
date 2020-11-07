@@ -18,8 +18,6 @@ import ru.hardwork.onlinesocialdiagnosticapp.common.UIDataRouter;
 import ru.hardwork.onlinesocialdiagnosticapp.model.user.User;
 
 public class MainActivity extends AppCompatActivity {
-
-    ImageView logo;
     GeometricProgressView progressView;
 
     @Override
@@ -30,14 +28,13 @@ public class MainActivity extends AppCompatActivity {
        // progressView = findViewById(R.id.progressView);
         //progressView.setColor(R.color.peach);
 
-        //logo = findViewById(R.id.logoMain);
-        //@SuppressLint("UseCompatLoadingForDrawables")
-        //Drawable ic_logo_main = getDrawable(R.drawable.ic_logo_main);
-        //logo.setImageDrawable(ic_logo_main);
-        //gifImageView = findViewById(R.id.gifLogo);
+        ImageView logo = findViewById(R.id.logoMain);
+        @SuppressLint("UseCompatLoadingForDrawables")
+        Drawable ic_logo_main = getDrawable(R.drawable.ic_logo_main);
+        logo.setImageDrawable(ic_logo_main);
 
         final Intent homeActivity = new Intent(MainActivity.this, Home.class);
-        Thread timer = new Thread() {
+        new Thread() {
             @Override
             public void run() {
                 super.run();
@@ -56,9 +53,7 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                 }
             }
-        };
-
-        timer.start();
+        }.start();
     }
 
 }
