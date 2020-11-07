@@ -12,7 +12,6 @@ import ru.hardwork.onlinesocialdiagnosticapp.model.user.User;
 
 public class Common {
 
-    public static int descPosition;
     public static User currentUser;
     // Пользователь из firebase
     public static FirebaseUser firebaseUser;

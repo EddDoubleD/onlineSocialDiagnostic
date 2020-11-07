@@ -33,6 +33,7 @@ import ru.hardwork.onlinesocialdiagnosticapp.factory.DecryptionViewModelFactory;
 import ru.hardwork.onlinesocialdiagnosticapp.factory.DescriptionViewModel;
 import ru.hardwork.onlinesocialdiagnosticapp.holders.DescriptionViewHolder;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Decryption;
+import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
 
 import static java.lang.String.format;
 import static ru.hardwork.onlinesocialdiagnosticapp.common.lite.DiagnosticContract.DiagnosticEntry.RESULT_TABLE;
@@ -41,25 +42,23 @@ public class Done extends AppCompatActivity {
 
     private static final String BASE_FORMAT = "yyyy.MM.dd HH:mm";
     private static final String RESULT = "RESULT";
-
     private static final String HTML = "<p><a href=\"%s\">Расшифровка теста</a></p>";
+
     @SuppressLint("SimpleDateFormat")
     private static final SimpleDateFormat FORMAT = new SimpleDateFormat(BASE_FORMAT);
-    Decryption decryption;
-    private int diagnosticId;
+
+    private Decryption decryption;
     private Button btnTryAgain;
     private TextView resultText;
     private RecyclerView mRecyclerView;
 
-    @SuppressLint("DefaultLocale")
+    @SuppressLint({"DefaultLocale", "ResourceAsColor"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_done);
 
         OnlineSocialDiagnosticApp application = OnlineSocialDiagnosticApp.getInstance();
-        decryption = application.getDataManager().getDecryption().get(Common.descPosition);
-
         resultText = findViewById(R.id.result);
         mRecyclerView = findViewById(R.id.descriptionRecycler);
         // magic
@@ -75,20 +74,22 @@ public class Done extends AppCompatActivity {
         // Получение реузультатов тестирования
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
+            DiagnosticTest diagnostic = (DiagnosticTest) extras.getSerializable("DIAGNOSTIC");
+            decryption = application.getDataManager().getDecryption().get(diagnostic.getMetricId());
             ArrayList<Integer> result = extras.getIntegerArrayList(RESULT);
-            diagnosticId = extras.getInt("DIAGNOSTIC_ID");
             // Дата прохождения тестирования
             Date date = new Date();
             // SQLite
             SQLiteDatabase db = application.getDbHelper().getWritableDatabase();
             ContentValues userResult = new ContentValues();
             userResult.put(DiagnosticContract.DiagnosticEntry.EMAIL, Common.currentUser.getLogIn());
-            userResult.put(DiagnosticContract.DiagnosticEntry.DIAGNOSTIC_ID, diagnosticId);
+            userResult.put(DiagnosticContract.DiagnosticEntry.DIAGNOSTIC_ID, diagnostic.getId());
             userResult.put(DiagnosticContract.DiagnosticEntry.RESULT, StringUtils.join(result));
             userResult.put(DiagnosticContract.DiagnosticEntry.DATE_PASSED, FORMAT.format(date));
             db.insert(RESULT_TABLE, null, userResult);
             // Ссылка на расшифровку
             resultText.setText(Html.fromHtml(format(HTML, decryption.getUrl())));
+            resultText.setTextColor(R.color.plaintText);
             resultText.setLinksClickable(true);
             resultText.setMovementMethod(LinkMovementMethod.getInstance());
             DecryptionViewModelFactory factory = new DecryptionViewModelFactory(result, decryption);

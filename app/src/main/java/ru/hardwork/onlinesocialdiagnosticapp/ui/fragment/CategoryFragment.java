@@ -246,15 +246,10 @@ public class CategoryFragment extends Fragment {
                 Intent startDiagnostic = new Intent(getActivity(), Start.class);
                 Bundle dataSend = new Bundle();
                 int catId = (int) diagnostic.getCategoryId() - 1;
-                Common.descPosition = diagnostic.getMetricId();
                 String catName = categoryList.get(catId).getName();
-                dataSend.putInt("DIAGNOSTIC_ID", diagnostic.getId());
+                dataSend.putSerializable("DIAGNOSTIC", diagnostic);
                 dataSend.putString("CAT_NAME", catName);
-                dataSend.putString("DIAGNOSTIC_NAME", diagnostic.getName());
-                dataSend.putString("DIAGNOSTIC_DESC", diagnostic.getFullDescription());
-                dataSend.putInt("COLOR_NUM", diagnostic.getId() % 5);
                 startDiagnostic.putExtras(dataSend);
-
                 startActivity(startDiagnostic);
             });
 

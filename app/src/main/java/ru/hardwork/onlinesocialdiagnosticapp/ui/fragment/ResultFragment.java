@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -12,13 +13,19 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.common.base.Function;
+
+import org.checkerframework.checker.nullness.qual.Nullable;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import ru.hardwork.onlinesocialdiagnosticapp.R;
@@ -45,18 +52,12 @@ public class ResultFragment extends Fragment {
     View resultFragment;
     private RecyclerView mRecyclerView;
     private boolean isListGoingUp = true;
+
+    private HashMap<Integer, DiagnosticTest> localCache = new HashMap<>();
     private List<UserResult> userResults = new ArrayList<>();
 
     public ResultFragment() {
 
-    }
-
-    public static ResultFragment newInstance() {
-        ResultFragment fragment = new ResultFragment();
-        Bundle args = new Bundle();
-
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
@@ -64,6 +65,7 @@ public class ResultFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         resultFragment = inflater.inflate(R.layout.fragment_result, container, false);
@@ -82,18 +84,7 @@ public class ResultFragment extends Fragment {
         String[] selectionArgs = {Common.currentUser.getLogIn()};
 
         Cursor cursor = db.query(RESULT_TABLE, projection, selection, selectionArgs, null, null, DIAGNOSTIC_ID);
-        while (cursor.moveToNext()) {
-            UserResult result = new UserResult();
-            result.setUser(cursor.getString(0));
-            result.setDiagnosticId(cursor.getInt(1));
-            result.setResult(cursor.getString(2));
-            try {
-                result.setDate(DATA_FORMAT.parse(cursor.getString(3)));
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            userResults.add(result);
-        }
+        userResults.addAll(f.apply(cursor));
         mRecyclerView = resultFragment.findViewById(R.id.userResultRecycler);
         final LinearLayoutManager mLayoutManager = new LinearLayoutManager(
                 getContext(),
@@ -136,15 +127,11 @@ public class ResultFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull UserResultViewHolder holder, int position) {
             UserResult model = userResults.get(position);
-            long diagnosticId = model.getDiagnosticId();
-            final int testPosition = (int) diagnosticId - 1;
-            int size = Common.diagnosticTests.size();
-            if (size < testPosition) {
-                // reload
+            final DiagnosticTest diagnostic = loadDiagnosticById(model.getDiagnosticId());
+            if (diagnostic == null) {
                 return;
             }
-            // Загружаем диагностику
-            DiagnosticTest diagnostic = Common.diagnosticTests.get(testPosition);
+
             final int color = diagnostic.getId() % 5;
             @SuppressLint("UseCompatLoadingForDrawables")
             Drawable shape = getActivity().getDrawable(Common.shapes[color]);
@@ -153,7 +140,7 @@ public class ResultFragment extends Fragment {
             holder.diagnosticDate.setText(DATA_FORMAT.format(model.getDate()));
 
             holder.userCardView.setOnClickListener(view -> {
-                @SuppressLint("DefaultLocale") String msg = format("%d clicked", testPosition);
+                @SuppressLint("DefaultLocale") String msg = format("%d clicked", diagnostic.getId());
                 Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
             });
         }
@@ -163,4 +150,46 @@ public class ResultFragment extends Fragment {
             return userResults.size();
         }
     }
+
+    private DiagnosticTest loadDiagnosticById(int id) {
+        if (localCache.containsKey(id)) {
+            return localCache.get(id);
+        }
+
+        for (DiagnosticTest diagnostic : Common.diagnosticTests) {
+            if (diagnostic.getId() == id) {
+                localCache.put(id, diagnostic);
+                return diagnostic;
+            }
+        }
+
+        return null;
+    }
+
+    private static final ConvertResultFunction f = new ConvertResultFunction();
+
+    private static class ConvertResultFunction implements Function<Cursor, List<UserResult>> {
+
+        @Nullable
+        @Override
+        public List<UserResult> apply(@Nullable Cursor cursor) {
+            List<UserResult> results = new ArrayList<>();
+            while (cursor != null && cursor.moveToNext()) {
+                UserResult result = new UserResult();
+                result.setUser(cursor.getString(0));
+                result.setDiagnosticId(cursor.getInt(1));
+                result.setResult(cursor.getString(2));
+                try {
+                    result.setDate(DATA_FORMAT.parse(cursor.getString(3)));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                } finally {
+                    results.add(result);
+                }
+            }
+
+            return results;
+        }
+    }
+
 }

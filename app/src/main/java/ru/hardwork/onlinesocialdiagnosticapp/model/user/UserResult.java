@@ -40,7 +40,7 @@ public class UserResult {
         this.user = user;
     }
 
-    public long getDiagnosticId() {
+    public int getDiagnosticId() {
         return diagnosticId;
     }
 
