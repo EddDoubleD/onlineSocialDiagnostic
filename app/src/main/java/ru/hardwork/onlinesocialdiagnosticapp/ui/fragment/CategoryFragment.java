@@ -28,7 +28,6 @@ import com.google.common.collect.Iterables;
 
 import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
-import ru.hardwork.onlinesocialdiagnosticapp.common.DiagnosticConverter;
 import ru.hardwork.onlinesocialdiagnosticapp.common.UIDataUtils;
 import ru.hardwork.onlinesocialdiagnosticapp.holders.DiagnosticTestViewHolder;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Category;
@@ -52,8 +51,6 @@ public class CategoryFragment extends Fragment {
     private boolean isUserScrolling = false;
     private boolean isListGoingUp = true;
     private boolean tabSelected = true;
-
-    private DiagnosticConverter converter = new DiagnosticConverter();
 
     public static CategoryFragment newInstance() {
         CategoryFragment categoryFragment = new CategoryFragment();

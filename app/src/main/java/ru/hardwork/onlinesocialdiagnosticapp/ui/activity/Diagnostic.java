@@ -85,6 +85,7 @@ public class Diagnostic extends AppCompatActivity implements View.OnClickListene
             Bundle dataSend = new Bundle();
             dataSend.putIntegerArrayList(RESULT, result);
             dataSend.putSerializable("DIAGNOSTIC", diagnostic);
+            dataSend.putBoolean("FROM_DIAGNOSTIC", true);
             done.putExtras(dataSend);
             startActivity(done);
             finish();

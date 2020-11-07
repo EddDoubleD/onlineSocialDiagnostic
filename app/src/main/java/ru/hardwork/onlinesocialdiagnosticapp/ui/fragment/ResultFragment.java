@@ -1,6 +1,7 @@
 package ru.hardwork.onlinesocialdiagnosticapp.ui.fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
@@ -10,7 +11,6 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -19,12 +19,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.common.base.Function;
+import com.google.common.base.Splitter;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -35,8 +37,8 @@ import ru.hardwork.onlinesocialdiagnosticapp.holders.UserResultViewHolder;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
 import ru.hardwork.onlinesocialdiagnosticapp.model.user.UserResult;
 import ru.hardwork.onlinesocialdiagnosticapp.scenery.VerticalSpaceItemDecoration;
+import ru.hardwork.onlinesocialdiagnosticapp.ui.activity.Done;
 
-import static java.lang.String.format;
 import static ru.hardwork.onlinesocialdiagnosticapp.common.lite.DiagnosticContract.DiagnosticEntry.DATE_PASSED;
 import static ru.hardwork.onlinesocialdiagnosticapp.common.lite.DiagnosticContract.DiagnosticEntry.DIAGNOSTIC_ID;
 import static ru.hardwork.onlinesocialdiagnosticapp.common.lite.DiagnosticContract.DiagnosticEntry.EMAIL;
@@ -55,6 +57,12 @@ public class ResultFragment extends Fragment {
 
     private HashMap<Integer, DiagnosticTest> localCache = new HashMap<>();
     private List<UserResult> userResults = new ArrayList<>();
+
+    public static ResultFragment newInstance() {
+        ResultFragment resultFragment = new ResultFragment();
+        return resultFragment;
+    }
+
 
     public ResultFragment() {
 
@@ -84,7 +92,12 @@ public class ResultFragment extends Fragment {
         String[] selectionArgs = {Common.currentUser.getLogIn()};
 
         Cursor cursor = db.query(RESULT_TABLE, projection, selection, selectionArgs, null, null, DIAGNOSTIC_ID);
-        userResults.addAll(f.apply(cursor));
+        List<UserResult> results = f.apply(cursor);
+        Collections.sort(results, (left, right) -> {
+            long d = left.getDate().getTime() - right.getDate().getTime();
+            return d == 0 ? 0 : d > 0 ? -1 : 1;
+        });
+        userResults.addAll(results);
         mRecyclerView = resultFragment.findViewById(R.id.userResultRecycler);
         final LinearLayoutManager mLayoutManager = new LinearLayoutManager(
                 getContext(),
@@ -140,8 +153,12 @@ public class ResultFragment extends Fragment {
             holder.diagnosticDate.setText(DATA_FORMAT.format(model.getDate()));
 
             holder.userCardView.setOnClickListener(view -> {
-                @SuppressLint("DefaultLocale") String msg = format("%d clicked", diagnostic.getId());
-                Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
+                Intent done = new Intent(getContext(), Done.class);
+                Bundle dataSend = new Bundle();
+                dataSend.putIntegerArrayList("RESULT", convertStr2IntFunc.apply(model.getResult()));
+                dataSend.putSerializable("DIAGNOSTIC", diagnostic);
+                done.putExtras(dataSend);
+                startActivity(done);
             });
         }
 
@@ -175,10 +192,13 @@ public class ResultFragment extends Fragment {
         public List<UserResult> apply(@Nullable Cursor cursor) {
             List<UserResult> results = new ArrayList<>();
             while (cursor != null && cursor.moveToNext()) {
+                if (cursor.getInt(1) == 0) {
+                    continue; // crutch
+                }
                 UserResult result = new UserResult();
                 result.setUser(cursor.getString(0));
                 result.setDiagnosticId(cursor.getInt(1));
-                result.setResult(cursor.getString(2));
+                result.setResult(cursor.getString(2).replace("[", "").replace("]", ""));
                 try {
                     result.setDate(DATA_FORMAT.parse(cursor.getString(3)));
                 } catch (ParseException e) {
@@ -189,6 +209,26 @@ public class ResultFragment extends Fragment {
             }
 
             return results;
+        }
+    }
+
+
+    private static ConvertString2IntArr convertStr2IntFunc = new ConvertString2IntArr();
+
+    private static class ConvertString2IntArr implements Function<String, ArrayList<Integer>> {
+
+        @Nullable
+        @Override
+        public ArrayList<Integer> apply(@Nullable String input) {
+            ArrayList<Integer> result = new ArrayList<>();
+            if (input == null) {
+                return result;
+            }
+
+            for (String s : Splitter.on(",").trimResults().splitToList(input)) {
+                result.add(Integer.parseInt(s));
+            }
+            return result;
         }
     }
 

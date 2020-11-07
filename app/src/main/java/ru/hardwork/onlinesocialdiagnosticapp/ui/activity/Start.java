@@ -7,9 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
@@ -21,7 +19,6 @@ import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Question;
 public class Start extends AppCompatActivity {
 
     private DiagnosticTest diagnostic;
-    public List<Question> questions = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

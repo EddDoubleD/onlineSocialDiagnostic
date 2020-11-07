@@ -52,13 +52,22 @@ public class Done extends AppCompatActivity {
     private TextView resultText;
     private RecyclerView mRecyclerView;
 
+    private boolean fromDiagnostic;
+
     @SuppressLint({"DefaultLocale", "ResourceAsColor"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Устанавливаем контент
         setContentView(R.layout.activity_done);
-
+        // Получаем ссылку на экземляр контекста приложения
         OnlineSocialDiagnosticApp application = OnlineSocialDiagnosticApp.getInstance();
+        // Получение реузультатов тестирования
+        Bundle extras = getIntent().getExtras();
+        if (extras == null) {
+            return;
+        }
+
         resultText = findViewById(R.id.result);
         mRecyclerView = findViewById(R.id.descriptionRecycler);
         // magic
@@ -68,16 +77,18 @@ public class Done extends AppCompatActivity {
         btnTryAgain = findViewById(R.id.btnTryAgain);
         btnTryAgain.setOnClickListener(view -> {
             Intent intent = new Intent(Done.this, Home.class);
+            Bundle dataSend = new Bundle();
+            dataSend.putInt("MENU_POSITION", 1);
             startActivity(intent);
             finish();
         });
-        // Получение реузультатов тестирования
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            DiagnosticTest diagnostic = (DiagnosticTest) extras.getSerializable("DIAGNOSTIC");
-            decryption = application.getDataManager().getDecryption().get(diagnostic.getMetricId());
-            ArrayList<Integer> result = extras.getIntegerArrayList(RESULT);
-            // Дата прохождения тестирования
+
+        DiagnosticTest diagnostic = (DiagnosticTest) extras.getSerializable("DIAGNOSTIC");
+        ArrayList<Integer> result = extras.getIntegerArrayList(RESULT);
+        decryption = application.getDataManager().getDecryption().get(diagnostic.getMetricId());
+
+        fromDiagnostic = extras.getBoolean("FROM_DIAGNOSTIC", false);
+        if (fromDiagnostic) {
             Date date = new Date();
             // SQLite
             SQLiteDatabase db = application.getDbHelper().getWritableDatabase();
@@ -87,16 +98,17 @@ public class Done extends AppCompatActivity {
             userResult.put(DiagnosticContract.DiagnosticEntry.RESULT, StringUtils.join(result));
             userResult.put(DiagnosticContract.DiagnosticEntry.DATE_PASSED, FORMAT.format(date));
             db.insert(RESULT_TABLE, null, userResult);
-            // Ссылка на расшифровку
-            resultText.setText(Html.fromHtml(format(HTML, decryption.getUrl())));
-            resultText.setTextColor(R.color.plaintText);
-            resultText.setLinksClickable(true);
-            resultText.setMovementMethod(LinkMovementMethod.getInstance());
-            DecryptionViewModelFactory factory = new DecryptionViewModelFactory(result, decryption);
-            List<DescriptionViewModel> desc = factory.build();
-            DecryptionAdapter adapter = new DecryptionAdapter(desc);
-            mRecyclerView.setAdapter(adapter);
         }
+        // Ссылка на расшифровку
+        resultText.setText(Html.fromHtml(format(HTML, decryption.getUrl())));
+        resultText.setTextColor(R.color.plaintText);
+        resultText.setLinksClickable(true);
+        resultText.setMovementMethod(LinkMovementMethod.getInstance());
+        //
+        DecryptionViewModelFactory factory = new DecryptionViewModelFactory(result, decryption);
+        List<DescriptionViewModel> desc = factory.build();
+        DecryptionAdapter adapter = new DecryptionAdapter(desc);
+        mRecyclerView.setAdapter(adapter);
     }
 
     static class DecryptionAdapter extends RecyclerView.Adapter<DescriptionViewHolder> {
