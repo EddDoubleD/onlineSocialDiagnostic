@@ -1,4 +1,4 @@
-package ru.hardwork.onlinesocialdiagnosticapp;
+package ru.hardwork.onlinesocialdiagnosticapp.ui.activity;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,6 +16,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.holders.QuestionViewHolder;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Question;
 import ru.hardwork.onlinesocialdiagnosticapp.scenery.VerticalSpaceItemDecoration;

@@ -1,4 +1,4 @@
-package ru.hardwork.onlinesocialdiagnosticapp;
+package ru.hardwork.onlinesocialdiagnosticapp.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.common.UIDataRouter;
 import ru.hardwork.onlinesocialdiagnosticapp.model.user.User;

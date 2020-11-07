@@ -1,4 +1,4 @@
-package ru.hardwork.onlinesocialdiagnosticapp;
+package ru.hardwork.onlinesocialdiagnosticapp.ui.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -13,11 +13,11 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 
+import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
+import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Question;
 
 import static java.lang.String.format;
@@ -27,12 +27,14 @@ public class Diagnostic extends AppCompatActivity implements View.OnClickListene
     private static final String YES = "да";
     private static final String RESULT = "RESULT";
     private static final String QUESTION_NUM_MASK = "%d/%d";
+
     int index = 0, totalQuestion;
-    ProgressBar progressBar;
-    ImageView questionImage;
-    Button btnYes, btnNo;
-    TextView txtQuestionNum, questionText;
-    private int diagnosticId;
+
+    private ProgressBar progressBar;
+    private ImageView questionImage;
+    private TextView txtQuestionNum, questionText;
+
+    private DiagnosticTest diagnostic;
     private ArrayList<Integer> result;
 
     @Override
@@ -46,14 +48,14 @@ public class Diagnostic extends AppCompatActivity implements View.OnClickListene
 
         progressBar = findViewById(R.id.progressBar);
 
-        btnYes = findViewById(R.id.btnYes);
+        Button btnYes = findViewById(R.id.btnYes);
         btnYes.setOnClickListener(this);
 
-        btnNo = findViewById(R.id.btnNo);
+        Button btnNo = findViewById(R.id.btnNo);
         btnNo.setOnClickListener(this);
 
         Bundle extras = getIntent().getExtras();
-        diagnosticId = extras.getInt("DIAGNOSTIC_ID", 0);
+        diagnostic = (DiagnosticTest) extras.getSerializable("DIAGNOSTIC");
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -64,13 +66,6 @@ public class Diagnostic extends AppCompatActivity implements View.OnClickListene
             Button clicked = (Button) view;
             result.add(clicked.getText().toString().equalsIgnoreCase(YES) ? 1 : 0);
             showQuestion(++index);
-        } else {
-            Intent done = new Intent(this, Done.class);
-            Bundle dataSend = new Bundle();
-            dataSend.putIntegerArrayList(RESULT, result);
-            done.putExtras(dataSend);
-            startActivity(done);
-            finish();
         }
     }
 
@@ -82,23 +77,15 @@ public class Diagnostic extends AppCompatActivity implements View.OnClickListene
             progressBar.setProgress(index, true);
 
             Question question = Common.questions.get(index);
-            if (question.isImageQuestion()) {
-                Picasso.get()
-                        .load(question.getText())
-                        .centerCrop()
-                        .into(questionImage);
-                questionImage.setVisibility(View.VISIBLE);
-                questionText.setVisibility(View.INVISIBLE);
-            } else {
-                questionImage.setVisibility(View.INVISIBLE);
-                questionText.setVisibility(View.VISIBLE);
-                questionText.setText(question.getText());
-            }
+            questionImage.setVisibility(View.INVISIBLE);
+            questionText.setVisibility(View.VISIBLE);
+            questionText.setText(question.getText());
         } else {
             Intent done = new Intent(this, Done.class);
             Bundle dataSend = new Bundle();
             dataSend.putIntegerArrayList(RESULT, result);
-            dataSend.putInt("DIAGNOSTIC_ID", diagnosticId);
+            dataSend.putSerializable("DIAGNOSTIC", diagnostic);
+            dataSend.putBoolean("FROM_DIAGNOSTIC", true);
             done.putExtras(dataSend);
             startActivity(done);
             finish();

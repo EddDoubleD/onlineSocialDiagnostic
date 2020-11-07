@@ -1,6 +1,8 @@
 package ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic;
 
-public class DiagnosticTest {
+import java.io.Serializable;
+
+public class DiagnosticTest implements Serializable {
 
     private int id;
     private String name;

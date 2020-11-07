@@ -1,4 +1,4 @@
-package ru.hardwork.onlinesocialdiagnosticapp;
+package ru.hardwork.onlinesocialdiagnosticapp.ui.activity;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
+import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.common.UIDataRouter;
 

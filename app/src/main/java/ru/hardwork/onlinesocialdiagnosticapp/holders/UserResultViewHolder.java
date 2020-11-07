@@ -23,7 +23,9 @@ public class UserResultViewHolder extends RecyclerView.ViewHolder implements Vie
     @SuppressLint("ResourceAsColor")
     public UserResultViewHolder(@NonNull View itemView) {
         super(itemView);
+
         resultLine = itemView.findViewById(R.id.resultLine);
+        resultLine.setBackgroundColor(R.color.background);
         userCardView = itemView.findViewById(R.id.userCardView);
         diagnosticName = itemView.findViewById(R.id.diagnostic_name);
         diagnosticDate = itemView.findViewById(R.id.diagnostic_date);

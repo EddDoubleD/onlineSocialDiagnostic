@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".SignInActivity">
+    tools:context=".ui.activity.SignInActivity">
 
     <LinearLayout
         android:id="@+id/relativeLayout"
@@ -28,7 +28,7 @@
             android:layout_weight="1"
             android:contentDescription="@string/login_logo"
             android:visibility="visible"
-            tools:src="@drawable/ic_logo_main" />
+            tools:src="@drawable/ic_logo_main_1492_438" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/infoLogIn"

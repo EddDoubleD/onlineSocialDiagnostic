@@ -12,18 +12,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".About"></activity>
-        <activity android:name=".DiagnosticRV" />
-        <activity android:name=".Done" />
-        <activity android:name=".Diagnostic" />
-        <activity android:name=".Start" />
-        <activity android:name=".Home" />
-        <activity android:name=".Settings" />
-        <activity android:name=".SignInActivity" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".ui.activity.About"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.DiagnosticRV"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.Done"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.Diagnostic"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.Start"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.Home"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.Settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.SignInActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

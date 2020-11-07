@@ -1,4 +1,4 @@
-package ru.hardwork.onlinesocialdiagnosticapp;
+package ru.hardwork.onlinesocialdiagnosticapp.ui.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+
+import ru.hardwork.onlinesocialdiagnosticapp.R;
 
 /**
  * A simple {@link Fragment} subclass.
