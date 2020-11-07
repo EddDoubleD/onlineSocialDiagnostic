@@ -1,4 +1,4 @@
-package ru.hardwork.onlinesocialdiagnosticapp;
+package ru.hardwork.onlinesocialdiagnosticapp.ui.fragment;
 
 import android.annotation.SuppressLint;
 import android.database.Cursor;
@@ -21,6 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.application.OnlineSocialDiagnosticApp;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.holders.UserResultViewHolder;
@@ -142,19 +143,14 @@ public class ResultFragment extends Fragment {
                 // reload
                 return;
             }
-            //
+            // Загружаем диагностику
             DiagnosticTest diagnostic = Common.diagnosticTests.get(testPosition);
-            final int color = position % 5;
+            final int color = diagnostic.getId() % 5;
             @SuppressLint("UseCompatLoadingForDrawables")
             Drawable shape = getActivity().getDrawable(Common.shapes[color]);
             holder.resultLine.setBackground(shape);
             holder.diagnosticName.setText(diagnostic.getName());
             holder.diagnosticDate.setText(DATA_FORMAT.format(model.getDate()));
-
-            holder.setItemClickListener((view, position1, isLongClick) -> {
-                String msg = format(!isLongClick ? "%d clicked" : "%d long clicked", position1);
-                Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
-            });
 
             holder.userCardView.setOnClickListener(view -> {
                 @SuppressLint("DefaultLocale") String msg = format("%d clicked", testPosition);

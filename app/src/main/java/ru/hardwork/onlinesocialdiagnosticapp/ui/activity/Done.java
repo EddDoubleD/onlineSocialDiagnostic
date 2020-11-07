@@ -1,4 +1,4 @@
-package ru.hardwork.onlinesocialdiagnosticapp;
+package ru.hardwork.onlinesocialdiagnosticapp.ui.activity;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.application.OnlineSocialDiagnosticApp;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.common.lite.DiagnosticContract;
@@ -57,7 +58,7 @@ public class Done extends AppCompatActivity {
         setContentView(R.layout.activity_done);
 
         OnlineSocialDiagnosticApp application = OnlineSocialDiagnosticApp.getInstance();
-        decryption = application.getDataManager().getDecryption().get(Common.descPosition - 1);
+        decryption = application.getDataManager().getDecryption().get(Common.descPosition);
 
         resultText = findViewById(R.id.result);
         mRecyclerView = findViewById(R.id.descriptionRecycler);

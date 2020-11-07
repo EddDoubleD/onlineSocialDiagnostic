@@ -1,4 +1,4 @@
-package ru.hardwork.onlinesocialdiagnosticapp;
+package ru.hardwork.onlinesocialdiagnosticapp.ui.activity;
 
 import android.os.Bundle;
 
@@ -6,6 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import ru.hardwork.onlinesocialdiagnosticapp.R;
+import ru.hardwork.onlinesocialdiagnosticapp.ui.fragment.AccountFragment;
+import ru.hardwork.onlinesocialdiagnosticapp.ui.fragment.CategoryFragment;
+import ru.hardwork.onlinesocialdiagnosticapp.ui.fragment.GroupFragment;
+import ru.hardwork.onlinesocialdiagnosticapp.ui.fragment.ResultFragment;
 
 public class Home extends AppCompatActivity {
 

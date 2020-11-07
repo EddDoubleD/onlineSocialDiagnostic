@@ -1,8 +1,10 @@
-package ru.hardwork.onlinesocialdiagnosticapp;
+package ru.hardwork.onlinesocialdiagnosticapp.ui.activity;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import ru.hardwork.onlinesocialdiagnosticapp.R;
 
 public class About extends AppCompatActivity {
 
