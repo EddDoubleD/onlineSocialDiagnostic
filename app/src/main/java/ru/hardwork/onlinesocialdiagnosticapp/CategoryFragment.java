@@ -220,7 +220,6 @@ public class CategoryFragment extends Fragment {
             DiagnosticTest model = Common.diagnosticTests.get(position);
             holder.setId(model.getId());
             // Раскрашиваем форму теста
-            holder.layout.setBackgroundColor(R.color.background);
             @SuppressLint("UseCompatLoadingForDrawables")
             Drawable drawable = activity.getDrawable(Common.shapes[color]);
             holder.layout.setBackground(drawable);
