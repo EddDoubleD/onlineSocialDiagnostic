@@ -1,7 +1,9 @@
 package ru.hardwork.onlinesocialdiagnosticapp.ui.activity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -38,7 +40,7 @@ import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
 import static java.lang.String.format;
 import static ru.hardwork.onlinesocialdiagnosticapp.common.lite.DiagnosticContract.DiagnosticEntry.RESULT_TABLE;
 
-public class Done extends AppCompatActivity {
+public class DoneActivity extends AppCompatActivity {
 
     private static final String BASE_FORMAT = "yyyy.MM.dd HH:mm";
     private static final String RESULT = "RESULT";
@@ -71,12 +73,12 @@ public class Done extends AppCompatActivity {
         resultText = findViewById(R.id.result);
         mRecyclerView = findViewById(R.id.descriptionRecycler);
         // magic
-        LinearLayoutManager manager = new LinearLayoutManager(Done.this);
+        LinearLayoutManager manager = new LinearLayoutManager(DoneActivity.this);
         mRecyclerView.setLayoutManager(manager);
 
         btnTryAgain = findViewById(R.id.btnTryAgain);
         btnTryAgain.setOnClickListener(view -> {
-            Intent intent = new Intent(Done.this, Home.class);
+            Intent intent = new Intent(DoneActivity.this, HomeActivity.class);
             Bundle dataSend = new Bundle();
             dataSend.putInt("MENU_POSITION", 1);
             startActivity(intent);
@@ -111,7 +113,7 @@ public class Done extends AppCompatActivity {
         mRecyclerView.setAdapter(adapter);
     }
 
-    static class DecryptionAdapter extends RecyclerView.Adapter<DescriptionViewHolder> {
+    class DecryptionAdapter extends RecyclerView.Adapter<DescriptionViewHolder> {
 
         private List<DescriptionViewModel> models;
 
@@ -128,13 +130,18 @@ public class Done extends AppCompatActivity {
 
         @SuppressLint({"NewApi", "DefaultLocale"})
         @Override
-        public void onBindViewHolder(@NonNull DescriptionViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull DescriptionViewHolder holder, final int position) {
+
             DescriptionViewModel model = models.get(position);
             holder.descriptionName.setText(format("%s  %d/%d", model.getName(), model.getCurrent(), model.getMax()));
             holder.descriptionProgress.setMax(model.getMax());
             holder.descriptionProgress.setProgress(model.getCurrent(), true);
-            holder.setItemClickListener((view, position1, isLongClick) -> {
-                //
+
+            holder.descriptionName.setOnClickListener(e -> {
+                DescriptionViewModel m = models.get(position);
+                if (m.getDescription() != null) {
+                    showDescriptionDialog(m);
+                }
             });
         }
 
@@ -142,6 +149,23 @@ public class Done extends AppCompatActivity {
         public int getItemCount() {
             return models.size();
         }
+    }
+
+    private void showDescriptionDialog(DescriptionViewModel model) {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(DoneActivity.this);
+        alertDialog.setTitle(model.getName());
+        alertDialog.setMessage(model.getDescription());
+
+        LayoutInflater inflater = this.getLayoutInflater();
+        View view = inflater.inflate(R.layout.description_details_layout, null);
+        alertDialog.setView(view);
+        alertDialog.setIcon(R.drawable.ic_baseline_account_circle_24);
+
+        alertDialog.setPositiveButton("ОК", (dialogInterface, i) -> {
+            dialogInterface.dismiss();
+        });
+        alertDialog.show();
+
     }
 }
 

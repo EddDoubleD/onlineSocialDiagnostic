@@ -7,6 +7,7 @@
     "accents": [
       {
         "name": "Тестовая шкала",
+        "description" : "Тест",
         "positive": "1,2",
         "negative": "",
         "multiple": 1

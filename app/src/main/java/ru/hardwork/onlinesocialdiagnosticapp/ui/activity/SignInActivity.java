@@ -88,7 +88,7 @@ public class SignInActivity extends AppCompatActivity {
                             editor.commit();
                             editor.clear();
 
-                            Intent homeActivity = new Intent(SignInActivity.this, Home.class);
+                            Intent homeActivity = new Intent(SignInActivity.this, HomeActivity.class);
                             startActivity(homeActivity);
                             finish();
                         } else {
@@ -141,7 +141,7 @@ public class SignInActivity extends AppCompatActivity {
                             editor.commit();
                             editor.clear();
 
-                            Intent homeActivity = new Intent(SignInActivity.this, Home.class);
+                            Intent homeActivity = new Intent(SignInActivity.this, HomeActivity.class);
                             startActivity(homeActivity);
                             finish();
                         } else {

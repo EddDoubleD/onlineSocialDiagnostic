@@ -13,25 +13,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.activity.About"
+            android:name=".ui.activity.AboutActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.DiagnosticRV"
+            android:name=".ui.activity.DoneActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.Done"
+            android:name=".ui.activity.DiagnosticActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.Diagnostic"
+            android:name=".ui.activity.StartActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.Start"
+            android:name=".ui.activity.HomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.Home"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.activity.Settings"
+            android:name=".ui.activity.SettingsActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.SignInActivity"

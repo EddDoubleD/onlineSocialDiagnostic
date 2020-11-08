@@ -13,7 +13,7 @@ import ru.hardwork.onlinesocialdiagnosticapp.ui.fragment.CategoryFragment;
 import ru.hardwork.onlinesocialdiagnosticapp.ui.fragment.GroupFragment;
 import ru.hardwork.onlinesocialdiagnosticapp.ui.fragment.ResultFragment;
 
-public class Home extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     /**
      * Bottom navigation menu listener

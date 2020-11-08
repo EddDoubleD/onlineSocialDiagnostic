@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import ru.hardwork.onlinesocialdiagnosticapp.R;
 
-public class About extends AppCompatActivity {
+public class AboutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

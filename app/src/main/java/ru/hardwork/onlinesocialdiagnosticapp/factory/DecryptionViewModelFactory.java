@@ -74,7 +74,7 @@ public class DecryptionViewModelFactory implements IFactory<DescriptionViewModel
             // Получаем нормализованное значение
             semi *= accent.getMultiple();
             max *= accent.getMultiple();
-            DescriptionViewModel desc = new DescriptionViewModel(accent.getName(), max, semi);
+            DescriptionViewModel desc = new DescriptionViewModel(accent.getName(), accent.getDescription(), max, semi);
             result.add(desc);
         }
 

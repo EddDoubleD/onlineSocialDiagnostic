@@ -22,7 +22,7 @@ import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Question;
 
 import static java.lang.String.format;
 
-public class Diagnostic extends AppCompatActivity implements View.OnClickListener {
+public class DiagnosticActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String YES = "да";
     private static final String RESULT = "RESULT";
@@ -81,7 +81,7 @@ public class Diagnostic extends AppCompatActivity implements View.OnClickListene
             questionText.setVisibility(View.VISIBLE);
             questionText.setText(question.getText());
         } else {
-            Intent done = new Intent(this, Done.class);
+            Intent done = new Intent(this, DoneActivity.class);
             Bundle dataSend = new Bundle();
             dataSend.putIntegerArrayList(RESULT, result);
             dataSend.putSerializable("DIAGNOSTIC", diagnostic);

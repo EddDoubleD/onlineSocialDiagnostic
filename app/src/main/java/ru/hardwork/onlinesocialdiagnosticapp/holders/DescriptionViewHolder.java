@@ -1,6 +1,9 @@
 package ru.hardwork.onlinesocialdiagnosticapp.holders;
 
+import android.annotation.SuppressLint;
 import android.view.View;
+import android.widget.CalendarView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -12,14 +15,19 @@ import ru.hardwork.onlinesocialdiagnosticapp.listener.ItemClickListener;
 
 public class DescriptionViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+    public LinearLayout descriptionLayout;
     public TextView descriptionName;
     public ProgressBar descriptionProgress;
 
     // Слушатель клика
     private ItemClickListener itemClickListener;
 
+    @SuppressLint("ResourceAsColor")
     public DescriptionViewHolder(@NonNull View itemView) {
         super(itemView);
+
+        //descriptionLayout = itemView.findViewById(R.id.description_layout);
+        //descriptionLayout.setBackgroundColor(R.color.background);
 
         descriptionName = itemView.findViewById(R.id.descriptionName);
         descriptionProgress = itemView.findViewById(R.id.descriptionProgress);

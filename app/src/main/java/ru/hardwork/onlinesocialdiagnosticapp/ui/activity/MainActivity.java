@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         Drawable ic_logo_main = getDrawable(R.drawable.ic_logo_main);
         logo.setImageDrawable(ic_logo_main);
 
-        final Intent homeActivity = new Intent(MainActivity.this, Home.class);
+        final Intent homeActivity = new Intent(MainActivity.this, HomeActivity.class);
         new Thread() {
             @Override
             public void run() {

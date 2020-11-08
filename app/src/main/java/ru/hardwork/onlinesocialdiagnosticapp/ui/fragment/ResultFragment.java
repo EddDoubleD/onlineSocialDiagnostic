@@ -37,7 +37,7 @@ import ru.hardwork.onlinesocialdiagnosticapp.holders.UserResultViewHolder;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
 import ru.hardwork.onlinesocialdiagnosticapp.model.user.UserResult;
 import ru.hardwork.onlinesocialdiagnosticapp.scenery.VerticalSpaceItemDecoration;
-import ru.hardwork.onlinesocialdiagnosticapp.ui.activity.Done;
+import ru.hardwork.onlinesocialdiagnosticapp.ui.activity.DoneActivity;
 
 import static ru.hardwork.onlinesocialdiagnosticapp.common.lite.DiagnosticContract.DiagnosticEntry.DATE_PASSED;
 import static ru.hardwork.onlinesocialdiagnosticapp.common.lite.DiagnosticContract.DiagnosticEntry.DIAGNOSTIC_ID;
@@ -153,7 +153,7 @@ public class ResultFragment extends Fragment {
             holder.diagnosticDate.setText(DATA_FORMAT.format(model.getDate()));
 
             holder.userCardView.setOnClickListener(view -> {
-                Intent done = new Intent(getContext(), Done.class);
+                Intent done = new Intent(getContext(), DoneActivity.class);
                 Bundle dataSend = new Bundle();
                 dataSend.putIntegerArrayList("RESULT", convertStr2IntFunc.apply(model.getResult()));
                 dataSend.putSerializable("DIAGNOSTIC", diagnostic);
