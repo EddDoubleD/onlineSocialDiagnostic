@@ -1,4 +1,4 @@
-package ru.hardwork.onlinesocialdiagnosticapp;
+package ru.hardwork.onlinesocialdiagnosticapp.ui.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -21,8 +21,12 @@ import com.google.firebase.auth.FirebaseUser;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.mutable.MutableBoolean;
 
+import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.common.UIDataRouter;
+import ru.hardwork.onlinesocialdiagnosticapp.ui.activity.AboutActivity;
+import ru.hardwork.onlinesocialdiagnosticapp.ui.activity.SettingsActivity;
+import ru.hardwork.onlinesocialdiagnosticapp.ui.activity.SignInActivity;
 
 /**
  *
@@ -106,13 +110,13 @@ public class AccountFragment extends Fragment {
 
         about = mFragment.findViewById(R.id.about);
         about.setOnClickListener(view -> {
-            Intent aboutIntent = new Intent(getActivity(), About.class);
+            Intent aboutIntent = new Intent(getActivity(), AboutActivity.class);
             startActivity(aboutIntent);
         });
 
         settings = mFragment.findViewById(R.id.settings);
         settings.setOnClickListener(view -> {
-            Intent diagnosticResult = new Intent(getActivity(), Settings.class);
+            Intent diagnosticResult = new Intent(getActivity(), SettingsActivity.class);
             startActivity(diagnosticResult);
         });
 

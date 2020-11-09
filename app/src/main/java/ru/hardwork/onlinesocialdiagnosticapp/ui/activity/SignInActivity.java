@@ -1,4 +1,4 @@
-package ru.hardwork.onlinesocialdiagnosticapp;
+package ru.hardwork.onlinesocialdiagnosticapp.ui.activity;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
+import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.common.UIDataRouter;
 
@@ -87,7 +88,7 @@ public class SignInActivity extends AppCompatActivity {
                             editor.commit();
                             editor.clear();
 
-                            Intent homeActivity = new Intent(SignInActivity.this, Home.class);
+                            Intent homeActivity = new Intent(SignInActivity.this, HomeActivity.class);
                             startActivity(homeActivity);
                             finish();
                         } else {
@@ -140,7 +141,7 @@ public class SignInActivity extends AppCompatActivity {
                             editor.commit();
                             editor.clear();
 
-                            Intent homeActivity = new Intent(SignInActivity.this, Home.class);
+                            Intent homeActivity = new Intent(SignInActivity.this, HomeActivity.class);
                             startActivity(homeActivity);
                             finish();
                         } else {

@@ -1,4 +1,4 @@
-package ru.hardwork.onlinesocialdiagnosticapp;
+package ru.hardwork.onlinesocialdiagnosticapp.ui.activity;
 
 import android.os.Bundle;
 
@@ -7,7 +7,13 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Home extends AppCompatActivity {
+import ru.hardwork.onlinesocialdiagnosticapp.R;
+import ru.hardwork.onlinesocialdiagnosticapp.ui.fragment.AccountFragment;
+import ru.hardwork.onlinesocialdiagnosticapp.ui.fragment.CategoryFragment;
+import ru.hardwork.onlinesocialdiagnosticapp.ui.fragment.GroupFragment;
+import ru.hardwork.onlinesocialdiagnosticapp.ui.fragment.ResultFragment;
+
+public class HomeActivity extends AppCompatActivity {
 
     /**
      * Bottom navigation menu listener

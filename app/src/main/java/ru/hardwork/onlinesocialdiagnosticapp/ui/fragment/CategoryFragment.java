@@ -1,4 +1,4 @@
-package ru.hardwork.onlinesocialdiagnosticapp;
+package ru.hardwork.onlinesocialdiagnosticapp.ui.fragment;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -26,13 +26,15 @@ import com.google.android.gms.common.util.CollectionUtils;
 import com.google.android.material.tabs.TabLayout;
 import com.google.common.collect.Iterables;
 
+import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
-import ru.hardwork.onlinesocialdiagnosticapp.common.DiagnosticConverter;
 import ru.hardwork.onlinesocialdiagnosticapp.common.UIDataUtils;
 import ru.hardwork.onlinesocialdiagnosticapp.holders.DiagnosticTestViewHolder;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Category;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
+import ru.hardwork.onlinesocialdiagnosticapp.scenery.SpeedyLinearLayoutManager;
 import ru.hardwork.onlinesocialdiagnosticapp.scenery.VerticalSpaceItemDecoration;
+import ru.hardwork.onlinesocialdiagnosticapp.ui.activity.StartActivity;
 
 import static ru.hardwork.onlinesocialdiagnosticapp.common.Common.categoryList;
 
@@ -49,8 +51,6 @@ public class CategoryFragment extends Fragment {
     private boolean isUserScrolling = false;
     private boolean isListGoingUp = true;
     private boolean tabSelected = true;
-
-    private DiagnosticConverter converter = new DiagnosticConverter();
 
     public static CategoryFragment newInstance() {
         CategoryFragment categoryFragment = new CategoryFragment();
@@ -81,10 +81,11 @@ public class CategoryFragment extends Fragment {
 
         mRecyclerView = mFragment.findViewById(R.id.diagnosticTestsRecycler);
         //  TabLayout Code end
-        final LinearLayoutManager mLayoutManager = new LinearLayoutManager(
+        final SpeedyLinearLayoutManager mLayoutManager = new SpeedyLinearLayoutManager(
                 this.getContext(),
                 LinearLayoutManager.HORIZONTAL,
                 false);
+
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.addItemDecoration(new VerticalSpaceItemDecoration());
         // animation
@@ -152,7 +153,12 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                int itemPosition = mLayoutManager.findFirstVisibleItemPosition();
+
+                if (itemPosition == mLayoutManager.findFirstVisibleItemPosition()) {
+                    return;
+                }
+
+                itemPosition = mLayoutManager.findFirstVisibleItemPosition();
 
                 final DiagnosticTest diagnosticTest = Common.diagnosticTests.get(itemPosition);
                 if (diagnosticTest != null) {
@@ -173,10 +179,14 @@ public class CategoryFragment extends Fragment {
                     }
                 }
             }
+
+
         });
 
         return mFragment;
     }
+
+    private int itemPosition;
 
     /**
      * цэ кiт (づ ◕‿◕ )づ
@@ -220,7 +230,6 @@ public class CategoryFragment extends Fragment {
             DiagnosticTest model = Common.diagnosticTests.get(position);
             holder.setId(model.getId());
             // Раскрашиваем форму теста
-            holder.layout.setBackgroundColor(R.color.background);
             @SuppressLint("UseCompatLoadingForDrawables")
             Drawable drawable = activity.getDrawable(Common.shapes[color]);
             holder.layout.setBackground(drawable);
@@ -231,18 +240,13 @@ public class CategoryFragment extends Fragment {
             //
             holder.setItemClickListener((v, p, longClick) -> {
                 DiagnosticTest diagnostic = Common.diagnosticTests.get(p);
-                Intent startDiagnostic = new Intent(getActivity(), Start.class);
+                Intent startDiagnostic = new Intent(getActivity(), StartActivity.class);
                 Bundle dataSend = new Bundle();
                 int catId = (int) diagnostic.getCategoryId() - 1;
-                Common.descPosition = diagnostic.getMetricId();
                 String catName = categoryList.get(catId).getName();
-                dataSend.putInt("DIAGNOSTIC_ID", diagnostic.getId());
+                dataSend.putSerializable("DIAGNOSTIC", diagnostic);
                 dataSend.putString("CAT_NAME", catName);
-                dataSend.putString("DIAGNOSTIC_NAME", diagnostic.getName());
-                dataSend.putString("DIAGNOSTIC_DESC", diagnostic.getFullDescription());
-                dataSend.putInt("COLOR_NUM", diagnostic.getId() % 5);
                 startDiagnostic.putExtras(dataSend);
-
                 startActivity(startDiagnostic);
             });
 
