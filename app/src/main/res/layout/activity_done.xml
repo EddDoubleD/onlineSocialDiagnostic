@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    tools:context=".ui.activity.Done">
+    android:orientation="vertical"
+    android:weightSum="16"
+    tools:ignore="UselessParent">
 
     <TextView
         android:id="@+id/headerText"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="25dp"
+        android:layout_weight="2"
+        android:gravity="center"
         android:text="@string/diagnostic_result"
+        android:textAlignment="center"
         android:textColor="@color/plaintText"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -23,56 +25,54 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/descriptionRecycler"
         android:layout_width="match_parent"
-        android:layout_height="380dp"
-        android:layout_below="@+id/headerText"
-        android:layout_marginTop="15dp" />
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_weight="11" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/commentCardView"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/descriptionRecycler"
+        android:layout_height="0dp"
+        android:layout_gravity="center_vertical"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
+        android:layout_weight="1"
         app:cardBackgroundColor="@color/background">
 
         <TextView
             android:id="@+id/result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="start"
+            android:layout_gravity="center"
             android:text="Результат"
+            android:textAlignment="center"
             android:textColor="@color/plaintText"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="RtlCompat" />
 
     </androidx.cardview.widget.CardView>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/commentCardView"
-        android:layout_centerInParent="true"
+        android:layout_height="0dp"
         android:layout_margin="30dp"
+        android:layout_weight="2"
+        android:gravity="center"
         android:padding="20dp">
 
         <LinearLayout
-
             android:id="@+id/btnGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/btnTryAgain"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
                 android:background="@color/contact"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:text="@string/to_main"
@@ -83,4 +83,4 @@
         </LinearLayout>
     </RelativeLayout>
 
-</RelativeLayout>
+</LinearLayout>

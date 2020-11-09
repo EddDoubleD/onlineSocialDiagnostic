@@ -16,7 +16,7 @@ import ru.hardwork.onlinesocialdiagnosticapp.common.UIDataRouter;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Question;
 
-public class Start extends AppCompatActivity {
+public class StartActivity extends AppCompatActivity {
 
     private DiagnosticTest diagnostic;
 
@@ -58,7 +58,7 @@ public class Start extends AppCompatActivity {
         Button btnPlay = findViewById(R.id.btnPlay);
         btnPlay.setOnClickListener(view -> {
             //Intent intent = new Intent(Start.this, DiagnosticRV.class);
-            Intent diagnosticIntent = new Intent(Start.this, Diagnostic.class);
+            Intent diagnosticIntent = new Intent(StartActivity.this, DiagnosticActivity.class);
             Bundle dataSend = new Bundle();
             dataSend.putSerializable("DIAGNOSTIC", diagnostic);
             diagnosticIntent.putExtras(dataSend);

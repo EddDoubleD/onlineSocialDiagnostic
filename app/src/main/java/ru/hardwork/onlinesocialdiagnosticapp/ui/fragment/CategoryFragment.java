@@ -34,7 +34,7 @@ import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Category;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
 import ru.hardwork.onlinesocialdiagnosticapp.scenery.SpeedyLinearLayoutManager;
 import ru.hardwork.onlinesocialdiagnosticapp.scenery.VerticalSpaceItemDecoration;
-import ru.hardwork.onlinesocialdiagnosticapp.ui.activity.Start;
+import ru.hardwork.onlinesocialdiagnosticapp.ui.activity.StartActivity;
 
 import static ru.hardwork.onlinesocialdiagnosticapp.common.Common.categoryList;
 
@@ -240,7 +240,7 @@ public class CategoryFragment extends Fragment {
             //
             holder.setItemClickListener((v, p, longClick) -> {
                 DiagnosticTest diagnostic = Common.diagnosticTests.get(p);
-                Intent startDiagnostic = new Intent(getActivity(), Start.class);
+                Intent startDiagnostic = new Intent(getActivity(), StartActivity.class);
                 Bundle dataSend = new Bundle();
                 int catId = (int) diagnostic.getCategoryId() - 1;
                 String catName = categoryList.get(catId).getName();

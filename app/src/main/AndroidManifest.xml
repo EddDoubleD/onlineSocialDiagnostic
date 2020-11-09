@@ -7,31 +7,28 @@
     <application
         android:name=".application.OnlineSocialDiagnosticApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_logo__google_play_store"
+        android:icon="@mipmap/ic_main_logo_07"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_main_logo_07"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.activity.About"
+            android:name=".ui.activity.AboutActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.DiagnosticRV"
+            android:name=".ui.activity.DoneActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.Done"
+            android:name=".ui.activity.DiagnosticActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.Diagnostic"
+            android:name=".ui.activity.StartActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.Start"
+            android:name=".ui.activity.HomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.Home"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.activity.Settings"
+            android:name=".ui.activity.SettingsActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.SignInActivity"

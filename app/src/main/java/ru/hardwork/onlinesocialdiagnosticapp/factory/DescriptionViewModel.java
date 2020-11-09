@@ -9,6 +9,10 @@ public class DescriptionViewModel {
      */
     private String name;
     /**
+     * Описание
+     */
+    private String description;
+    /**
      * Максимальное значение шкалы
      */
     private int max;
@@ -21,8 +25,9 @@ public class DescriptionViewModel {
 
     }
 
-    public DescriptionViewModel(String name, int max, int current) {
+    public DescriptionViewModel(String name, String description, int max, int current) {
         this.name = name;
+        this.description = description;
         this.max = max;
         this.current = current;
     }
@@ -49,5 +54,13 @@ public class DescriptionViewModel {
 
     public void setCurrent(int current) {
         this.current = current;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

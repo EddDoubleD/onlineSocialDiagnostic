@@ -1,7 +1,9 @@
 package ru.hardwork.onlinesocialdiagnosticapp.ui.activity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -34,11 +36,13 @@ import ru.hardwork.onlinesocialdiagnosticapp.factory.DescriptionViewModel;
 import ru.hardwork.onlinesocialdiagnosticapp.holders.DescriptionViewHolder;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Decryption;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
+import ru.hardwork.onlinesocialdiagnosticapp.scenery.SpeedyLinearLayoutManager;
+import ru.hardwork.onlinesocialdiagnosticapp.scenery.VerticalSpaceItemDecoration;
 
 import static java.lang.String.format;
 import static ru.hardwork.onlinesocialdiagnosticapp.common.lite.DiagnosticContract.DiagnosticEntry.RESULT_TABLE;
 
-public class Done extends AppCompatActivity {
+public class DoneActivity extends AppCompatActivity {
 
     private static final String BASE_FORMAT = "yyyy.MM.dd HH:mm";
     private static final String RESULT = "RESULT";
@@ -70,13 +74,19 @@ public class Done extends AppCompatActivity {
 
         resultText = findViewById(R.id.result);
         mRecyclerView = findViewById(R.id.descriptionRecycler);
+        final SpeedyLinearLayoutManager mLayoutManager = new SpeedyLinearLayoutManager(
+                this,
+                LinearLayoutManager.VERTICAL,
+                false);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.addItemDecoration(new VerticalSpaceItemDecoration());
         // magic
-        LinearLayoutManager manager = new LinearLayoutManager(Done.this);
+        LinearLayoutManager manager = new LinearLayoutManager(DoneActivity.this);
         mRecyclerView.setLayoutManager(manager);
 
         btnTryAgain = findViewById(R.id.btnTryAgain);
         btnTryAgain.setOnClickListener(view -> {
-            Intent intent = new Intent(Done.this, Home.class);
+            Intent intent = new Intent(DoneActivity.this, HomeActivity.class);
             Bundle dataSend = new Bundle();
             dataSend.putInt("MENU_POSITION", 1);
             startActivity(intent);
@@ -111,7 +121,7 @@ public class Done extends AppCompatActivity {
         mRecyclerView.setAdapter(adapter);
     }
 
-    static class DecryptionAdapter extends RecyclerView.Adapter<DescriptionViewHolder> {
+    class DecryptionAdapter extends RecyclerView.Adapter<DescriptionViewHolder> {
 
         private List<DescriptionViewModel> models;
 
@@ -128,13 +138,19 @@ public class Done extends AppCompatActivity {
 
         @SuppressLint({"NewApi", "DefaultLocale"})
         @Override
-        public void onBindViewHolder(@NonNull DescriptionViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull DescriptionViewHolder holder, final int position) {
+
             DescriptionViewModel model = models.get(position);
-            holder.descriptionName.setText(format("%s  %d/%d", model.getName(), model.getCurrent(), model.getMax()));
+            holder.descriptionName.setText(model.getName());
+            holder.descriptionCount.setText(format("%d/%d", model.getCurrent(), model.getMax()));
             holder.descriptionProgress.setMax(model.getMax());
             holder.descriptionProgress.setProgress(model.getCurrent(), true);
-            holder.setItemClickListener((view, position1, isLongClick) -> {
-                //
+
+            holder.descriptionName.setOnClickListener(e -> {
+                DescriptionViewModel m = models.get(position);
+                if (m.getDescription() != null) {
+                    showDescriptionDialog(m);
+                }
             });
         }
 
@@ -142,6 +158,21 @@ public class Done extends AppCompatActivity {
         public int getItemCount() {
             return models.size();
         }
+    }
+
+    @SuppressLint("ResourceAsColor")
+    private void showDescriptionDialog(DescriptionViewModel model) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(DoneActivity.this, R.style.DialogTheme);
+        builder.setTitle(model.getName());
+        builder.setMessage(model.getDescription());
+        //alertDialog.setIcon(R.drawable.ic_baseline_account_circle_24); //
+        builder.setPositiveButton("ОК", (dialogInterface, i) -> {
+            dialogInterface.dismiss();
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        alertDialog.getWindow().setLayout(650, 800);
+
     }
 }
 

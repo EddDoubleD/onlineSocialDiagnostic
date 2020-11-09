@@ -7,6 +7,12 @@
         <item name="colorAccent">@color/contact</item>
     </style>
 
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="background">@color/background</item>
+        <item name="colorAccent">@color/pink</item>
+        <item name="android:textColor">@color/plaintText</item>
+    </style>
+
     <style name="LightButtons" parent="Theme.AppCompat.Light">
         <item name="colorControlHighlight">#1CB3BC</item>
     </style>
