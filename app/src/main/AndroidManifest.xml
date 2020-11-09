@@ -7,9 +7,9 @@
     <application
         android:name=".application.OnlineSocialDiagnosticApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_logo__google_play_store"
+        android:icon="@mipmap/ic_main_logo_07"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_main_logo_07"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity

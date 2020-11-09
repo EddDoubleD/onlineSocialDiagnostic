@@ -16,7 +16,7 @@ import ru.hardwork.onlinesocialdiagnosticapp.listener.ItemClickListener;
 public class DescriptionViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     public LinearLayout descriptionLayout;
-    public TextView descriptionName;
+    public TextView descriptionName, descriptionCount;
     public ProgressBar descriptionProgress;
 
     // Слушатель клика
@@ -26,10 +26,8 @@ public class DescriptionViewHolder extends RecyclerView.ViewHolder implements Vi
     public DescriptionViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        //descriptionLayout = itemView.findViewById(R.id.description_layout);
-        //descriptionLayout.setBackgroundColor(R.color.background);
-
         descriptionName = itemView.findViewById(R.id.descriptionName);
+        descriptionCount = itemView.findViewById(R.id.descriptionCount);
         descriptionProgress = itemView.findViewById(R.id.descriptionProgress);
     }
 

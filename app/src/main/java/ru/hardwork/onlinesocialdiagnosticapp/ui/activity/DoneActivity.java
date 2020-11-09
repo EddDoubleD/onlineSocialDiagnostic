@@ -36,6 +36,8 @@ import ru.hardwork.onlinesocialdiagnosticapp.factory.DescriptionViewModel;
 import ru.hardwork.onlinesocialdiagnosticapp.holders.DescriptionViewHolder;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Decryption;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
+import ru.hardwork.onlinesocialdiagnosticapp.scenery.SpeedyLinearLayoutManager;
+import ru.hardwork.onlinesocialdiagnosticapp.scenery.VerticalSpaceItemDecoration;
 
 import static java.lang.String.format;
 import static ru.hardwork.onlinesocialdiagnosticapp.common.lite.DiagnosticContract.DiagnosticEntry.RESULT_TABLE;
@@ -72,6 +74,12 @@ public class DoneActivity extends AppCompatActivity {
 
         resultText = findViewById(R.id.result);
         mRecyclerView = findViewById(R.id.descriptionRecycler);
+        final SpeedyLinearLayoutManager mLayoutManager = new SpeedyLinearLayoutManager(
+                this,
+                LinearLayoutManager.VERTICAL,
+                false);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.addItemDecoration(new VerticalSpaceItemDecoration());
         // magic
         LinearLayoutManager manager = new LinearLayoutManager(DoneActivity.this);
         mRecyclerView.setLayoutManager(manager);
@@ -133,7 +141,8 @@ public class DoneActivity extends AppCompatActivity {
         public void onBindViewHolder(@NonNull DescriptionViewHolder holder, final int position) {
 
             DescriptionViewModel model = models.get(position);
-            holder.descriptionName.setText(format("%s  %d/%d", model.getName(), model.getCurrent(), model.getMax()));
+            holder.descriptionName.setText(model.getName());
+            holder.descriptionCount.setText(format("%d/%d", model.getCurrent(), model.getMax()));
             holder.descriptionProgress.setMax(model.getMax());
             holder.descriptionProgress.setProgress(model.getCurrent(), true);
 
@@ -151,20 +160,18 @@ public class DoneActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("ResourceAsColor")
     private void showDescriptionDialog(DescriptionViewModel model) {
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(DoneActivity.this);
-        alertDialog.setTitle(model.getName());
-        alertDialog.setMessage(model.getDescription());
-
-        LayoutInflater inflater = this.getLayoutInflater();
-        View view = inflater.inflate(R.layout.description_details_layout, null);
-        alertDialog.setView(view);
-        alertDialog.setIcon(R.drawable.ic_baseline_account_circle_24);
-
-        alertDialog.setPositiveButton("ОК", (dialogInterface, i) -> {
+        AlertDialog.Builder builder = new AlertDialog.Builder(DoneActivity.this, R.style.DialogTheme);
+        builder.setTitle(model.getName());
+        builder.setMessage(model.getDescription());
+        //alertDialog.setIcon(R.drawable.ic_baseline_account_circle_24); //
+        builder.setPositiveButton("ОК", (dialogInterface, i) -> {
             dialogInterface.dismiss();
         });
+        AlertDialog alertDialog = builder.create();
         alertDialog.show();
+        alertDialog.getWindow().setLayout(650, 800);
 
     }
 }
