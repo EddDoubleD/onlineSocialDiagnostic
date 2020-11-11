@@ -1,13 +1,10 @@
 package ru.hardwork.onlinesocialdiagnosticapp.ui.activity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,14 +22,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-       // progressView = findViewById(R.id.progressView);
-        //progressView.setColor(R.color.peach);
-
-        ImageView logo = findViewById(R.id.logoMain);
-        @SuppressLint("UseCompatLoadingForDrawables")
-        Drawable ic_logo_main = getDrawable(R.drawable.ic_logo_main);
-        logo.setImageDrawable(ic_logo_main);
 
         final Intent homeActivity = new Intent(MainActivity.this, HomeActivity.class);
         new Thread() {

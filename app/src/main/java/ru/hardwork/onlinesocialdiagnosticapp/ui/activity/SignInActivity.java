@@ -1,16 +1,13 @@
 package ru.hardwork.onlinesocialdiagnosticapp.ui.activity;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,7 +29,6 @@ public class SignInActivity extends AppCompatActivity {
     MaterialEditText edtNewUser, edtNewPassword, edtNewEmail;
     MaterialEditText edtUser, edtPassword;
     //
-    ImageView logo;
     Button btnSignUp, btnSignIn;
 
     private FirebaseAuth mAuth;
@@ -50,11 +46,6 @@ public class SignInActivity extends AppCompatActivity {
         preferences = PreferenceManager.getDefaultSharedPreferences(SignInActivity.this);
         String name = preferences.getString(UIDataRouter.USER_NAME, UIDataRouter.DEFAULT_USER);
         final SharedPreferences.Editor preferencesEditor = preferences.edit();
-        // init drawable view
-        logo = findViewById(R.id.logo);
-        @SuppressLint("UseCompatLoadingForDrawables")
-        Drawable drawable = getDrawable(R.drawable.ic_logo_main);
-        logo.setImageDrawable(drawable);
         // ui init
         edtUser = findViewById(R.id.edtUser);
         edtPassword = findViewById(R.id.edtPassword);
