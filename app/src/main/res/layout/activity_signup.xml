@@ -21,14 +21,15 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_gravity="center|top"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="50dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="35dp"
             android:layout_weight="1"
             android:contentDescription="@string/login_logo"
             android:visibility="visible"
-            tools:src="@drawable/ic_logo_main_1492_438" />
+            tools:src="@drawable/ic_logo_main_800_235"
+            android:src="@drawable/ic_logo_main_800_235"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/infoLogIn"

@@ -51,6 +51,7 @@ public class CategoryFragment extends Fragment {
     private boolean isUserScrolling = false;
     private boolean isListGoingUp = true;
     private boolean tabSelected = true;
+    private int itemPosition;
 
     public static CategoryFragment newInstance() {
         CategoryFragment categoryFragment = new CategoryFragment();
@@ -186,8 +187,6 @@ public class CategoryFragment extends Fragment {
         return mFragment;
     }
 
-    private int itemPosition;
-
     /**
      * цэ кiт (づ ◕‿◕ )づ
      */
@@ -220,7 +219,6 @@ public class CategoryFragment extends Fragment {
         @SuppressLint("ResourceAsColor")
         @Override
         public void onBindViewHolder(@NonNull DiagnosticTestViewHolder holder, int position) {
-            final int color = position % 5;
             Activity activity = getActivity();
             // Не обрабатываема ситуация
             if (activity == null) {
@@ -230,6 +228,7 @@ public class CategoryFragment extends Fragment {
             DiagnosticTest model = Common.diagnosticTests.get(position);
             holder.setId(model.getId());
             // Раскрашиваем форму теста
+            final int color = model.getId() % 5;
             @SuppressLint("UseCompatLoadingForDrawables")
             Drawable drawable = activity.getDrawable(Common.shapes[color]);
             holder.layout.setBackground(drawable);

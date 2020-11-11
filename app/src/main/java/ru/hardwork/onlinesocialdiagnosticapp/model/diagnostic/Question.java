@@ -6,10 +6,21 @@ import android.os.Parcelable;
 
 @SuppressLint("ParcelCreator")
 public class Question implements Parcelable {
+    public static final Parcelable.Creator<Question> CREATOR = new Parcelable.Creator<Question>() {
+
+        @Override
+        public Question createFromParcel(Parcel source) {
+            return new Question(source);
+        }
+
+        @Override
+        public Question[] newArray(int size) {
+            return new Question[size];
+        }
+    };
     private String text;
     private String type;
     private boolean isImageQuestion;
-
 
     public Question(Parcel in) {
         String[] data = new String[3];
@@ -62,17 +73,4 @@ public class Question implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeStringArray(new String[]{text, type, isImageQuestion ? "true" : "false"});
     }
-
-    public static final Parcelable.Creator<Question> CREATOR = new Parcelable.Creator<Question>() {
-
-        @Override
-        public Question createFromParcel(Parcel source) {
-            return new Question(source);
-        }
-
-        @Override
-        public Question[] newArray(int size) {
-            return new Question[size];
-        }
-    };
 }
