@@ -59,6 +59,10 @@ public class UIDataRouter {
      * Методика изучения коммуникативных и организаторских способностей
      */
     private static final int query_study_of_communication_skills = R.raw.query_study_of_communication_skills;
+    /**
+     * Методика исследование уровня эмпатийных тенденций
+     */
+    private static final int question_self_attitude_research = R.raw.question_self_attitude_research;
 
     public static ImmutableMap<Integer, Integer> questions = ImmutableMap.<Integer, Integer>builder()
             .put(0, question_default) // По умолчанию
@@ -72,6 +76,7 @@ public class UIDataRouter {
             .put(8, query_scale_of_neurosis) // Шкала невроза
             .put(9, query_motivation_to_achieve_success) // Диагностика мотивации к достижению успеха
             .put(10, query_study_of_communication_skills) // Методика изучения коммуникативных и организаторских способностей
+            .put(12, question_self_attitude_research)
             .build();
 
     public static int getResourceOrDefault(int id) {

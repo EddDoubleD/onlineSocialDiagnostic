@@ -31,6 +31,11 @@ public class SettingsActivity extends AppCompatActivity {
             Common.currentUser = user;
             finish();
         });
+
+        Button drop = findViewById(R.id.drop);
+        drop.setOnClickListener(v -> {
+
+        });
     }
 
     @Override

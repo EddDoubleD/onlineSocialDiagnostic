@@ -7,7 +7,10 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import ru.hardwork.onlinesocialdiagnosticapp.R;
+import ru.hardwork.onlinesocialdiagnosticapp.scenery.ViewAnimation;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,6 +18,9 @@ import ru.hardwork.onlinesocialdiagnosticapp.R;
  * create an instance of this fragment.
  */
 public class GroupFragment extends Fragment {
+
+    FloatingActionButton addButton, fabJoin, fabInvite;
+    boolean isRotate = false;
 
 
     public GroupFragment() {
@@ -40,6 +46,23 @@ public class GroupFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_group, container, false);
+        View view = inflater.inflate(R.layout.fragment_group, container, false);
+        addButton = view.findViewById(R.id.addButton);
+        fabJoin = view.findViewById(R.id.fabJoin);
+        fabInvite = view.findViewById(R.id.fabInvite);
+        ViewAnimation.init(fabJoin);
+        ViewAnimation.init(fabInvite);
+
+        addButton.setOnClickListener(v -> {
+            isRotate = ViewAnimation.rotateFab(v, !isRotate);
+            if(isRotate){
+                ViewAnimation.showIn(fabJoin);
+                ViewAnimation.showIn(fabInvite);
+            }else{
+                ViewAnimation.showOut(fabJoin);
+                ViewAnimation.showOut(fabInvite);
+            }
+        });
+        return view;
     }
 }
