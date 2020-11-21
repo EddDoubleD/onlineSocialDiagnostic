@@ -1,22 +1,18 @@
 package ru.hardwork.onlinesocialdiagnosticapp.ui.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import net.bohush.geometricprogressview.GeometricProgressView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
-import ru.hardwork.onlinesocialdiagnosticapp.common.UIDataRouter;
-import ru.hardwork.onlinesocialdiagnosticapp.model.user.User;
 
 public class MainActivity extends AppCompatActivity {
-    GeometricProgressView progressView;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,21 +25,16 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 super.run();
                 try {
+                    mAuth = FirebaseAuth.getInstance();
+                    Common.firebaseUser = mAuth.getCurrentUser();
                     sleep(1400);
                 } catch (Exception e) {
                     Log.e("MAIN", e.getMessage());
                 } finally {
-                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
-                    String name = preferences.getString(UIDataRouter.USER_NAME, UIDataRouter.DEFAULT_USER);
-                    User user = new User();
-                    user.setLogIn(name);
-
-                    Common.currentUser = user;
                     startActivity(homeActivity);
                     finish();
                 }
             }
         }.start();
     }
-
 }

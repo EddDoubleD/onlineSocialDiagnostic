@@ -90,7 +90,8 @@ public class ResultFragment extends Fragment {
                 DATE_PASSED
         };
         String selection = EMAIL + " = ?";
-        String[] selectionArgs = {Common.currentUser.getLogIn()};
+        String usrName = Common.firebaseUser == null ? "gues" : Common.firebaseUser.getEmail();
+        String[] selectionArgs = {usrName};
 
         Cursor cursor = db.query(RESULT_TABLE, projection, selection, selectionArgs, null, null, DIAGNOSTIC_ID);
         List<UserResult> results = f.apply(cursor);

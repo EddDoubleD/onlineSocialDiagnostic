@@ -2,9 +2,7 @@ package ru.hardwork.onlinesocialdiagnosticapp.ui.activity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +15,6 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
-import ru.hardwork.onlinesocialdiagnosticapp.common.UIDataRouter;
 
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
@@ -32,7 +29,6 @@ public class SignInActivity extends AppCompatActivity {
     Button btnSignUp, btnSignIn;
 
     private FirebaseAuth mAuth;
-    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,20 +37,15 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
         // Аутентификация
         mAuth = FirebaseAuth.getInstance();
-
-
-        preferences = PreferenceManager.getDefaultSharedPreferences(SignInActivity.this);
-        String name = preferences.getString(UIDataRouter.USER_NAME, UIDataRouter.DEFAULT_USER);
-        final SharedPreferences.Editor preferencesEditor = preferences.edit();
         // ui init
         edtUser = findViewById(R.id.edtUser);
         edtPassword = findViewById(R.id.edtPassword);
         // Войти
         btnSignIn = findViewById(R.id.btn_sign_in);
-        btnSignIn.setOnClickListener(view -> signIn(edtUser.getText().toString(), edtPassword.getText().toString(), preferencesEditor));
+        btnSignIn.setOnClickListener(view -> signIn(edtUser.getText().toString(), edtPassword.getText().toString()));
         // Зарегистрироваться
         btnSignUp = findViewById(R.id.btn_sign_up);
-        btnSignUp.setOnClickListener(view -> showSignUpDialog(preferencesEditor));
+        btnSignUp.setOnClickListener(view -> showSignUpDialog());
     }
 
     @Override
@@ -67,7 +58,7 @@ public class SignInActivity extends AppCompatActivity {
     /**
      * Авторизация пользователя
      */
-    private void signIn(final String email, final String password, final SharedPreferences.Editor editor) {
+    private void signIn(final String email, final String password) {
         // Проверка корректности введенных данных
         boolean valid = validate(email, password);
         if (valid) {
@@ -75,10 +66,6 @@ public class SignInActivity extends AppCompatActivity {
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
                             Common.firebaseUser = mAuth.getCurrentUser();
-                            editor.putString(UIDataRouter.USER_NAME, Common.firebaseUser.getDisplayName());
-                            editor.commit();
-                            editor.clear();
-
                             Intent homeActivity = new Intent(SignInActivity.this, HomeActivity.class);
                             startActivity(homeActivity);
                             finish();
@@ -105,7 +92,7 @@ public class SignInActivity extends AppCompatActivity {
         return true;
     }
 
-    private void showSignUpDialog(final SharedPreferences.Editor editor) {
+    private void showSignUpDialog() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(SignInActivity.this);
         alertDialog.setTitle("Регистрация");
         alertDialog.setMessage("Пожалуйста введите информацию");
@@ -127,11 +114,6 @@ public class SignInActivity extends AppCompatActivity {
                     .addOnCompleteListener(this, task -> {
                         if (task.isSuccessful()) {
                             Common.firebaseUser = mAuth.getCurrentUser();
-                            editor.putString(UIDataRouter.USER_NAME, Common.firebaseUser.getDisplayName());
-                            Common.currentUser.setLogIn(Common.firebaseUser.getDisplayName());
-                            editor.commit();
-                            editor.clear();
-
                             Intent homeActivity = new Intent(SignInActivity.this, HomeActivity.class);
                             startActivity(homeActivity);
                             finish();
