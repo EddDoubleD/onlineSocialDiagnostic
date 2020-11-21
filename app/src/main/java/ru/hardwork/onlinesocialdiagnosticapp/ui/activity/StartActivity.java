@@ -19,6 +19,7 @@ import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Question;
 public class StartActivity extends AppCompatActivity {
 
     private DiagnosticTest diagnostic;
+    private String inviteUid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class StartActivity extends AppCompatActivity {
         if (extras == null) {
             return;
         }
+
         diagnostic = (DiagnosticTest) extras.getSerializable("DIAGNOSTIC");
         // Загружаем диагностику
         if (diagnostic == null) {
@@ -44,6 +46,8 @@ public class StartActivity extends AppCompatActivity {
         if (categoryName != null) {
             categoryName.setText(catName);
         }
+
+        inviteUid = extras.getString("INVITE", "");
 
         TextView diagnosticName = findViewById(R.id.diagnostic_start_name);
         if (diagnosticName != null) {
@@ -61,6 +65,7 @@ public class StartActivity extends AppCompatActivity {
             Intent diagnosticIntent = new Intent(StartActivity.this, DiagnosticActivity.class);
             Bundle dataSend = new Bundle();
             dataSend.putSerializable("DIAGNOSTIC", diagnostic);
+            dataSend.putString("INVITE", inviteUid);
             diagnosticIntent.putExtras(dataSend);
             startActivity(diagnosticIntent);
             finish();

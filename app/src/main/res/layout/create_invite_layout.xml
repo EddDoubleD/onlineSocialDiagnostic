@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/aliasText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/alias_text"
+        android:textColor="@color/contact"
+        android:textColorHint="@color/contact"
+        android:layout_margin="5dp"
+        android:textSize="24sp"
+        app:met_baseColor="@color/plaintText"
+        app:met_floatingLabel="highlight"
+        app:met_primaryColor="@color/plaintText"
+        />
+
+    <Spinner
+        android:id="@+id/diagnosticSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"/>
+
+
+</LinearLayout>

@@ -35,6 +35,7 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
     private TextView txtQuestionNum, questionText;
 
     private DiagnosticTest diagnostic;
+    private String inviteUid;
     private ArrayList<Integer> result;
 
     @Override
@@ -56,6 +57,8 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
 
         Bundle extras = getIntent().getExtras();
         diagnostic = (DiagnosticTest) extras.getSerializable("DIAGNOSTIC");
+
+        inviteUid = extras.getString("INVITE");
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -86,6 +89,7 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
             dataSend.putIntegerArrayList(RESULT, result);
             dataSend.putSerializable("DIAGNOSTIC", diagnostic);
             dataSend.putBoolean("FROM_DIAGNOSTIC", true);
+            dataSend.putString("INVITE", inviteUid);
             done.putExtras(dataSend);
             startActivity(done);
             finish();

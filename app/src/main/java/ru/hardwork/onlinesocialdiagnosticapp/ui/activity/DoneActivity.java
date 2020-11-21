@@ -14,17 +14,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.mutable.MutableBoolean;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import ru.hardwork.onlinesocialdiagnosticapp.R;
@@ -36,10 +46,13 @@ import ru.hardwork.onlinesocialdiagnosticapp.factory.DescriptionViewModel;
 import ru.hardwork.onlinesocialdiagnosticapp.holders.DescriptionViewHolder;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Decryption;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
+import ru.hardwork.onlinesocialdiagnosticapp.model.firebase.Invite;
 import ru.hardwork.onlinesocialdiagnosticapp.scenery.SpeedyLinearLayoutManager;
 import ru.hardwork.onlinesocialdiagnosticapp.scenery.VerticalSpaceItemDecoration;
 
 import static java.lang.String.format;
+import static org.apache.commons.lang3.StringUtils.isNotEmpty;
+import static ru.hardwork.onlinesocialdiagnosticapp.common.UIDataRouter.DEFAULT_USER;
 import static ru.hardwork.onlinesocialdiagnosticapp.common.lite.DiagnosticContract.DiagnosticEntry.RESULT_TABLE;
 
 public class DoneActivity extends AppCompatActivity {
@@ -58,6 +71,8 @@ public class DoneActivity extends AppCompatActivity {
 
     private boolean fromDiagnostic;
 
+
+
     @SuppressLint({"DefaultLocale", "ResourceAsColor"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +86,8 @@ public class DoneActivity extends AppCompatActivity {
         if (extras == null) {
             return;
         }
+
+        String uid = extras.getString("INVITE");
 
         resultText = findViewById(R.id.result);
         mRecyclerView = findViewById(R.id.descriptionRecycler);
@@ -103,11 +120,53 @@ public class DoneActivity extends AppCompatActivity {
             // SQLite
             SQLiteDatabase db = application.getDbHelper().getWritableDatabase();
             ContentValues userResult = new ContentValues();
-            userResult.put(DiagnosticContract.DiagnosticEntry.EMAIL, Common.currentUser.getLogIn());
+            String userName = Common.firebaseUser == null ? DEFAULT_USER : Common.firebaseUser.getEmail();
+            userResult.put(DiagnosticContract.DiagnosticEntry.EMAIL, userName);
             userResult.put(DiagnosticContract.DiagnosticEntry.DIAGNOSTIC_ID, diagnostic.getId());
             userResult.put(DiagnosticContract.DiagnosticEntry.RESULT, StringUtils.join(result));
             userResult.put(DiagnosticContract.DiagnosticEntry.DATE_PASSED, FORMAT.format(date));
             db.insert(RESULT_TABLE, null, userResult);
+        }
+
+        if (isNotEmpty(uid)) {
+            DatabaseReference invites = FirebaseDatabase.getInstance().getReference("invite");
+            Query query = invites.orderByKey().equalTo(uid);
+            MutableBoolean key = new MutableBoolean();
+            key.setFalse();
+            query.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (key.getValue()) {
+                        return; // The update has already happened
+                    } else {
+                        key.setTrue();
+                    }
+
+                    Iterator<DataSnapshot> iterator = snapshot.getChildren().iterator();
+                    if (!iterator.hasNext()) {
+                        Toast.makeText(DoneActivity.this, format("Не найдено приглашение с идентификатором %s", uid), Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    DataSnapshot firstChild = iterator.next();
+                    Invite joinInvite = firstChild.getValue(Invite.class);
+                    Invite.Result inviteResult = new Invite.Result(StringUtils.join(result), new Date());
+
+                    joinInvite.addResult(inviteResult);
+                    invites.child(uid).setValue(joinInvite, (databaseError, databaseReference) -> {
+                        if (databaseError != null) {
+                            Toast.makeText(DoneActivity.this, format("Ошибка сохранения %s, попробуйте повторить попытку", databaseError.getMessage()), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    if (error.getCode() != 0) {
+                        Toast.makeText(DoneActivity.this, format("Ошибка сохранения %s, попробуйте повторить попытку", error.getMessage()), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         }
         // Ссылка на расшифровку
         resultText.setText(Html.fromHtml(format(HTML, decryption.getUrl())));

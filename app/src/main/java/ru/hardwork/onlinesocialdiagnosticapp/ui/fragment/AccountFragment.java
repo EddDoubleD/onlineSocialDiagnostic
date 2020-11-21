@@ -73,6 +73,8 @@ public class AccountFragment extends Fragment {
     private void zeroing(MutableBoolean exit) {
         userLogIn.setText(UIDataRouter.DEFAULT_USER);
         inOut.setText("Войти");
+        mAuth.signOut();
+        Common.firebaseUser = null;
         exit.setFalse();
     }
 
@@ -93,15 +95,10 @@ public class AccountFragment extends Fragment {
         } else {
             zeroing(exit);
         }
-        //
-        SharedPreferences preference = PreferenceManager.getDefaultSharedPreferences(getContext());
-        final SharedPreferences.Editor editor = preference.edit();
         quitAccountView.setOnClickListener(view -> {
             if (exit.booleanValue()) {
                 zeroing(exit);
-                editor.putString(UIDataRouter.USER_NAME, UIDataRouter.DEFAULT_USER);
-                editor.commit();
-                editor.clear();
+
             } else {
                 Intent signInActivity = new Intent(getContext(), SignInActivity.class);
                 startActivity(signInActivity);
