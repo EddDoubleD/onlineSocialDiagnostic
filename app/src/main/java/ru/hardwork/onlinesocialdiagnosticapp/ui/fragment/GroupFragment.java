@@ -33,18 +33,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Optional;
 
 import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
-import ru.hardwork.onlinesocialdiagnosticapp.holders.DiagnosticTestViewHolder;
 import ru.hardwork.onlinesocialdiagnosticapp.holders.InviteViewHolder;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
 import ru.hardwork.onlinesocialdiagnosticapp.model.firebase.Invite;
 import ru.hardwork.onlinesocialdiagnosticapp.scenery.SpeedyLinearLayoutManager;
 import ru.hardwork.onlinesocialdiagnosticapp.scenery.VerticalSpaceItemDecoration;
 import ru.hardwork.onlinesocialdiagnosticapp.scenery.ViewAnimation;
-import ru.hardwork.onlinesocialdiagnosticapp.ui.activity.DoneActivity;
 import ru.hardwork.onlinesocialdiagnosticapp.ui.activity.StartActivity;
 
 import static java.lang.String.format;
@@ -115,8 +112,9 @@ public class GroupFragment extends Fragment {
             MaterialEditText aliasText = addDialog.findViewById(R.id.aliasText);
             Spinner diagnosticSpinner = addDialog.findViewById(R.id.diagnosticSpinner);
             ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, data);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             diagnosticSpinner.setAdapter(adapter);
-
+            diagnosticSpinner.setSelection(0);
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.DialogTheme);
             builder.setNegativeButton("ОТМЕНА", (dialogInterface, i) -> dialogInterface.dismiss());
             builder.setPositiveButton("СОЗДАТЬ", (dialogInterface, i) -> {
@@ -201,7 +199,7 @@ public class GroupFragment extends Fragment {
                     }
                 });
             });
-            builder.setTitle("Создание приглашения");
+            builder.setTitle("Введите идентификатор приглашения");
             builder.setView(addDialog);
             builder.show();
         });
