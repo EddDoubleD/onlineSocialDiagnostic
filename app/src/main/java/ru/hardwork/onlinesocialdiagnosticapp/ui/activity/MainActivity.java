@@ -7,12 +7,17 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 
+import static org.apache.commons.lang3.StringUtils.EMPTY;
+
 public class MainActivity extends AppCompatActivity {
-    private FirebaseAuth mAuth;
+    private static final String TAG = "MainActivity";
+    private static final String INVITE = "invite";
+    private static final String AUTH = "auth";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +30,13 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 super.run();
                 try {
-                    mAuth = FirebaseAuth.getInstance();
-                    Common.firebaseUser = mAuth.getCurrentUser();
-                    sleep(1400);
+                    Common.firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+                    // Optimizing group loading
+                    String uid = Common.firebaseUser != null ? Common.firebaseUser.getUid() : EMPTY;
+                    FirebaseDatabase.getInstance().getReference(INVITE).orderByChild(AUTH).equalTo(uid);
+                    sleep(1000);
                 } catch (Exception e) {
-                    Log.e("MAIN", e.getMessage());
+                    Log.e(TAG, e.getMessage());
                 } finally {
                     startActivity(homeActivity);
                     finish();

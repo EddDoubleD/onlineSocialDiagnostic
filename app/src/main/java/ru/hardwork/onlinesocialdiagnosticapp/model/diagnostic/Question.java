@@ -18,6 +18,7 @@ public class Question implements Parcelable {
             return new Question[size];
         }
     };
+
     private String text;
     private String type;
     private boolean isImageQuestion;
