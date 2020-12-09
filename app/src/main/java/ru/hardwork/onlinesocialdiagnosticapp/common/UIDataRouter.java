@@ -42,15 +42,15 @@ public class UIDataRouter {
     /**
      * Диагностика эмоционального выгорания
      */
-    private static final int query_burnout_diagnostics = R.raw.query_burnout_diagnostics;
+    private static final int query_burnout_diagnostics = R.raw.question_burnout_diagnostics;
     /**
      * Диагностика состояния стресса
      */
-    private static final int query_stress_diagnostics = R.raw.query_stress_diagnostics;
+    private static final int query_stress_diagnostics = R.raw.question_stress_diagnostics;
     /**
      * Шкала невроза
      */
-    private static final int query_scale_of_neurosis = R.raw.query_scale_of_neurosis;
+    private static final int query_scale_of_neurosis = R.raw.question_scale_of_neurosis;
     /**
      * Диагностика мотивации к достижению успеха
      */
@@ -58,7 +58,7 @@ public class UIDataRouter {
     /**
      * Методика изучения коммуникативных и организаторских способностей
      */
-    private static final int query_study_of_communication_skills = R.raw.query_study_of_communication_skills;
+    private static final int query_study_of_communication_skills = R.raw.question_study_of_communication_skills;
     /**
      * Методика исследование уровня эмпатийных тенденций
      */
@@ -76,6 +76,7 @@ public class UIDataRouter {
             .put(8, query_scale_of_neurosis) // Шкала невроза
             .put(9, query_motivation_to_achieve_success) // Диагностика мотивации к достижению успеха
             .put(10, query_study_of_communication_skills) // Методика изучения коммуникативных и организаторских способностей
+
             .put(12, question_self_attitude_research)
             .build();
 

@@ -81,26 +81,25 @@
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
-    <!-- Options -->
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/cardQuestion"
         android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="50dp">
+        android:layout_marginBottom="20dp">
 
         <LinearLayout
             android:id="@+id/group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="10dp">
+            android:paddingTop="5dp">
 
             <Button
-                android:id="@+id/btnYes"
+                android:id="@+id/firstButton"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -113,7 +112,56 @@
                 android:theme="@style/LightButtons" />
 
             <Button
-                android:id="@+id/btnNo"
+                android:id="@+id/secondButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/contact"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="НЕТ"
+                android:textColor="@color/plaintText"
+                android:textStyle="bold"
+                android:theme="@style/LightButtons" />
+            <Button
+                android:id="@+id/thirdButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/contact"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="НЕТ"
+                android:textColor="@color/plaintText"
+                android:textStyle="bold"
+                android:theme="@style/LightButtons" />
+            <Button
+                android:id="@+id/fourthButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/contact"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="НЕТ"
+                android:textColor="@color/plaintText"
+                android:textStyle="bold"
+                android:theme="@style/LightButtons" />
+            <Button
+                android:id="@+id/fifthButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/contact"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="НЕТ"
+                android:textColor="@color/plaintText"
+                android:textStyle="bold"
+                android:theme="@style/LightButtons" />
+
+            <Button
+                android:id="@+id/sixButton"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -128,5 +176,6 @@
         </LinearLayout>
 
     </RelativeLayout>
+    <!-- Options -->
 
 </RelativeLayout>

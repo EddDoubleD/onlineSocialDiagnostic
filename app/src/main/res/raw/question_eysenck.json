@@ -3,342 +3,342 @@
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Часто ли Вы испытываете тягу к новым впечатлениям, к тому чтобы отвлечься, испытать сильные ощущения ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Часто ли вы чувствуете, что нуждаетесь в друзьях, которые могут вас понять, одобрить или посочувствовать ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Считаете ли вы себя беззаботным человеком ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Очень ли трудно вам отказываться от своих намерений ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Обдумываете ли вы свои дела не спеша и предпочитаете подождать, прежде чем действовать ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Всегда ли вы сдерживаете свои обещания, даже если вам это невыгодно ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Часто ли у вас бывают спады и подъемы настроения ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Быстро ли вы обычно действуете и говорите, не затрачиваете ли много времени на обдумывание ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Возникало ли у вас когда-нибудь чувство, что вы несчастны, хотя никакой серьезной причины на это не было ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Верно ли, что \"на спор\" вы способны решиться на все ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Смущаетесь ли вы, когда хотите познакомиться с человеком противоположного пола, который вам симпатичен ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Бывает ли когда-нибудь, что, разозлившись, вы выходите из себя ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Часто ли действуете необдуманно, под влиянием момента ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Часто ли вас беспокоят мысли о том, что вам не следовало чего-либо делать или говорить ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Предпочитаете ли вы чтение книг встречам с людьми ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Верно ли, что вас легко задеть ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Любите ли вы часто бывать в компании ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Бывают ли у вас такие мысли, которыми вам не хотелось делиться с другими людьми ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Верно ли, что иногда вы настолько полны энергии, что все горит в руках, а иногда вы чувствуете сильную вялость ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Стараетесь ли вы ограничить круг своих знакомств небольшим числом самых близких людей ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Много ли вы мечтаете ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Когда на вас кричат, отвечаете ли тем же ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Считаете ли вы свои привычки хорошими ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Часто ли у вас появляется чувство, что вы чем-то виноваты ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Способны ли вы иногда дать волю своим чувств и беззаботно развлечься с веселой компанией ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Можно ли сказать, что часто у вас нервы бывают натянуты до предела ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Слывете ли вы за человека веселого и живого ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "После того, как дело сделано, часто ли вы мысленно возвращаетесь к нему и думаете, что могли бы сделать лучше ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Чувствуете ли вы себя неспокойно, находясь в большой компании ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Бывает ли, что вы передаете слухи ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Бывает ли, что вам не спится из-за того, что в голову лезут разные мысли ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Что вы предпочитаете, если хотите что-либо узнать: найти это в книге или спросить у друзей ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Бывают ли у вас сильные сердцебиения ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Нравится ли вам работа, требующая сосредоточения ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Бывают ли у вас приступы дрожи ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Всегда ли вы говорите только правду ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Бывает ли вам неприятно находиться в компании, где все подшучивают друг над другом ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Раздражительны ли вы ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Нравится ли вам работа, требующая быстрого действия ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Верно ли, что вам часто не дают покоя мысли о разных неприятностях и 'ужасах', которые могли бы произойти, хотя все кончилось благополучно ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Верно ли, что вы неторопливы в движениях и несколько медлительны ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Опаздывали ли вы когда-нибудь на работу или встречу с кем-то ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Часто ли вам снятся кошмары ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Верно ли что вы так любите поговорить, что не упускаете любого удобного случая побеседовать с новым человеком ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Беспокоят ли вас какие-либо боли ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Огорчились бы вы, если бы не смогли долго видеться с друзьями ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Можете ли вы назвать себя нервным человеком ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Есть ли среди ваших знакомых такие, которые вам явно не нравятся ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Могли бы вы сказать, что вы уверенный в себе человек ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Легко ли вас задевает критика ваших недостатков, или вашей работы ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Трудно ли вам получить настоящее удовольствие от мероприятий, в которых участвует много народу ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Беспокоит ли вас чувство, что вы чем-то хуже других ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Сумели бы вы внести оживление в скучную компанию ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Бывает ли, что вы говорите о вещах, в которых совсем не разбираетесь ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Беспокоитесь ли вы о своем здоровье ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Любите ли вы подшутить над другими ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 2,
     "isImageQuestion": "false",
     "text": "Страдаете ли вы бессонницей ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   }
 ]

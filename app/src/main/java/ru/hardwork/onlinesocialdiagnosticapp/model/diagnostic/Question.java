@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.List;
+
 @SuppressLint("ParcelCreator")
 public class Question implements Parcelable {
     public static final Parcelable.Creator<Question> CREATOR = new Parcelable.Creator<Question>() {
@@ -20,14 +22,13 @@ public class Question implements Parcelable {
     };
 
     private String text;
-    private String type;
+    private List<String> type;
     private boolean isImageQuestion;
 
     public Question(Parcel in) {
         String[] data = new String[3];
         in.readStringArray(data);
         text = data[0];
-        type = data[1];
         isImageQuestion = Boolean.parseBoolean(data[2]);
     }
 
@@ -35,7 +36,7 @@ public class Question implements Parcelable {
 
     }
 
-    public Question(String text, String type, boolean isImageQuestion) {
+    public Question(String text, List<String> type, boolean isImageQuestion) {
         this.text = text;
         this.type = type;
         this.isImageQuestion = isImageQuestion;
@@ -49,20 +50,20 @@ public class Question implements Parcelable {
         this.text = text;
     }
 
+    public List<String> getType() {
+        return type;
+    }
+
+    public void setType(List<String> type) {
+        this.type = type;
+    }
+
     public boolean isImageQuestion() {
         return isImageQuestion;
     }
 
     public void setImageQuestion(boolean imageQuestion) {
         isImageQuestion = imageQuestion;
-    }
-
-    public int getCost(String question) {
-        if (type.equalsIgnoreCase("yn")) {
-            return question.equalsIgnoreCase("да") ? 1 : 0;
-        }
-
-        return 0;
     }
 
     @Override
@@ -72,6 +73,6 @@ public class Question implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeStringArray(new String[]{text, type, isImageQuestion ? "true" : "false"});
+        parcel.writeStringArray(new String[]{text, type.toString(), isImageQuestion ? "true" : "false"});
     }
 }
