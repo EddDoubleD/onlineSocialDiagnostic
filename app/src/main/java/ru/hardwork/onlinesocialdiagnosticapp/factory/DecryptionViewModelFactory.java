@@ -54,7 +54,7 @@ public class DecryptionViewModelFactory implements IFactory<DescriptionViewModel
                                 continue;
                             }
 
-                            if (processing.get(i) == 1) {
+                            if (processing.get(i) == 0) {
                                 semi++;
                             }
                             max++;
@@ -70,7 +70,7 @@ public class DecryptionViewModelFactory implements IFactory<DescriptionViewModel
                                 continue;
                             }
 
-                            if (processing.get(i) == 0) {
+                            if (processing.get(i) == 1) {
                                 semi++;
                             }
                             max++;

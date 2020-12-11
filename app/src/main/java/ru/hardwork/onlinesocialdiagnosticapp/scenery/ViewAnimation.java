@@ -34,6 +34,7 @@ public class ViewAnimation {
                 .alpha(1f)
                 .start();
     }
+
     public static void showOut(final View v) {
         v.setVisibility(View.VISIBLE);
         v.setAlpha(1f);

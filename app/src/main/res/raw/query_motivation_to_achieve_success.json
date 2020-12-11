@@ -3,246 +3,246 @@
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Когда имеется выбор между двумя вариантами, его лучше сделать быстрее, чем отложить на определенное время",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Я легко раздражаюсь, когда замечаю, что не могу на все 100% выполнить задание",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Когда я работаю, это выглядит так, будто я все ставлю на карту",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Когда возникает проблемная ситуация, я чаще всего принимаю решение одним из последних",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Когда у меня два дня подряд нет дела, я теряю покой",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "В некоторые дни мои успехи ниже средних",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "По отношению к себе я более строг, чем по отношению к другим",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Я более доброжелателен, чем другие",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Когда я отказываюсь от трудного задания, я потом сурово осуждаю себя, так как знаю, что в нем я добился бы успеха",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "В процессе работы я нуждаюсь в небольших паузах для отдыха",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Усердие – это не основная моя черта",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Мои достижения в труде не всегда одинаковы",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Меня больше привлекает другая работа, чем та, которой я занят",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Порицание стимулирует меня сильнее, чем похвала",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Я знаю, что мои коллеги считают меня дельным человеком",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Препятствия делают мои решения более твердыми",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "У меня легко вызвать честолюбие",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Когда я работаю без вдохновения, это обычно заметно",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "При выполнении работы я не рассчитываю на помощь других",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Иногда я откладываю то, что должен был сделать сейчас",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Нужно полагаться только на самого себя",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "В жизни мало вещей, более важных, чем деньги",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Всегда, когда мне предстоит выполнить важное задание, я ни о чем другом не думаю",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Я менее честолюбив, чем многие другие",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "В конце отпуска я обычно радуюсь, что скоро выйду на работу",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Когда я расположен к работе, я делаю ее лучше и квалифицированнее, чем другие",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Мне проще и легче общаться с людьми, которые могут упорно работать",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Когда у меня нет дел, я чувствую, что мне не по себе",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Мне приходится выполнять ответственную работу чаще, чем другим",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Когда мне приходится принимать решение, я стараюсь делать это как можно лучше",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Мои друзья иногда считают меня ленивым",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Мои успехи в какой-то мере зависят от моих коллег",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Бессмысленно противодействовать воле руководителя",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Иногда не знаешь, какую работу придется выполнять",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Когда что-то не ладится, я нетерпелив",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Я обычно обращаю мало внимания на свои достижения",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Когда я работаю вместе с другими, моя работа дает большие результаты, чем работы других",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Многое, за что я берусь, я не довожу до конца",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Я завидую людям, которые но загружены работой",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Я не завидую тем, кто стремится к власти и положению",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 9,
     "isImageQuestion": "false",
     "text": "Когда я уверен, что стою на правильном пути, для доказательства своей правоты я иду вплоть до крайних мер",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   }
 ]

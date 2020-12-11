@@ -72,7 +72,6 @@ public class DoneActivity extends AppCompatActivity {
     private boolean fromDiagnostic;
 
 
-
     @SuppressLint({"DefaultLocale", "ResourceAsColor"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {

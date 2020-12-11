@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="130dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="130dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/userCardView"
@@ -12,7 +12,7 @@
         app:cardBackgroundColor="@color/background">
 
         <LinearLayout
-            android:id="@+id/resultLine"
+            android:id="@+id/groupLine"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
@@ -26,36 +26,55 @@
             android:weightSum="3"
             tools:ignore="ObsoleteLayoutParam">
 
-            <TextView
-                android:id="@+id/aliasCardText"
+            <LinearLayout
+                android:id="@+id/clickableLayout"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left|center_vertical"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
                 android:layout_weight="2"
-                android:fontFamily="@font/museo_sans_cyrl"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:text="Диагностика"
-                android:textColor="@color/plaintText"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                tools:ignore="RtlHardcoded" />
+                android:orientation="vertical"
+                android:weightSum="3">
 
-            <TextView
-                android:id="@+id/inviteDate"
+                <TextView
+                    android:id="@+id/aliasText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/museo_sans_cyrl"
+                    android:gravity="center"
+                    android:text="@string/alias_stub"
+                    android:textColor="@color/plaintText"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:ignore="NestedWeights,RtlHardcoded" />
+
+                <TextView
+                    android:id="@+id/inviteDiagnostic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/museo_sans_cyrl"
+                    android:text="@string/stub"
+                    android:textColor="@color/plaintText"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlHardcoded" />
+
+            </LinearLayout>
+
+
+            <ImageButton
+                android:id="@+id/shareBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/museo_sans_cyrl"
+                android:background="@null"
                 android:gravity="center"
-                android:inputType="datetime"
-                android:text="02.05.2020"
-                android:textColor="@color/plaintText"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                tools:ignore="RtlHardcoded" />
+                android:src="@drawable/icons8_share_64"
+                tools:ignore="ContentDescription,RtlHardcoded" />
 
         </LinearLayout>
 
