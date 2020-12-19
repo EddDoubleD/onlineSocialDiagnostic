@@ -17,4 +17,9 @@
         <item name="colorControlHighlight">#1CB3BC</item>
     </style>
 
+    <style name="SwipeLayout">
+        <item name="android:paddingBottom">1px</item>
+        <item name="android:background">@color/background</item>
+    </style>
+
 </resources>

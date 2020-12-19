@@ -38,5 +38,5 @@
     <string name="yes">Да</string>
     <string name="alias_text">Псевдоним</string>
     <string name="join_text">Идентификатор приглашения</string>
-    <string name="alias_stub">Диагностика</string>
+    <string name="alias_stub">Ассоциация</string>
 </resources>
