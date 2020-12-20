@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="15dp"
         android:fontFamily="@font/museo_sans_cyrl"
@@ -42,12 +43,12 @@
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         android:orientation="vertical"
-        android:weightSum="5">
+        android:weightSum="7">
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3"
+            android:layout_weight="5"
             android:scrollbarStyle="insideInset">
 
             <TextView
@@ -57,7 +58,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:fontFamily="@font/museo_sans_cyrl"
-                android:gravity="start"
+                android:gravity="start|center_vertical"
                 android:text="@string/diagnosticDesc"
                 android:textColor="@color/plaintText"
                 android:textSize="18sp" />
@@ -76,7 +77,7 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:background="@drawable/round"
@@ -91,10 +92,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:layout_gravity="center"
                 android:fontFamily="@font/museo_sans_cyrl"
-                android:text="Начать заново"
+                android:text="@string/start_over"
+                android:visibility="invisible"
                 android:textSize="16sp"/>
 
         </LinearLayout>
