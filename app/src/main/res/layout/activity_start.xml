@@ -9,16 +9,8 @@
 
     <TextView
         android:id="@+id/category_start_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:fontFamily="@font/gilroy_bold"
-        android:gravity="center"
+        style="@style/SemiH1Text"
         android:text="@string/catName"
-        android:textColor="@color/plaintText"
-        android:textSize="24sp"
-        android:textStyle="bold"
         tools:ignore="RtlSymmetry" />
 
     <TextView
