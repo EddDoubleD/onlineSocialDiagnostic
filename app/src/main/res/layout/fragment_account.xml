@@ -42,9 +42,9 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="30dp"
                 android:layout_weight="1"
-                android:textSize="16sp"
                 android:text="@string/guest"
                 android:textColor="@color/plaintText"
+                android:textSize="16sp"
                 tools:ignore="RtlHardcoded" />
 
         </LinearLayout>

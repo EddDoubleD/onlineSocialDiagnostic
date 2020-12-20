@@ -6,7 +6,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -25,14 +24,12 @@ import static java.lang.String.format;
 
 public class DiagnosticActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String YES = "да";
     private static final String RESULT = "RESULT";
     private static final String QUESTION_NUM_MASK = "%d/%d";
 
     int index = 0, totalQuestion;
 
     private ProgressBar progressBar;
-    private ImageView questionImage;
     private TextView txtQuestionNum, questionText;
     private List<String> options = new ArrayList<>();
     private List<Button> btnList = new ArrayList<>();
@@ -49,7 +46,6 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
         // Views
         txtQuestionNum = findViewById(R.id.txtTotalQuestion);
         questionText = findViewById(R.id.question_text);
-        questionImage = findViewById(R.id.question_image);
 
         progressBar = findViewById(R.id.progressBar);
 
@@ -97,7 +93,6 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
             progressBar.setProgress(index, true);
 
             Question question = Common.questions.get(index);
-            questionImage.setVisibility(View.INVISIBLE);
             questionText.setVisibility(View.VISIBLE);
             questionText.setText(question.getText());
 

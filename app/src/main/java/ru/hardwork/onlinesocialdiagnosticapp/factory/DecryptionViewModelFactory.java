@@ -11,6 +11,7 @@ import java.util.List;
 import ru.hardwork.onlinesocialdiagnosticapp.factory.strategy.DecryptionStrategy;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Decryption;
 
+// todo refactoring
 public class DecryptionViewModelFactory implements IFactory<DescriptionViewModel> {
     private static final String SPLITTER = ",";
 

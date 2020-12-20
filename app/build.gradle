@@ -77,6 +77,8 @@ android {
         api("com.google.guava:guava:29.0-android")
         // Animate ProgressBar
         implementation 'net.bohush.geometricprogressview:geometricprogressview:1.1.1'
+        // Flexible Android Widget swipe-layout
+        implementation 'ru.rambler.android:swipe-layout:1.1.0'
 
     }
 }

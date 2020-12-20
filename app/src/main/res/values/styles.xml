@@ -17,4 +17,36 @@
         <item name="colorControlHighlight">#1CB3BC</item>
     </style>
 
+    <style name="SwipeLayout">
+        <item name="android:paddingBottom">1px</item>
+        <item name="android:background">@color/background</item>
+    </style>
+
+    <style name="RoundedButton" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/round</item>
+        <item name="android:theme">@style/LightButtons</item>
+        <item name="android:textColor">@color/plaintText</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="QuestionButtons" parent="RoundedButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:text">@string/yes</item>
+    </style>
+
+    <style name="SemiH1Text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:fontFamily">@font/gilroy_bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/plaintText</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

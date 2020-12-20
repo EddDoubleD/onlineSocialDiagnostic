@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ru.rambler.libs.swipe_layout.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeLayout"
+    style="@style/SwipeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="130dp">
+
+    <!-- Basic invitation layout -->
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/purple_shape"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/aliasText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:fontFamily="@font/museo_sans_cyrl"
+            android:gravity="center"
+            android:text="@string/alias_stub"
+            android:textColor="@color/plaintText"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="InefficientWeight,NestedWeights,RtlHardcoded" />
+
+        <LinearLayout
+            android:id="@+id/middle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/diagnosticNameText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight="2"
+                android:fontFamily="@font/museo_sans_cyrl"
+                android:gravity="left|center_vertical"
+                android:text="@string/stub"
+                android:textColor="@color/plaintText"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:ignore="InefficientWeight,NestedWeights,RtlHardcoded" />
+
+            <TextView
+                android:id="@+id/diagnosticDateText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/museo_sans_cyrl"
+                android:gravity="center"
+                android:text="19.12.2020"
+                android:textColor="@color/plaintText"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:ignore="InefficientWeight,NestedWeights,RtlHardcoded" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/countText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:fontFamily="@font/museo_sans_cyrl"
+            android:gravity="center"
+            android:text="0/1"
+            android:textColor="@color/plaintText"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:ignore="InefficientWeight,NestedWeights,RtlHardcoded" />
+
+
+    </LinearLayout>
+
+    <!-- Right Edit/Delete -->
+    <LinearLayout
+        android:id="@+id/rightLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="horizontal"
+        app:bring_to_clamp="150dp"
+        app:clamp="self"
+        app:gravity="right"
+        app:sticky="100dp"
+        tools:ignore="MissingPrefix">
+
+        <LinearLayout
+            android:id="@+id/editDelete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <ImageButton
+                android:id="@+id/editButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/contact"
+                android:gravity="center"
+                android:src="@drawable/icons8_edit_50"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/deleteButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/red"
+                android:gravity="center"
+                android:src="@drawable/icons8_trash_50"
+                tools:ignore="ContentDescription" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <!-- Left Share -->
+    <LinearLayout
+        android:id="@+id/leftLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="horizontal"
+        app:bring_to_clamp="100dp"
+        app:clamp="self"
+        app:gravity="left"
+        app:sticky="none"
+        tools:ignore="MissingPrefix">
+
+        <ImageButton
+            android:id="@+id/sharedButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="@color/contact"
+            android:gravity="center"
+            android:src="@drawable/icons8_share_100"
+            tools:ignore="ContentDescription" />
+
+    </LinearLayout>
+
+</ru.rambler.libs.swipe_layout.SwipeLayout>

@@ -7,13 +7,10 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.text.Html;
-import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -59,14 +56,12 @@ public class DoneActivity extends AppCompatActivity {
 
     private static final String BASE_FORMAT = "yyyy.MM.dd HH:mm";
     private static final String RESULT = "RESULT";
-    private static final String HTML = "<p><a href=\"%s\" style=\"color:#260520\">Расшифровка теста</a></p>";
 
     @SuppressLint("SimpleDateFormat")
     private static final SimpleDateFormat FORMAT = new SimpleDateFormat(BASE_FORMAT);
 
     private Decryption decryption;
     private Button btnTryAgain;
-    private TextView resultText;
     private RecyclerView mRecyclerView;
 
     private boolean fromDiagnostic;
@@ -88,7 +83,6 @@ public class DoneActivity extends AppCompatActivity {
 
         String uid = extras.getString("INVITE");
 
-        resultText = findViewById(R.id.result);
         mRecyclerView = findViewById(R.id.descriptionRecycler);
         final SpeedyLinearLayoutManager mLayoutManager = new SpeedyLinearLayoutManager(
                 this,
@@ -167,11 +161,6 @@ public class DoneActivity extends AppCompatActivity {
                 }
             });
         }
-        // Ссылка на расшифровку
-        resultText.setText(Html.fromHtml(format(HTML, decryption.getUrl())));
-        resultText.setTextColor(R.color.plaintText);
-        resultText.setLinksClickable(true);
-        resultText.setMovementMethod(LinkMovementMethod.getInstance());
         //
         DecryptionViewModelFactory factory = new DecryptionViewModelFactory(result, decryption);
         List<DescriptionViewModel> desc = factory.build();
