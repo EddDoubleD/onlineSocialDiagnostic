@@ -27,8 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
         android:fontFamily="@font/museo_sans_cyrl"
         android:gravity="start"
@@ -68,8 +68,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"
             android:layout_gravity="center"
+            android:layout_weight="2"
             android:orientation="vertical">
 
             <Button
@@ -77,13 +77,13 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_gravity="center|center_vertical"
                 android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
                 android:background="@drawable/round"
                 android:elegantTextHeight="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:layout_gravity="center|center_vertical"
                 android:text="@string/startBtn"
                 android:textColor="@color/plaintText"
                 android:textStyle="bold"
@@ -92,15 +92,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/museo_sans_cyrl"
                 android:text="@string/start_over"
-                android:visibility="invisible"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:visibility="invisible" />
 
         </LinearLayout>
-
 
 
     </LinearLayout>
