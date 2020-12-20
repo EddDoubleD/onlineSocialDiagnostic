@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="130dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/userCardView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardBackgroundColor="@color/background">
+
+        <LinearLayout
+            android:id="@+id/groupLine"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/purple_shape"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            tools:ignore="ObsoleteLayoutParam">
+
+            <LinearLayout
+                android:id="@+id/clickableLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/aliasText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/museo_sans_cyrl"
+                    android:gravity="center"
+                    android:text="@string/alias_stub"
+                    android:textColor="@color/plaintText"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:ignore="NestedWeights,RtlHardcoded" />
+
+                <TextView
+                    android:id="@+id/inviteDiagnostic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/museo_sans_cyrl"
+                    android:text="@string/stub"
+                    android:textColor="@color/plaintText"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlHardcoded" />
+
+            </LinearLayout>
+
+
+            <ImageButton
+                android:id="@+id/shareBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="center"
+                android:src="@drawable/icons8_share_64"
+                tools:ignore="ContentDescription,RtlHardcoded" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

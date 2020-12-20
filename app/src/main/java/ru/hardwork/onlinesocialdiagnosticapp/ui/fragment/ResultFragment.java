@@ -49,23 +49,24 @@ import static ru.hardwork.onlinesocialdiagnosticapp.common.lite.DiagnosticContra
 public class ResultFragment extends Fragment {
 
     private static final String BASE_FORMAT = "yyyy.MM.dd HH:mm";
+    private static final String FORMAT = "HH:mm dd.MM.yy";
     @SuppressLint("SimpleDateFormat")
     private static final SimpleDateFormat DATA_FORMAT = new SimpleDateFormat(BASE_FORMAT);
-    View resultFragment;
-    private RecyclerView mRecyclerView;
+    @SuppressLint("SimpleDateFormat")
+    private static final SimpleDateFormat VIEW_FORMAT = new SimpleDateFormat(FORMAT);
+    private static final ConvertResultFunction f = new ConvertResultFunction();
+    private static ConvertString2IntArr convertStr2IntFunc = new ConvertString2IntArr();
     private boolean isListGoingUp = true;
-
     private HashMap<Integer, DiagnosticTest> localCache = new HashMap<>();
     private List<UserResult> userResults = new ArrayList<>();
+
+    public ResultFragment() {
+
+    }
 
     public static ResultFragment newInstance() {
         ResultFragment resultFragment = new ResultFragment();
         return resultFragment;
-    }
-
-
-    public ResultFragment() {
-
     }
 
     @Override
@@ -76,7 +77,7 @@ public class ResultFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        resultFragment = inflater.inflate(R.layout.fragment_result, container, false);
+        View resultFragment = inflater.inflate(R.layout.fragment_result, container, false);
 
         userResults.clear();
 
@@ -89,7 +90,8 @@ public class ResultFragment extends Fragment {
                 DATE_PASSED
         };
         String selection = EMAIL + " = ?";
-        String[] selectionArgs = {Common.currentUser.getLogIn()};
+        String usrName = Common.firebaseUser == null ? "gues" : Common.firebaseUser.getEmail();
+        String[] selectionArgs = {usrName};
 
         Cursor cursor = db.query(RESULT_TABLE, projection, selection, selectionArgs, null, null, DIAGNOSTIC_ID);
         List<UserResult> results = f.apply(cursor);
@@ -98,7 +100,7 @@ public class ResultFragment extends Fragment {
             return d == 0 ? 0 : d > 0 ? -1 : 1;
         });
         userResults.addAll(results);
-        mRecyclerView = resultFragment.findViewById(R.id.userResultRecycler);
+        RecyclerView mRecyclerView = resultFragment.findViewById(R.id.userResultRecycler);
         final LinearLayoutManager mLayoutManager = new LinearLayoutManager(
                 getContext(),
                 LinearLayoutManager.VERTICAL,
@@ -127,47 +129,6 @@ public class ResultFragment extends Fragment {
         return resultFragment;
     }
 
-    public class UserResultViewAdapter extends RecyclerView.Adapter<UserResultViewHolder> {
-
-        @NonNull
-        @Override
-        public UserResultViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            LayoutInflater inflater = LayoutInflater.from(getContext());
-            View view = inflater.inflate(R.layout.item_user_result, parent, false);
-            return new UserResultViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull UserResultViewHolder holder, int position) {
-            UserResult model = userResults.get(position);
-            final DiagnosticTest diagnostic = loadDiagnosticById(model.getDiagnosticId());
-            if (diagnostic == null) {
-                return;
-            }
-
-            final int color = diagnostic.getId() % 5;
-            @SuppressLint("UseCompatLoadingForDrawables")
-            Drawable shape = getActivity().getDrawable(Common.shapes[color]);
-            holder.resultLine.setBackground(shape);
-            holder.diagnosticName.setText(diagnostic.getName());
-            holder.diagnosticDate.setText(DATA_FORMAT.format(model.getDate()));
-
-            holder.userCardView.setOnClickListener(view -> {
-                Intent done = new Intent(getContext(), DoneActivity.class);
-                Bundle dataSend = new Bundle();
-                dataSend.putIntegerArrayList("RESULT", convertStr2IntFunc.apply(model.getResult()));
-                dataSend.putSerializable("DIAGNOSTIC", diagnostic);
-                done.putExtras(dataSend);
-                startActivity(done);
-            });
-        }
-
-        @Override
-        public int getItemCount() {
-            return userResults.size();
-        }
-    }
-
     private DiagnosticTest loadDiagnosticById(int id) {
         if (localCache.containsKey(id)) {
             return localCache.get(id);
@@ -182,8 +143,6 @@ public class ResultFragment extends Fragment {
 
         return null;
     }
-
-    private static final ConvertResultFunction f = new ConvertResultFunction();
 
     private static class ConvertResultFunction implements Function<Cursor, List<UserResult>> {
 
@@ -212,9 +171,6 @@ public class ResultFragment extends Fragment {
         }
     }
 
-
-    private static ConvertString2IntArr convertStr2IntFunc = new ConvertString2IntArr();
-
     private static class ConvertString2IntArr implements Function<String, ArrayList<Integer>> {
 
         @Nullable
@@ -229,6 +185,47 @@ public class ResultFragment extends Fragment {
                 result.add(Integer.parseInt(s));
             }
             return result;
+        }
+    }
+
+    public class UserResultViewAdapter extends RecyclerView.Adapter<UserResultViewHolder> {
+
+        @NonNull
+        @Override
+        public UserResultViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            View view = inflater.inflate(R.layout.item_user_result, parent, false);
+            return new UserResultViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull UserResultViewHolder holder, int position) {
+            UserResult model = userResults.get(position);
+            final DiagnosticTest diagnostic = loadDiagnosticById(model.getDiagnosticId());
+            if (diagnostic == null) {
+                return;
+            }
+
+            final int color = diagnostic.getId() % 5;
+            @SuppressLint("UseCompatLoadingForDrawables")
+            Drawable shape = getActivity().getDrawable(Common.shapes[color]);
+            holder.resultLine.setBackground(shape);
+            holder.diagnosticName.setText(diagnostic.getName());
+            holder.diagnosticDate.setText(VIEW_FORMAT.format(model.getDate()));
+
+            holder.userCardView.setOnClickListener(view -> {
+                Intent done = new Intent(getContext(), DoneActivity.class);
+                Bundle dataSend = new Bundle();
+                dataSend.putIntegerArrayList("RESULT", convertStr2IntFunc.apply(model.getResult()));
+                dataSend.putSerializable("DIAGNOSTIC", diagnostic);
+                done.putExtras(dataSend);
+                startActivity(done);
+            });
+        }
+
+        @Override
+        public int getItemCount() {
+            return userResults.size();
         }
     }
 

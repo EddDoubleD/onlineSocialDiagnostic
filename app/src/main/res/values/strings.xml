@@ -36,4 +36,8 @@
     <string name="interpretation">Интерпретация</string>
     <string name="no">Нет</string>
     <string name="yes">Да</string>
+    <string name="alias_text">Псевдоним</string>
+    <string name="join_text">Идентификатор приглашения</string>
+    <string name="alias_stub">Ассоциация</string>
+    <string name="start_over">Начать заново</string>
 </resources>

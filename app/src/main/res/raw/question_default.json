@@ -3,12 +3,12 @@
     "diagnosticId": 0,
     "isImageQuestion": "false",
     "text": "Часто ли Вы испытываете тягу к новым впечатлениям, к тому чтобы отвлечься, испытать сильные ощущения ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 0,
     "isImageQuestion": "false",
     "text": "Страдаете ли вы бессонницей ?",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   }
 ]

@@ -27,13 +27,13 @@
 
             <ImageView
                 android:id="@+id/userLogo"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/user_logo"
-                android:src="@drawable/test_account_30" />
+                android:src="@drawable/ic_test_account_50" />
 
             <TextView
                 android:id="@+id/userLogIn"
@@ -44,6 +44,7 @@
                 android:layout_weight="1"
                 android:text="@string/guest"
                 android:textColor="@color/plaintText"
+                android:textSize="16sp"
                 tools:ignore="RtlHardcoded" />
 
         </LinearLayout>

@@ -3,450 +3,450 @@
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Временами я не могу справиться с желанием причинить вред другим",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Иногда сплетничаю о людях, которых не люблю",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я легко раздражаюсь, но быстро успокаиваюсь",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Если меня не попросят по-хорошему, я не выполню",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я не всегда получаю то, что мне положено",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я не знаю, что люди говорят обо мне за моей спиной",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Если я не одобряю поведение друзей, я даю им это почувствовать",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": " Когда мне случалось обмануть кого-нибудь, я испытывал мучительные угрызения совести",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Мне кажется, что я не способен ударить человека",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я никогда не раздражаюсь настолько, чтобы кидаться предметами",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я всегда снисходителен к чужим недостаткам",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Если мне не нравится установленное правило, мне хочется нарушить его",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Другие умеют почти всегда пользоваться благоприятными обстоятельствами",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я держусь настороженно с людьми, которые относятся ко мне несколько более дружественно, чем я ожидал",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я часто бываю не согласен с людьми",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Иногда мне на ум приходят мысли, которых я стыжусь",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Если кто-нибудь первым ударит меня, я не отвечу ему",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Когда я раздражаюсь, я хлопаю дверьми",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я гораздо более раздражителен, чем кажется",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Если кто-то воображает себя начальником, я всегда поступаю ему наперекор",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Меня немного огорчает моя судьба",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я думаю, что многие люди не любят меня",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я не могу удержаться от спора, если люди не согласны со мной",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Люди, увиливающие от работы, должны испытывать чувство вины",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Тот, кто оскорбляет меня и мою семью, напрашивается на драку",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я не способен на грубые шутки",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Меня охватывает ярость, когда надо мной насмехаются",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Когда люди строят из себя начальников, я делаю все, чтобы они не зазнавались",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Почти каждую неделю я вижу кого-нибудь, кто мне не нравится",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Довольно многие люди завидуют мне",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я требую, чтобы люди уважали меня",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Меня угнетает то, что я мало делаю для своих родителей",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Люди, которые постоянно изводят вас, стоят того, чтобы их 'щелкнули по носу'",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я никогда не бываю мрачен от злости",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Если ко мне относятся хуже, чем я того заслуживаю, я не расстраиваюсь",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Если кто-то выводит меня из себя, я не обращаю внимания",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Хотя я и не показываю этого, меня иногда гложет зависть",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Иногда мне кажется, что надо мной смеются",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Даже если я злюсь, я не прибегаю к 'сильным' выражениям",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Мне хочется, чтобы мои грехи были прощены",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я редко даю сдачи, даже если кто-нибудь ударит меня",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Когда получается не по-моему, я иногда обижаюсь",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Иногда люди раздражают меня одним своим присутствием",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Нет людей, которых бы я по-настоящему ненавидел",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Мой принцип: Никогда не доверять 'чужакам'",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Если кто-нибудь раздражает меня, я готов сказать, что я о нем думаю",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я делаю много такого, о чем впоследствии жалею",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Если я разозлюсь, я могу ударить кого-нибудь",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "С детства я никогда не проявлял вспышек гнева",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я часто чувствую себя как пороховая бочка, готовая взорваться",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Если бы все знали, что я чувствую, меня бы считали человеком, с которым нелегко работать",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я всегда думаю о том, какие тайные причины заставляют людей делать что-нибудь приятное для меня",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Когда на меня кричат, я начинаю кричать в ответ",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Неудачи огорчают меня",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я дерусь не реже и не чаще, чем другие",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я могу вспомнить случаи, когда я был настолько зол, что хватал попавшуюся мне под руку вещь и ломал ее",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Иногда я чувствую, что готов первым начать драку",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Иногда я чувствую, что жизнь поступает со мной несправедливо",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": " Раньше я думал, что большинство людей говорит правду, но теперь я в это не верю",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я ругаюсь только со злости",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Когда я поступаю неправильно, меня мучает совесть",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Если для защиты своих прав мне нужно применить физическую силу, я применяю ее",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Иногда я выражаю свой гнев тем, что стучу кулаком по столу",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я бываю грубоват по отношению к людям, которые мне не нравятся",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "У меня нет врагов, которые бы хотели мне навредить",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я не умею поставить человека на место, даже если он того заслуживает",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я часто думаю, что жил неправильно",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я знаю людей, которые способны довести меня до драки",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я не огорчаюсь из-за мелочей",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Мне редко приходит в голову, что люди пытаются разозлить или оскорбить меня",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я часто только угрожаю людям, хотя и не собираюсь приводить угрозы в исполнение",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "В последнее время я стал занудой",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "В споре я часто повышаю голос",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я стараюсь обычно скрывать свое плохое отношение к людям",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 3,
     "isImageQuestion": "false",
     "text": "Я лучше соглашусь с чем-либо, чем стану спорить",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   }
 ]

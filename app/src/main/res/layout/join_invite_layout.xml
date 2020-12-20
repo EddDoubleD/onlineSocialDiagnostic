@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@color/background"
+    app:cardElevation="4dp">
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/joinIdText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:hint="@string/join_text"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="@color/contact"
+        android:textColorHint="@color/contact"
+        android:textSize="24sp"
+        app:met_baseColor="@color/plaintText"
+        app:met_floatingLabel="highlight"
+        app:met_primaryColor="@color/plaintText" />
+
+
+</androidx.cardview.widget.CardView>

@@ -8,11 +8,8 @@ import java.util.List;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Category;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Question;
-import ru.hardwork.onlinesocialdiagnosticapp.model.user.User;
 
 public class Common {
-
-    public static User currentUser;
     // Пользователь из firebase
     public static FirebaseUser firebaseUser;
     //

@@ -46,11 +46,11 @@ public class OnlineSocialDiagnosticApp extends Application {
 
     private void colorsInit() {
         Common.shapes = new int[]{
-                R.drawable.peach_shape,
                 R.drawable.purple_shape,
-                R.drawable.pale_purple__shape,
+                R.drawable.peach_shape,
+                R.drawable.mustard_shape,
                 R.drawable.round_two,
-                R.drawable.mustard_shape
+                R.drawable.pale_purple__shape
         };
     }
 }

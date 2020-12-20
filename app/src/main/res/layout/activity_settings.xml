@@ -33,7 +33,8 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
-            android:background="@color/mustard"
+            android:background="@color/contact"
+            android:textColor="@color/plaintText"
             android:text="Управление аккаунтами"
             tools:ignore="MissingConstraints" />
 
@@ -41,10 +42,22 @@
             android:id="@+id/flush"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="270dp"
+            android:textColor="@color/plaintText"
             android:layout_height="wrap_content"
             android:layout_marginTop="13dp"
-            android:background="@color/mustard"
+            android:background="@color/contact"
             android:text="Сбросить кэш"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/drop"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="270dp"
+            android:textColor="@color/plaintText"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:background="@color/contact"
+            android:text="Очистить результаты"
             tools:ignore="MissingConstraints" />
     </LinearLayout>
 

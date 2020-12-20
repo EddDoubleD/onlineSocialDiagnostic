@@ -1,52 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
+    android:orientation="vertical"
     tools:context=".ui.activity.StartActivity">
+
+    <TextView
+        android:id="@+id/category_start_name"
+        style="@style/SemiH1Text"
+        android:text="@string/catName"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/diagnostic_start_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/museo_sans_cyrl"
+        android:gravity="start"
+        android:text="Название теста"
+        android:textColor="@color/plaintText"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
-        android:weightSum="4"
-        tools:ignore="UselessParent">
-
-        <TextView
-            android:id="@+id/category_start_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/gilroy_bold"
-            android:gravity="center"
-            android:text="@string/catName"
-            android:textColor="@color/plaintText"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            tools:ignore="RtlSymmetry" />
-
-        <TextView
-            android:id="@+id/diagnostic_start_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/museo_sans_cyrl"
-            android:gravity="start"
-            android:text="Название теста"
-            android:textColor="@color/plaintText"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            tools:ignore="HardcodedText" />
+        android:weightSum="7">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="330dp"
+            android:layout_height="0dp"
+            android:layout_weight="5"
             android:scrollbarStyle="insideInset">
 
             <TextView
@@ -54,41 +48,48 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginEnd="15dp"
-                android:layout_marginBottom="20dp"
                 android:fontFamily="@font/museo_sans_cyrl"
-                android:gravity="start"
+                android:gravity="start|center_vertical"
                 android:text="@string/diagnosticDesc"
                 android:textColor="@color/plaintText"
                 android:textSize="18sp" />
         </ScrollView>
 
 
-        <RelativeLayout
-            android:id="@+id/startCard"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp">
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/btnPlay"
-                style="@style/Widget.AppCompat.Button.Borderless"
+                style="@style/RoundedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center|center_vertical"
                 android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
-                android:background="@color/contact"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:gravity="center"
-                android:text="@string/startBtn"
-                android:textColor="@color/plaintText"
-                android:textStyle="bold"
-                android:theme="@style/LightButtons" />
+                android:elegantTextHeight="true"
+                android:text="@string/startBtn" />
 
-        </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/museo_sans_cyrl"
+                android:text="@string/start_over"
+                android:textSize="16sp"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>

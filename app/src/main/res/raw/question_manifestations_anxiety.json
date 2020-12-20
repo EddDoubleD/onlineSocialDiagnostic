@@ -3,300 +3,300 @@
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Обычно я спокоен и вывести меня из себя нелегко",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Мои нервы расстроены не более, чем у других людей",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "У меня редко бывают запоры",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "У меня редко бывают головные боли",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Я редко устаю",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Я почти всегда чувствую себя вполне счастливым",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Я уверен в себе",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Практически я никогда не краснею",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "По сравнению со своими друзьями я считаю себя вполне смелым человеком",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Я краснею не чаще, чем другие",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "У меня редко бывает сердцебиение",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Обычно мои руки достаточно теплые",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Я застенчив не более чем другие",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Мне не хватает уверенности в себе",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Порой мне кажется, что я ни на что не годен",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "У меня бывают периоды такого беспокойства, что я не могу усидеть на месте",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Мой желудок сильно беспокоит меня",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "У меня не хватает духа вынести все предстоящие - трудности",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Я хотел бы быть таким же счастливым, как другие",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Мне кажется порой, что передо мной нагромождены такие трудности, которые мне не преодолеть",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Мне нередко снятся кошмарные сны",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Я замечаю, что мои руки начинают дрожать, когда я пытаюсь что-либо сделать",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "У меня чрезвычайно беспокойный и прерывистый сон",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Меня весьма тревожат возможные неудачи",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Мне приходилось испытывать страх в тех случаях, когда я точно знал, что мне ничто не угрожает",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Мне трудно сосредоточиться на работе или на каком-либо задании",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Я работаю с большим напряжением",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Я легко прихожу в замешательство",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Почти все время испытываю тревогу из-за кого-либо или из-за чего-либо",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Я склонен принимать все слишком всерьез",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Я часто плачу",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Меня нередко мучают приступы рвоты и тошноты",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Раз в месяц или чаще у меня бывает расстройство желудка",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Я часто боюсь, что вот-вот покраснею",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Мне очень трудно сосредоточиться на чем-либо",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Мое материальное положение весьма беспокоит меня",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Нередко я думаю о таких вещах, о которых ни с кем не хотелось бы говорить",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "У меня бывали периоды, когда тревога лишала меня сна",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Временами, когда я нахожусь в замешательстве, У меня появляется сильная потливость, что очень смущает меня",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Даже в холодные дни я легко потею",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Временами я становлюсь таким возбужденным, что мне трудно заснуть",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Я - человек легко возбудимый",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Временами я чувствую себя совершенно бесполезным",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Порой мне кажется, что мои нервы сильно расшатаны, и я вот-вот выйду из себя",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Я часто ловлю себя на том, что меня что-то тревожит",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Я гораздо чувствительнее, чем большинство других людей",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Я почти все время испытываю чувство голода",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Иногда я расстраиваюсь из-за пустяков",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Жизнь для меня связана с необычным напряжением",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   },
   {
     "diagnosticId": 4,
     "isImageQuestion": "false",
     "text": "Ожидание всегда нервирует меня",
-    "type": "YN"
+    "type": ["Да", "Нет"]
   }
 ]
