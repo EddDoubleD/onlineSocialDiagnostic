@@ -92,6 +92,7 @@ public class SignInActivity extends AppCompatActivity {
         return true;
     }
 
+    //todo: вынести в отдельный диалог
     private void showSignUpDialog() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(SignInActivity.this);
         alertDialog.setTitle("Регистрация");

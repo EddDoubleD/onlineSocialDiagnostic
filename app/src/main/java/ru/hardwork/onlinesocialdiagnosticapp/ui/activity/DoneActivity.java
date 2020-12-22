@@ -39,6 +39,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.application.OnlineSocialDiagnosticApp;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
@@ -65,11 +66,11 @@ public class DoneActivity extends AppCompatActivity {
     private static final SimpleDateFormat FORMAT = new SimpleDateFormat(BASE_FORMAT);
 
     private Decryption decryption;
-    private Button btnTryAgain;
-    private RecyclerView mRecyclerView;
 
-    private boolean fromDiagnostic;
-
+    @BindView(R.id.toHomeBtn)
+    Button toHomeBtn;
+    @BindView(R.id.descriptionRecycler)
+    RecyclerView mRecyclerView;
 
     @SuppressLint({"DefaultLocale", "ResourceAsColor"})
     @Override
@@ -77,6 +78,8 @@ public class DoneActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         // Устанавливаем контент
         setContentView(R.layout.activity_done);
+        ButterKnife.bind(this);
+
         // Получаем ссылку на экземляр контекста приложения
         OnlineSocialDiagnosticApp application = OnlineSocialDiagnosticApp.getInstance();
         // Получение реузультатов тестирования
@@ -87,7 +90,6 @@ public class DoneActivity extends AppCompatActivity {
 
         String uid = extras.getString("INVITE");
 
-        mRecyclerView = findViewById(R.id.descriptionRecycler);
         final SpeedyLinearLayoutManager mLayoutManager = new SpeedyLinearLayoutManager(
                 this,
                 LinearLayoutManager.VERTICAL,
@@ -98,21 +100,11 @@ public class DoneActivity extends AppCompatActivity {
         LinearLayoutManager manager = new LinearLayoutManager(DoneActivity.this);
         mRecyclerView.setLayoutManager(manager);
 
-        btnTryAgain = findViewById(R.id.btnTryAgain);
-        btnTryAgain.setOnClickListener(view -> {
-            Intent intent = new Intent(DoneActivity.this, HomeActivity.class);
-            Bundle dataSend = new Bundle();
-            dataSend.putInt("MENU_POSITION", 1);
-            startActivity(intent);
-            finish();
-        });
-
         DiagnosticTest diagnostic = (DiagnosticTest) extras.getSerializable("DIAGNOSTIC");
         ArrayList<Integer> result = extras.getIntegerArrayList(RESULT);
         decryption = application.getDataManager().getDecryption().get(diagnostic.getMetricId());
 
-        fromDiagnostic = extras.getBoolean("FROM_DIAGNOSTIC", false);
-        if (fromDiagnostic) {
+        if (extras.getBoolean("FROM_DIAGNOSTIC", false)) {
             Date date = new Date();
             // SQLite
             SQLiteDatabase db = application.getDbHelper().getWritableDatabase();
@@ -170,6 +162,13 @@ public class DoneActivity extends AppCompatActivity {
         List<DescriptionViewModel> desc = factory.build();
         DecryptionAdapter adapter = new DecryptionAdapter(desc);
         mRecyclerView.setAdapter(adapter);
+    }
+
+    @OnClick(R.id.toHomeBtn)
+    public void toHomeClick() {
+        Intent intent = HomeActivity.getCallingIntent(this);
+        startService(intent);
+        finish();
     }
 
     @SuppressLint("ResourceAsColor")

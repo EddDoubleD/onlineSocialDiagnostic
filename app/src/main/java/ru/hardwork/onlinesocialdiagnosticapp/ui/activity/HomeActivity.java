@@ -1,5 +1,7 @@
 package ru.hardwork.onlinesocialdiagnosticapp.ui.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +16,10 @@ import ru.hardwork.onlinesocialdiagnosticapp.ui.fragment.GroupFragment;
 import ru.hardwork.onlinesocialdiagnosticapp.ui.fragment.ResultFragment;
 
 public class HomeActivity extends AppCompatActivity {
+
+    public static Intent getCallingIntent(Context context) {
+        return new Intent(context, HomeActivity.class);
+    }
 
     /**
      * Bottom navigation menu listener

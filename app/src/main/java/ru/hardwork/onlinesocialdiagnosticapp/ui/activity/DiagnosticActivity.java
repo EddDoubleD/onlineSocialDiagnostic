@@ -15,6 +15,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.BindViews;
+import butterknife.ButterKnife;
 import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
@@ -29,10 +32,16 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
 
     int index = 0, totalQuestion;
 
-    private ProgressBar progressBar;
-    private TextView txtQuestionNum, questionText;
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
+    @BindView(R.id.txtTotalQuestion)
+    TextView txtQuestionNum;
+    @BindView(R.id.question_text)
+    TextView questionText;
+    @BindViews({R.id.firstButton, R.id.secondButton, R.id.thirdButton, R.id.fourthButton, R.id.fifthButton, R.id.sixButton})
+    List<Button> buttons;
+
     private List<String> options = new ArrayList<>();
-    private List<Button> btnList = new ArrayList<>();
 
     private DiagnosticTest diagnostic;
     private String inviteUid;
@@ -43,35 +52,17 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diagnostic);
-        // Views
-        txtQuestionNum = findViewById(R.id.txtTotalQuestion);
-        questionText = findViewById(R.id.question_text);
+        ButterKnife.bind(this);
 
-        progressBar = findViewById(R.id.progressBar);
-
-        Button firstButton = findViewById(R.id.firstButton);
-        firstButton.setOnClickListener(this);
-        btnList.add(firstButton);
-        Button secondButton = findViewById(R.id.secondButton);
-        secondButton.setOnClickListener(this);
-        btnList.add(secondButton);
-        Button thirdButton = findViewById(R.id.thirdButton);
-        thirdButton.setOnClickListener(this);
-        btnList.add(thirdButton);
-        Button fourthButton = findViewById(R.id.fourthButton);
-        fourthButton.setOnClickListener(this);
-        btnList.add(fourthButton);
-        Button fifthButton = findViewById(R.id.fifthButton);
-        fifthButton.setOnClickListener(this);
-        btnList.add(fifthButton);
-        Button sixButton = findViewById(R.id.sixButton);
-        sixButton.setOnClickListener(this);
-        btnList.add(sixButton);
+        for (Button button : buttons) {
+            button.setOnClickListener(this);
+        }
 
         Bundle extras = getIntent().getExtras();
-        diagnostic = (DiagnosticTest) extras.getSerializable("DIAGNOSTIC");
-
-        inviteUid = extras.getString("INVITE");
+        if (extras != null) {
+            diagnostic = (DiagnosticTest) extras.getSerializable("DIAGNOSTIC");
+            inviteUid = extras.getString("INVITE");
+        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -98,11 +89,11 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
 
             options = question.getType();
 
-            for (int i = 0; i < btnList.size(); i++) {
+            for (int i = 0; i < buttons.size(); i++) {
                 if (options.size() > i) {
-                    btnList.get(i).setText(options.get(i));
+                    buttons.get(i).setText(options.get(i));
                 } else {
-                    btnList.get(i).setVisibility(View.INVISIBLE);
+                    buttons.get(i).setVisibility(View.INVISIBLE);
                 }
             }
 

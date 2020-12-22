@@ -3,7 +3,6 @@ package ru.hardwork.onlinesocialdiagnosticapp.ui.fragment;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -13,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,17 +25,14 @@ import com.google.android.gms.common.util.CollectionUtils;
 import com.google.android.material.tabs.TabLayout;
 import com.google.common.collect.Iterables;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.common.UIDataUtils;
+import ru.hardwork.onlinesocialdiagnosticapp.holders.DiagnosticViewHolder;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Category;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
 import ru.hardwork.onlinesocialdiagnosticapp.scenery.SpeedyLinearLayoutManager;
 import ru.hardwork.onlinesocialdiagnosticapp.scenery.VerticalSpaceItemDecoration;
-import ru.hardwork.onlinesocialdiagnosticapp.ui.activity.StartActivity;
 
 import static ru.hardwork.onlinesocialdiagnosticapp.common.Common.categoryList;
 
@@ -55,6 +50,8 @@ public class CategoryFragment extends Fragment {
     private boolean isListGoingUp = true;
     private boolean tabSelected = true;
     private int itemPosition;
+
+    private SpeedyLinearLayoutManager mLayoutManager;
 
     public static CategoryFragment newInstance() {
         CategoryFragment categoryFragment = new CategoryFragment();
@@ -85,7 +82,7 @@ public class CategoryFragment extends Fragment {
 
         mRecyclerView = mFragment.findViewById(R.id.diagnosticTestsRecycler);
         //  TabLayout Code end
-        final SpeedyLinearLayoutManager mLayoutManager = new SpeedyLinearLayoutManager(
+        mLayoutManager = new SpeedyLinearLayoutManager(
                 this.getContext(),
                 LinearLayoutManager.HORIZONTAL,
                 false);
@@ -222,7 +219,7 @@ public class CategoryFragment extends Fragment {
 
         @SuppressLint("ResourceAsColor")
         @Override
-        public void onBindViewHolder(@NonNull DiagnosticViewHolder holder, int position) {
+        public void onBindViewHolder(final @NonNull DiagnosticViewHolder holder, int position) {
             Activity activity = getActivity();
             // Не обрабатываема ситуация
             if (activity == null) {
@@ -245,47 +242,6 @@ public class CategoryFragment extends Fragment {
         @Override
         public int getItemCount() {
             return Common.diagnosticTests.size();
-        }
-    }
-
-
-    class DiagnosticViewHolder extends RecyclerView.ViewHolder {
-
-        public int id;
-        @BindView(R.id.item_psy_layout)
-        public LinearLayout layout;
-        @BindView(R.id.diagnosticName)
-        public TextView diagnosticName;
-        @BindView(R.id.txtTotalQuestion)
-        public TextView totalQuestion;
-        @BindView(R.id.txtTotalTime)
-        public TextView totalTime;
-
-        public DiagnosticViewHolder(@NonNull View itemView) {
-            super(itemView);
-            ButterKnife.bind(this, itemView);
-        }
-
-
-        @OnClick(R.id.item_psy_layout)
-        public void submit(View view) {
-            DiagnosticTest diagnostic = Common.diagnosticTests.get(id);
-            Intent startDiagnostic = new Intent(getContext(), StartActivity.class);
-            Bundle dataSend = new Bundle();
-            int catId = (int) diagnostic.getCategoryId() - 1;
-            String catName = categoryList.get(catId).getName();
-            dataSend.putSerializable("DIAGNOSTIC", diagnostic);
-            dataSend.putString("CAT_NAME", catName);
-            startDiagnostic.putExtras(dataSend);
-            startActivity(startDiagnostic);
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public int getId() {
-            return id;
         }
     }
 }
