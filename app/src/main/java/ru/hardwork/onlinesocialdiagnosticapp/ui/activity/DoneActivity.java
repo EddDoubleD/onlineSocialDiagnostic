@@ -11,6 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -34,13 +37,14 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.application.OnlineSocialDiagnosticApp;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.common.lite.DiagnosticContract;
 import ru.hardwork.onlinesocialdiagnosticapp.factory.DecryptionViewModelFactory;
 import ru.hardwork.onlinesocialdiagnosticapp.factory.DescriptionViewModel;
-import ru.hardwork.onlinesocialdiagnosticapp.holders.DescriptionViewHolder;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Decryption;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
 import ru.hardwork.onlinesocialdiagnosticapp.model.firebase.Invite;
@@ -232,6 +236,23 @@ public class DoneActivity extends AppCompatActivity {
         @Override
         public int getItemCount() {
             return models.size();
+        }
+    }
+
+    static class DescriptionViewHolder extends RecyclerView.ViewHolder {
+
+        @BindView(R.id.description_layout)
+        public LinearLayout descriptionLayout;
+        @BindView(R.id.descriptionName)
+        public TextView descriptionName;
+        @BindView(R.id.descriptionCount)
+        public TextView descriptionCount;
+        @BindView(R.id.descriptionProgress)
+        public ProgressBar descriptionProgress;
+
+        public DescriptionViewHolder(@NonNull View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 }

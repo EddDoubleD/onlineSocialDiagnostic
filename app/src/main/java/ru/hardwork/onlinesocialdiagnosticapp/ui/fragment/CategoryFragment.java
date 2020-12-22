@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,10 +27,12 @@ import com.google.android.gms.common.util.CollectionUtils;
 import com.google.android.material.tabs.TabLayout;
 import com.google.common.collect.Iterables;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.common.UIDataUtils;
-import ru.hardwork.onlinesocialdiagnosticapp.holders.DiagnosticTestViewHolder;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Category;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
 import ru.hardwork.onlinesocialdiagnosticapp.scenery.SpeedyLinearLayoutManager;
@@ -205,20 +208,21 @@ public class CategoryFragment extends Fragment {
         mRecyclerView.scheduleLayoutAnimation();
     }
 
-    public class DiagnosticTestAdapter extends RecyclerView.Adapter<DiagnosticTestViewHolder> {
+    public class DiagnosticTestAdapter extends RecyclerView.Adapter<DiagnosticViewHolder> {
 
         @NonNull
         @Override
-        public DiagnosticTestViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public DiagnosticViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
             View view = inflater.inflate(R.layout.item_psytest_version_2, parent, false);
-
-            return new DiagnosticTestViewHolder(view);
+            DiagnosticViewHolder holder = new DiagnosticViewHolder(view);
+            view.setTag(holder);
+            return holder;
         }
 
         @SuppressLint("ResourceAsColor")
         @Override
-        public void onBindViewHolder(@NonNull DiagnosticTestViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull DiagnosticViewHolder holder, int position) {
             Activity activity = getActivity();
             // Не обрабатываема ситуация
             if (activity == null) {
@@ -236,24 +240,52 @@ public class CategoryFragment extends Fragment {
             holder.diagnosticName.setText(model.getName());
             holder.totalQuestion.setText("0/" + model.getQuestionCount());
             holder.totalTime.setText("Займет минут: " + model.getTestDuration());
-            //
-            holder.setItemClickListener((v, p, longClick) -> {
-                DiagnosticTest diagnostic = Common.diagnosticTests.get(p);
-                Intent startDiagnostic = new Intent(getActivity(), StartActivity.class);
-                Bundle dataSend = new Bundle();
-                int catId = (int) diagnostic.getCategoryId() - 1;
-                String catName = categoryList.get(catId).getName();
-                dataSend.putSerializable("DIAGNOSTIC", diagnostic);
-                dataSend.putString("CAT_NAME", catName);
-                startDiagnostic.putExtras(dataSend);
-                startActivity(startDiagnostic);
-            });
-
         }
 
         @Override
         public int getItemCount() {
             return Common.diagnosticTests.size();
+        }
+    }
+
+
+    class DiagnosticViewHolder extends RecyclerView.ViewHolder {
+
+        public int id;
+        @BindView(R.id.item_psy_layout)
+        public LinearLayout layout;
+        @BindView(R.id.diagnosticName)
+        public TextView diagnosticName;
+        @BindView(R.id.txtTotalQuestion)
+        public TextView totalQuestion;
+        @BindView(R.id.txtTotalTime)
+        public TextView totalTime;
+
+        public DiagnosticViewHolder(@NonNull View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+        }
+
+
+        @OnClick(R.id.item_psy_layout)
+        public void submit(View view) {
+            DiagnosticTest diagnostic = Common.diagnosticTests.get(id);
+            Intent startDiagnostic = new Intent(getContext(), StartActivity.class);
+            Bundle dataSend = new Bundle();
+            int catId = (int) diagnostic.getCategoryId() - 1;
+            String catName = categoryList.get(catId).getName();
+            dataSend.putSerializable("DIAGNOSTIC", diagnostic);
+            dataSend.putString("CAT_NAME", catName);
+            startDiagnostic.putExtras(dataSend);
+            startActivity(startDiagnostic);
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public int getId() {
+            return id;
         }
     }
 }
