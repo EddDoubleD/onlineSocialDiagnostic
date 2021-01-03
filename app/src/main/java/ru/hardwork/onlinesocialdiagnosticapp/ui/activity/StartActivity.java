@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Arrays;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.common.JSONResourceReader;
@@ -18,6 +21,15 @@ import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Question;
 
 public class StartActivity extends AppCompatActivity {
 
+    @BindView(R.id.category_start_name)
+    TextView categoryName;
+    @BindView(R.id.diagnostic_start_name)
+    TextView diagnosticName;
+    @BindView(R.id.diagnostic_start_description)
+    TextView diagnosticDescription;
+    @BindView(R.id.btnPlay)
+    Button btnPlay;
+
     private DiagnosticTest diagnostic;
     private String inviteUid;
 
@@ -26,6 +38,7 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_start);
+        ButterKnife.bind(this);
 
         Bundle extras = getIntent().getExtras();
         if (extras == null) {
@@ -40,37 +53,23 @@ public class StartActivity extends AppCompatActivity {
         }
 
         loadQuestions(diagnostic.getId());
-
         String catName = extras.getString("CAT_NAME", "Категория");
-        TextView categoryName = findViewById(R.id.category_start_name);
-        if (categoryName != null) {
-            categoryName.setText(catName);
-        }
-
         inviteUid = extras.getString("INVITE", "");
+        categoryName.setText(catName);
+        diagnosticName.setText(diagnostic.getName());
+        diagnosticDescription.setText(diagnostic.getFullDescription());
 
-        TextView diagnosticName = findViewById(R.id.diagnostic_start_name);
-        if (diagnosticName != null) {
-            diagnosticName.setText(diagnostic.getName());
-        }
+    }
 
-        TextView diagnosticDescription = findViewById(R.id.diagnostic_start_description);
-        if (diagnosticDescription != null) {
-            diagnosticDescription.setText(diagnostic.getFullDescription());
-        }
-
-        Button btnPlay = findViewById(R.id.btnPlay);
-        btnPlay.setOnClickListener(view -> {
-            //Intent intent = new Intent(Start.this, DiagnosticRV.class);
-            Intent diagnosticIntent = new Intent(StartActivity.this, DiagnosticActivity.class);
-            Bundle dataSend = new Bundle();
-            dataSend.putSerializable("DIAGNOSTIC", diagnostic);
-            dataSend.putString("INVITE", inviteUid);
-            diagnosticIntent.putExtras(dataSend);
-            startActivity(diagnosticIntent);
-            finish();
-        });
-
+    @OnClick(R.id.btnPlay)
+    public void play() {
+        Intent diagnosticIntent = new Intent(StartActivity.this, DiagnosticActivity.class);
+        Bundle dataSend = new Bundle();
+        dataSend.putSerializable("DIAGNOSTIC", diagnostic);
+        dataSend.putString("INVITE", inviteUid);
+        diagnosticIntent.putExtras(dataSend);
+        startActivity(diagnosticIntent);
+        finish();
     }
 
     private void loadQuestions(int diagnosticId) {
