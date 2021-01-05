@@ -8,36 +8,51 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.rambler.libs.swipe_layout.SwipeLayout;
 
 public class InviteSwipeViewHolder extends RecyclerView.ViewHolder {
 
-    public final SwipeLayout swipeLayout;
-    public final LinearLayout mainLayout, rightLayout, leftLayout;
+    @BindView(R.id.swipeLayout)
+    public SwipeLayout swipeLayout;
+    @BindView(R.id.mainLayout)
+    public LinearLayout mainLayout;
+    @BindView(R.id.rightLayout)
+    public LinearLayout rightLayout;
+    @BindView(R.id.leftLayout)
+    public LinearLayout leftLayout;
+    @BindView(R.id.aliasText)
+    public TextView aliasText;
+    @BindView(R.id.diagnosticNameText)
+    public TextView diagnosticNameText;
+    @BindView(R.id.diagnosticDateText)
+    public TextView diagnosticDateText;
 
-    public final TextView aliasText, diagnosticNameText, diagnosticDateText;
+    @BindView(R.id.deleteButton)
+    public ImageButton deleteButton;
+    @BindView(R.id.editButton)
+    public ImageButton editButton;
+    @BindView(R.id.sharedButton)
+    public ImageButton sharedButton;
 
-    public final ImageButton deleteButton, editButton, sharedButton;
 
     public InviteSwipeViewHolder(@NonNull View itemView) {
         super(itemView);
-        // swipe layout magic start here
-        swipeLayout = itemView.findViewById(R.id.swipeLayout);
-        rightLayout = itemView.findViewById(R.id.rightLayout);
+        ButterKnife.bind(this, itemView);
+
         /**
          * default click listener
          */
-        View.OnClickListener onClick = v -> swipeLayout.animateReset();
         if (rightLayout != null) {
             rightLayout.setClickable(true);
-            rightLayout.setOnClickListener(onClick);
+            rightLayout.setOnClickListener(v -> swipeLayout.animateReset());
         }
 
-        leftLayout = itemView.findViewById(R.id.leftLayout);
         if (leftLayout != null) {
             leftLayout.setClickable(true);
-            leftLayout.setOnClickListener(onClick);
+            leftLayout.setOnClickListener(v -> swipeLayout.animateReset());
         }
 
         swipeLayout.setOnSwipeListener(new SwipeLayout.OnSwipeListener() {
@@ -57,18 +72,6 @@ public class InviteSwipeViewHolder extends RecyclerView.ViewHolder {
             public void onRightStickyEdge(SwipeLayout swipeLayout, boolean moveToRight) {
             }
         });
-
-
-        mainLayout = itemView.findViewById(R.id.mainLayout);
-
-        aliasText = itemView.findViewById(R.id.aliasText);
-        diagnosticNameText = itemView.findViewById(R.id.diagnosticNameText);
-        diagnosticDateText = itemView.findViewById(R.id.diagnosticDateText);
-
-        sharedButton = itemView.findViewById(R.id.sharedButton);
-
-        deleteButton = itemView.findViewById(R.id.deleteButton);
-        editButton = itemView.findViewById(R.id.editButton);
     }
 
 }

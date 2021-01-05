@@ -3,7 +3,6 @@ package ru.hardwork.onlinesocialdiagnosticapp.ui.fragment;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -29,12 +28,11 @@ import com.google.common.collect.Iterables;
 import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 import ru.hardwork.onlinesocialdiagnosticapp.common.UIDataUtils;
-import ru.hardwork.onlinesocialdiagnosticapp.holders.DiagnosticTestViewHolder;
+import ru.hardwork.onlinesocialdiagnosticapp.holders.DiagnosticViewHolder;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.Category;
 import ru.hardwork.onlinesocialdiagnosticapp.model.diagnostic.DiagnosticTest;
 import ru.hardwork.onlinesocialdiagnosticapp.scenery.SpeedyLinearLayoutManager;
 import ru.hardwork.onlinesocialdiagnosticapp.scenery.VerticalSpaceItemDecoration;
-import ru.hardwork.onlinesocialdiagnosticapp.ui.activity.StartActivity;
 
 import static ru.hardwork.onlinesocialdiagnosticapp.common.Common.categoryList;
 
@@ -52,6 +50,8 @@ public class CategoryFragment extends Fragment {
     private boolean isListGoingUp = true;
     private boolean tabSelected = true;
     private int itemPosition;
+
+    private SpeedyLinearLayoutManager mLayoutManager;
 
     public static CategoryFragment newInstance() {
         CategoryFragment categoryFragment = new CategoryFragment();
@@ -82,7 +82,7 @@ public class CategoryFragment extends Fragment {
 
         mRecyclerView = mFragment.findViewById(R.id.diagnosticTestsRecycler);
         //  TabLayout Code end
-        final SpeedyLinearLayoutManager mLayoutManager = new SpeedyLinearLayoutManager(
+        mLayoutManager = new SpeedyLinearLayoutManager(
                 this.getContext(),
                 LinearLayoutManager.HORIZONTAL,
                 false);
@@ -205,20 +205,21 @@ public class CategoryFragment extends Fragment {
         mRecyclerView.scheduleLayoutAnimation();
     }
 
-    public class DiagnosticTestAdapter extends RecyclerView.Adapter<DiagnosticTestViewHolder> {
+    public class DiagnosticTestAdapter extends RecyclerView.Adapter<DiagnosticViewHolder> {
 
         @NonNull
         @Override
-        public DiagnosticTestViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public DiagnosticViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
             View view = inflater.inflate(R.layout.item_psytest_version_2, parent, false);
-
-            return new DiagnosticTestViewHolder(view);
+            DiagnosticViewHolder holder = new DiagnosticViewHolder(view);
+            view.setTag(holder);
+            return holder;
         }
 
         @SuppressLint("ResourceAsColor")
         @Override
-        public void onBindViewHolder(@NonNull DiagnosticTestViewHolder holder, int position) {
+        public void onBindViewHolder(final @NonNull DiagnosticViewHolder holder, int position) {
             Activity activity = getActivity();
             // Не обрабатываема ситуация
             if (activity == null) {
@@ -236,19 +237,6 @@ public class CategoryFragment extends Fragment {
             holder.diagnosticName.setText(model.getName());
             holder.totalQuestion.setText("0/" + model.getQuestionCount());
             holder.totalTime.setText("Займет минут: " + model.getTestDuration());
-            //
-            holder.setItemClickListener((v, p, longClick) -> {
-                DiagnosticTest diagnostic = Common.diagnosticTests.get(p);
-                Intent startDiagnostic = new Intent(getActivity(), StartActivity.class);
-                Bundle dataSend = new Bundle();
-                int catId = (int) diagnostic.getCategoryId() - 1;
-                String catName = categoryList.get(catId).getName();
-                dataSend.putSerializable("DIAGNOSTIC", diagnostic);
-                dataSend.putString("CAT_NAME", catName);
-                startDiagnostic.putExtras(dataSend);
-                startActivity(startDiagnostic);
-            });
-
         }
 
         @Override

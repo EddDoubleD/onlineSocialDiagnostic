@@ -29,11 +29,14 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+
     dependencies {
+        def gson_version = '2.8.6'
+        def butter_knife = '10.2.0'
 
         implementation fileTree(dir: "libs", include: ["*.jar"])
 
-        def gson_version = '2.8.6'
         implementation "com.google.code.gson:gson:$gson_version"
 
         implementation 'com.google.android.material:material:1.2.1'
@@ -51,7 +54,7 @@ android {
         implementation platform('com.google.firebase:firebase-bom:26.0.0')
         implementation 'com.google.firebase:firebase-analytics:18.0.0'
         implementation 'com.google.firebase:firebase-core:18.0.0'
-        implementation 'com.google.firebase:firebase-database:19.5.1'
+        implementation 'com.google.firebase:firebase-database:19.6.0'
         implementation 'com.google.firebase:firebase-auth:20.0.1'
         // FirebaseUI for Firebase Realtime Database
         implementation 'com.firebaseui:firebase-ui-database:6.3.0'
@@ -80,6 +83,8 @@ android {
         // Flexible Android Widget swipe-layout
         implementation 'ru.rambler.android:swipe-layout:1.1.0'
 
+        implementation "com.jakewharton:butterknife:$butter_knife"
+        annotationProcessor "com.jakewharton:butterknife-compiler:$butter_knife"
     }
 }
 

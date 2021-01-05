@@ -9,34 +9,24 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import ru.hardwork.onlinesocialdiagnosticapp.R;
-import ru.hardwork.onlinesocialdiagnosticapp.listener.ItemClickListener;
 
-public class UserResultViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class UserResultViewHolder extends RecyclerView.ViewHolder {
 
+    @BindView(R.id.resultLine)
     public LinearLayout resultLine;
-    public TextView diagnosticName, diagnosticDate;
+    @BindView(R.id.diagnostic_name)
+    public TextView diagnosticName;
+    @BindView(R.id.diagnostic_date)
+    public TextView diagnosticDate;
+    @BindView(R.id.userCardView)
     public CardView userCardView;
-    // Слушатель клика
-    private ItemClickListener itemClickListener;
 
     @SuppressLint("ResourceAsColor")
     public UserResultViewHolder(@NonNull View itemView) {
         super(itemView);
-
-        resultLine = itemView.findViewById(R.id.resultLine);
-        resultLine.setBackgroundColor(R.color.background);
-        userCardView = itemView.findViewById(R.id.userCardView);
-        diagnosticName = itemView.findViewById(R.id.diagnostic_name);
-        diagnosticDate = itemView.findViewById(R.id.diagnostic_date);
-    }
-
-    public void setItemClickListener(ItemClickListener itemClickListener) {
-        this.itemClickListener = itemClickListener;
-    }
-
-    @Override
-    public void onClick(View view) {
-        itemClickListener.onClick(view, getAdapterPosition(), false);
+        ButterKnife.bind(this, itemView);
     }
 }

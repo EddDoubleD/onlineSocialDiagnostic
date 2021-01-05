@@ -13,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import ru.hardwork.onlinesocialdiagnosticapp.R;
 import ru.hardwork.onlinesocialdiagnosticapp.common.Common;
 
@@ -22,47 +25,43 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
  * Регистрация/аутентификация пользователя
  */
 public class SignInActivity extends AppCompatActivity {
+    // todo вынести диалог в отдельный класс
+    MaterialEditText edtNewUser;
+    MaterialEditText edtNewPassword;
+    MaterialEditText edtNewEmail;
+    @BindView(R.id.edtUser)
+    MaterialEditText edtUser;
+    @BindView(R.id.edtPassword)
+    MaterialEditText edtPassword;
     //
-    MaterialEditText edtNewUser, edtNewPassword, edtNewEmail;
-    MaterialEditText edtUser, edtPassword;
-    //
-    Button btnSignUp, btnSignIn;
+    @BindView(R.id.btn_sign_up)
+    Button btnSignUp;
+    @BindView(R.id.btn_sign_in)
+    Button btnSignIn;
 
     private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //
+        // Инициализация формы
         setContentView(R.layout.activity_signup);
+        ButterKnife.bind(this);
         // Аутентификация
         mAuth = FirebaseAuth.getInstance();
-        // ui init
-        edtUser = findViewById(R.id.edtUser);
-        edtPassword = findViewById(R.id.edtPassword);
-        // Войти
-        btnSignIn = findViewById(R.id.btn_sign_in);
-        btnSignIn.setOnClickListener(view -> signIn(edtUser.getText().toString(), edtPassword.getText().toString()));
-        // Зарегистрироваться
-        btnSignUp = findViewById(R.id.btn_sign_up);
-        btnSignUp.setOnClickListener(view -> showSignUpDialog());
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        Common.firebaseUser = mAuth.getCurrentUser();
+    @OnClick(R.id.btn_sign_up)
+    public void signUp() {
+        showSignUpDialog();
     }
 
-    /**
-     * Авторизация пользователя
-     */
-    private void signIn(final String email, final String password) {
+    @OnClick(R.id.btn_sign_in)
+    public void signIn() {
         // Проверка корректности введенных данных
-        boolean valid = validate(email, password);
+        boolean valid = validate(edtUser.getText().toString(), edtPassword.getText().toString());
         if (valid) {
-            mAuth.signInWithEmailAndPassword(email, password)
+            mAuth.signInWithEmailAndPassword(edtUser.getText().toString(), edtPassword.getText().toString())
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
                             Common.firebaseUser = mAuth.getCurrentUser();
@@ -74,7 +73,14 @@ public class SignInActivity extends AppCompatActivity {
                         }
                     });
         }
+    }
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        Common.firebaseUser = mAuth.getCurrentUser();
     }
 
     private boolean validate(String email, String password) {
@@ -92,6 +98,7 @@ public class SignInActivity extends AppCompatActivity {
         return true;
     }
 
+    //todo: вынести в отдельный диалог
     private void showSignUpDialog() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(SignInActivity.this);
         alertDialog.setTitle("Регистрация");
